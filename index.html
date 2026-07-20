@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The growing code — how much law is on the books, and how much more than there used to be</title>
 <meta name="description" content="The US Code grew from 1.9 million words in 1926 to 47.4 million in 2023 — and by 46 percent since 2000, while Congress passed steadily fewer laws.">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -95,10 +95,35 @@
     <p class="note">The two US Code lines are independent measurements of the same thing by different people using different units &mdash; words counted from a research dataset, pages counted from government publication metadata. They land on 146.1 and 146.3. That agreement is the strongest evidence here that the stock measure is sound, because nothing about the two methods was coordinated.</p>
   </section>
 
-  <!-- 2 -->
+  <!-- 2b -->
   <section>
     <div class="sec-head">
       <span class="sec-num">03</span>
+      <h2>Albany and Washington, counted the same way</h2>
+    </div>
+    <p class="standfirst">New York's Consolidated Laws can be retrieved as they stood in any week since October 2014, which makes it the one government besides Washington whose code can be measured directly. Both series below count the same object in the same unit: words of statute in force. Over the eight years where both exist, federal statutory law grew roughly twice as fast as New York state's.</p>
+
+    <div class="chart-card">
+      <p class="chart-title">Law in force, indexed to 2015 = 100</p>
+      <p class="chart-sub">2015 is the earliest year all three can be measured, because New York's archive begins in October 2014. Each series ends where its source ends.</p>
+      <div class="controls">
+        <button class="toggle" id="btnNyZero" aria-pressed="false">Zero baseline</button>
+        <button class="toggle" id="btnNyTable" aria-pressed="false">Show table</button>
+      </div>
+      <div class="legend" id="legendNy"></div>
+      <div id="chartNy"></div>
+      <div class="table-wrap" id="tableNy" hidden></div>
+    </div>
+
+    <p class="note">Over 2015 to 2023: federal statute in force rose 14.2 percent, New York state statute 7.4 percent, the federal regulatory code 6.9 percent. New York's full run to 2026 is 11.0 percent, about 0.95 percent a year. The absolute levels are not comparable across the two statutory series &mdash; the federal word count includes headers and historical notes and the New York count does not &mdash; but the growth rates are, because each is measured against its own starting point.</p>
+
+    <p class="note">This series passes the checks the New York City attempt failed, which is the reason it is plotted and the city is not. Growth computed across all laws and across a fixed cohort of the 133 laws present in every snapshot agree to within 0.005. The number of laws in the corpus barely moves, 133 to 135 in eleven years. Year-over-year change is smooth, between +0.21 and +2.12 percent, with no step between adjacent years. And the API correctly returns "not found" for the Cannabis Law before its enactment in 2021, which is independent evidence that it is serving real historical versions rather than today's text with an old date attached.</p>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
       <h2>Three legislatures, indexed to where they started</h2>
     </div>
     <p class="standfirst">Each body passes a different kind of law in different quantities, so the levels cannot be compared directly. Setting each to 100 in 2000 shows the shape of the change instead. The City Council pulls away; Albany oscillates around its starting point; Congress drifts down.</p>
@@ -121,7 +146,7 @@
   <!-- 2 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">05</span>
       <h2>The same three series, in the numbers they are actually counted in</h2>
     </div>
     <p class="standfirst">New York state passes several hundred chapter laws a year, most of them narrow. New York City passes dozens to a couple hundred local laws. Congress passes one to three hundred public laws. Note the vertical scales differ; each panel is drawn to its own range.</p>
@@ -134,7 +159,7 @@
   <!-- 3 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">05</span>
+      <span class="sec-num">06</span>
       <h2>Why less lawmaking still means more law</h2>
     </div>
     <p class="standfirst">This is the part that resolves the paradox. The counts above are <em>flow</em> &mdash; what gets enacted in a given year. A legal code is <em>stock</em> &mdash; everything enacted and not yet repealed. Flow can fall for years while stock keeps climbing. The Code of Federal Regulations is the clearest case: Congress passed 37 percent fewer laws per year, and the regulatory code still grew by 56,346 pages. Stock is not a ratchet, though &mdash; measured back to 1950, the regulatory code has shrunk in 15 of 74 years, most sharply by 6,074 pages in 1996 and 5,895 in 1985. It falls less often than it rises, and by less when it does.</p>
@@ -164,7 +189,7 @@
   <!-- 4 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">06</span>
+      <span class="sec-num">07</span>
       <h2>2025: the sharpest one-year drop in the record, and where it went</h2>
     </div>
     <p class="standfirst">Federal Register pages fell 43 percent between 2024 and 2025, from 106,109 to 60,917. Breaking the total into its four document categories shows the fall was not spread evenly. Pages of final rules dropped 63 percent. Pages of presidential documents went the other way, to 2,072 &mdash; the highest in any year since this category table begins in 1976, and well clear of the previous high of 1,301 in 1995.</p>
@@ -192,7 +217,7 @@
   <!-- 5 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">07</span>
+      <span class="sec-num">08</span>
       <h2>What this does not measure</h2>
     </div>
     <p class="standfirst">Counting laws is not the same as measuring how much law there is, and the honest version of this project says so plainly.</p>
@@ -237,6 +262,6 @@
 
 <div class="tip" id="tip"></div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

@@ -255,6 +255,43 @@ function table(mount, head, rows) {
     }
   });
 
+  /* --- 0c. NY state vs federal, indexed to 2015 --- */
+  const NY = D.stock_2015.series;
+  const nyOrder = ['us_code_words', 'ny_statutes', 'cfr_pages'];
+  $('legendNy').innerHTML = nyOrder.map(k =>
+    `<span><i class="swatch" style="background:${NY[k].color}"></i>${NY[k].label}</span>`).join('');
+  let nyZero = false;
+  const drawNy = () => lineChart($('chartNy'), {
+    series: nyOrder.map(k => ({
+      label: '', color: NY[k].color,
+      points: NY[k].points.map(p => ({ year: p.year, value: p.index }))
+    })),
+    W: 760, H: 320, pad: { t: 16, r: 22, b: 34, l: 52 },
+    zeroBase: nyZero, baseline: 100, directLabels: false,
+    fmtVal: v => Math.round(v), yLabel: '  ·  index, 2015 = 100',
+    tipLabels: nyOrder.map(k => NY[k].label),
+    a11y: 'Federal statute, New York state statute and federal regulation in force, indexed to 2015'
+  });
+  drawNy();
+  $('btnNyZero').addEventListener('click', e => {
+    nyZero = !nyZero;
+    e.currentTarget.setAttribute('aria-pressed', String(nyZero));
+    drawNy();
+  });
+  $('btnNyTable').addEventListener('click', e => {
+    const on = $('tableNy').hidden;
+    $('tableNy').hidden = !on;
+    e.currentTarget.setAttribute('aria-pressed', String(on));
+    if (on) {
+      const yrs = [...new Set(nyOrder.flatMap(k => NY[k].points.map(p => p.year)))].sort();
+      table($('tableNy'), ['Year', ...nyOrder.flatMap(k => [NY[k].label, 'index'])],
+        yrs.map(y => [y, ...nyOrder.flatMap(k => {
+          const p = NY[k].points.find(q => q.year === y);
+          return p ? [fmt(p.value), p.index] : ['—', '—'];
+        })]));
+    }
+  });
+
   /* --- 1. indexed --- */
   const idxSeries = order.map(k => ({
     label: F[k].label, color: F[k].color,
@@ -376,5 +413,5 @@ function table(mount, head, rows) {
       $('aiCautionPop').hidden = true;
   });
 
-  addEventListener('resize', () => { drawIndex(); drawCfr(); drawFr(); });
+  addEventListener('resize', () => { drawIndex(); drawNy(); drawCfr(); drawFr(); });
 })();

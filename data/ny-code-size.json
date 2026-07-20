@@ -1,0 +1,162 @@
+{
+ "metric": "Size of New York state statutory law in force, annual snapshots",
+ "unit": "sections and words",
+ "source_url": "https://legislation.nysenate.gov/api/3/laws",
+ "provenance": "GET /api/3/laws/{lawId}?date=YYYY-MM-DD&full=true for every law in /api/3/laws, at 1 January 2015-2026. Sections counted as tree nodes with docType=='SECTION', deduplicated by locationId. Words are whitespace tokens over each section's text field. Key read from macOS Keychain, never logged. Responses cached; backoff on 429/5xx.",
+ "retrieved": "2026-07-20",
+ "basis": "annual_snapshot_jan1",
+ "artifact_checks": {
+  "law_count_by_year": {
+   "2015-01-01": 133,
+   "2016-01-01": 133,
+   "2017-01-01": 133,
+   "2018-01-01": 133,
+   "2019-01-01": 133,
+   "2020-01-01": 133,
+   "2021-01-01": 133,
+   "2022-01-01": 134,
+   "2023-01-01": 135,
+   "2024-01-01": 135,
+   "2025-01-01": 135,
+   "2026-01-01": 135
+  },
+  "all_laws_growth_sections": 1.0828,
+  "all_laws_growth_words": 1.1148,
+  "fixed_cohort_size": 133,
+  "fixed_cohort_growth_sections": 1.0787,
+  "fixed_cohort_growth_words": 1.1101,
+  "laws_with_advancing_activeDate": 116,
+  "laws_with_static_activeDate": 19
+ },
+ "series": [
+  {
+   "date": "2015-01-01",
+   "laws": 133,
+   "sections": 37311,
+   "words": 15810886,
+   "consolidated_sections": 34434,
+   "consolidated_words": 14936140,
+   "cohort_sections": 37311,
+   "cohort_words": 15810886
+  },
+  {
+   "date": "2016-01-01",
+   "laws": 133,
+   "sections": 37437,
+   "words": 15844064,
+   "consolidated_sections": 34534,
+   "consolidated_words": 14934522,
+   "cohort_sections": 37437,
+   "cohort_words": 15844064
+  },
+  {
+   "date": "2017-01-01",
+   "laws": 133,
+   "sections": 37603,
+   "words": 15948159,
+   "consolidated_sections": 34697,
+   "consolidated_words": 15042629,
+   "cohort_sections": 37603,
+   "cohort_words": 15948159
+  },
+  {
+   "date": "2018-01-01",
+   "laws": 133,
+   "sections": 37803,
+   "words": 16109266,
+   "consolidated_sections": 34895,
+   "consolidated_words": 15198367,
+   "cohort_sections": 37803,
+   "cohort_words": 16109266
+  },
+  {
+   "date": "2019-01-01",
+   "laws": 133,
+   "sections": 37966,
+   "words": 16169125,
+   "consolidated_sections": 35055,
+   "consolidated_words": 15256663,
+   "cohort_sections": 37966,
+   "cohort_words": 16169125
+  },
+  {
+   "date": "2020-01-01",
+   "laws": 133,
+   "sections": 38308,
+   "words": 16512560,
+   "consolidated_sections": 35395,
+   "consolidated_words": 15581761,
+   "cohort_sections": 38308,
+   "cohort_words": 16512560
+  },
+  {
+   "date": "2021-01-01",
+   "laws": 133,
+   "sections": 38604,
+   "words": 16594810,
+   "consolidated_sections": 35653,
+   "consolidated_words": 15661185,
+   "cohort_sections": 38604,
+   "cohort_words": 16594810
+  },
+  {
+   "date": "2022-01-01",
+   "laws": 134,
+   "sections": 39079,
+   "words": 16904274,
+   "consolidated_sections": 36113,
+   "consolidated_words": 15960209,
+   "cohort_sections": 38977,
+   "cohort_words": 16868989
+  },
+  {
+   "date": "2023-01-01",
+   "laws": 135,
+   "sections": 39497,
+   "words": 17032794,
+   "consolidated_sections": 36523,
+   "consolidated_words": 16078033,
+   "cohort_sections": 39353,
+   "cohort_words": 16974626
+  },
+  {
+   "date": "2024-01-01",
+   "laws": 135,
+   "sections": 39743,
+   "words": 17232151,
+   "consolidated_sections": 36766,
+   "consolidated_words": 16274399,
+   "cohort_sections": 39595,
+   "cohort_words": 17168349
+  },
+  {
+   "date": "2025-01-01",
+   "laws": 135,
+   "sections": 39994,
+   "words": 17379773,
+   "consolidated_sections": 37010,
+   "consolidated_words": 16415107,
+   "cohort_sections": 39841,
+   "cohort_words": 17307584
+  },
+  {
+   "date": "2026-01-01",
+   "laws": 135,
+   "sections": 40402,
+   "words": 17626191,
+   "consolidated_sections": 37417,
+   "consolidated_words": 16659619,
+   "cohort_sections": 40249,
+   "cohort_words": 17552240
+  }
+ ],
+ "usable_as_time_series": true,
+ "reason": "Passes the coverage-artifact checks that the NYC Administrative Code failed. (1) All-laws growth and fixed-cohort growth agree to within 0.005 (words 1.1148 vs 1.1101; sections 1.0828 vs 1.0787), so the increase is not driven by laws entering the corpus. (2) The law count is near-flat, 133 to 135 across 11 years, and both additions are genuine new statutes - the API correctly 404s on the Cannabis Law (CAN) before its 2021 enactment. (3) Year-over-year change is smooth, +0.21% to +2.12%, with no step change between adjacent snapshots - the NYC artifact appeared as a single large jump. (4) 116 of 135 laws have an activeDate that advances; the 19 static ones are 0.58% of the corpus by words and are obscure unconsolidated special acts (City of Troy serial bonds, Port of Albany 1925) that plausibly were never amended. Excluding them moves 11-year word growth from 1.1148 to 1.1156.",
+ "notes": [
+  "STOCK, not flow: each value is the size of NY statutory law in force on 1 January, not laws enacted that year.",
+  "Headline series uses the FIXED COHORT of 133 laws present in all 12 snapshots, so the trend is not affected by laws entering the corpus. All-laws totals are retained alongside.",
+  "Word counts cover section text only. Absolute levels are not comparable to the US Code series, which includes headers and historical notes; the growth rates are comparable.",
+  "The API returns weekly versions 'since October 2014', so 2015-01-01 is effectively the earliest usable annual snapshot. There is no route to 2000.",
+  "19 laws return a static activeDate across all 12 snapshots (0.58% of corpus by words); they are treated as genuinely unamended, not excluded."
+ ]
+}

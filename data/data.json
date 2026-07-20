@@ -1889,6 +1889,70 @@
      "volumes": 245
     }
    ]
+  },
+  "ny_statutes": {
+   "label": "New York state statutes",
+   "sublabel": "words of state statute in force",
+   "unit": "words",
+   "color": "#a8730a",
+   "source": "NY Senate Open Legislation API, historical law versions",
+   "notes": [
+    "STOCK, not flow: each value is the size of NY statutory law in force on 1 January, not laws enacted that year.",
+    "Headline series uses the FIXED COHORT of 133 laws present in all 12 snapshots, so the trend is not affected by laws entering the corpus. All-laws totals are retained alongside.",
+    "Word counts cover section text only. Absolute levels are not comparable to the US Code series, which includes headers and historical notes; the growth rates are comparable.",
+    "The API returns weekly versions 'since October 2014', so 2015-01-01 is effectively the earliest usable annual snapshot. There is no route to 2000.",
+    "19 laws return a static activeDate across all 12 snapshots (0.58% of corpus by words); they are treated as genuinely unamended, not excluded."
+   ],
+   "series": [
+    {
+     "year": 2015,
+     "value": 15810886
+    },
+    {
+     "year": 2016,
+     "value": 15844064
+    },
+    {
+     "year": 2017,
+     "value": 15948159
+    },
+    {
+     "year": 2018,
+     "value": 16109266
+    },
+    {
+     "year": 2019,
+     "value": 16169125
+    },
+    {
+     "year": 2020,
+     "value": 16512560
+    },
+    {
+     "year": 2021,
+     "value": 16594810
+    },
+    {
+     "year": 2022,
+     "value": 16868989
+    },
+    {
+     "year": 2023,
+     "value": 16974626
+    },
+    {
+     "year": 2024,
+     "value": 17168349
+    },
+    {
+     "year": 2025,
+     "value": 17307584
+    },
+    {
+     "year": 2026,
+     "value": 17552240
+    }
+   ]
   }
  },
  "stock_vs_flow_2000": {
@@ -2419,6 +2483,184 @@
       "year": 2025,
       "value": 134,
       "index": 32.6
+     }
+    ]
+   }
+  }
+ },
+ "stock_2015": {
+  "note": "Indexed to 2015 = 100, the earliest year all three corpora can be measured. New York state statutes are only retrievable from October 2014 onward, which sets the start.",
+  "series": {
+   "us_code_words": {
+    "label": "US Code, words in force",
+    "color": "#3a5aa8",
+    "points": [
+     {
+      "year": 2015,
+      "value": 41512173,
+      "index": 100.0
+     },
+     {
+      "year": 2016,
+      "value": 42011381,
+      "index": 101.2
+     },
+     {
+      "year": 2017,
+      "value": 42421837,
+      "index": 102.2
+     },
+     {
+      "year": 2018,
+      "value": 43378510,
+      "index": 104.5
+     },
+     {
+      "year": 2019,
+      "value": 43774222,
+      "index": 105.4
+     },
+     {
+      "year": 2020,
+      "value": 45334363,
+      "index": 109.2
+     },
+     {
+      "year": 2021,
+      "value": 45829824,
+      "index": 110.4
+     },
+     {
+      "year": 2022,
+      "value": 47146516,
+      "index": 113.6
+     },
+     {
+      "year": 2023,
+      "value": 47420479,
+      "index": 114.2
+     }
+    ]
+   },
+   "ny_statutes": {
+    "label": "New York state statutes, words in force",
+    "color": "#a8730a",
+    "points": [
+     {
+      "year": 2015,
+      "value": 15810886,
+      "index": 100.0
+     },
+     {
+      "year": 2016,
+      "value": 15844064,
+      "index": 100.2
+     },
+     {
+      "year": 2017,
+      "value": 15948159,
+      "index": 100.9
+     },
+     {
+      "year": 2018,
+      "value": 16109266,
+      "index": 101.9
+     },
+     {
+      "year": 2019,
+      "value": 16169125,
+      "index": 102.3
+     },
+     {
+      "year": 2020,
+      "value": 16512560,
+      "index": 104.4
+     },
+     {
+      "year": 2021,
+      "value": 16594810,
+      "index": 105.0
+     },
+     {
+      "year": 2022,
+      "value": 16868989,
+      "index": 106.7
+     },
+     {
+      "year": 2023,
+      "value": 16974626,
+      "index": 107.4
+     },
+     {
+      "year": 2024,
+      "value": 17168349,
+      "index": 108.6
+     },
+     {
+      "year": 2025,
+      "value": 17307584,
+      "index": 109.5
+     },
+     {
+      "year": 2026,
+      "value": 17552240,
+      "index": 111.0
+     }
+    ]
+   },
+   "cfr_pages": {
+    "label": "CFR, pages in force",
+    "color": "#1f8a6d",
+    "points": [
+     {
+      "year": 2015,
+      "value": 178351,
+      "index": 100.0
+     },
+     {
+      "year": 2016,
+      "value": 185131,
+      "index": 103.8
+     },
+     {
+      "year": 2017,
+      "value": 186468,
+      "index": 104.6
+     },
+     {
+      "year": 2018,
+      "value": 185544,
+      "index": 104.0
+     },
+     {
+      "year": 2019,
+      "value": 186067,
+      "index": 104.3
+     },
+     {
+      "year": 2020,
+      "value": 186644,
+      "index": 104.6
+     },
+     {
+      "year": 2021,
+      "value": 188343,
+      "index": 105.6
+     },
+     {
+      "year": 2022,
+      "value": 188148,
+      "index": 105.5
+     },
+     {
+      "year": 2023,
+      "value": 190627,
+      "index": 106.9
+     },
+     {
+      "year": 2024,
+      "value": 194395,
+      "index": 109.0
      }
     ]
    }
