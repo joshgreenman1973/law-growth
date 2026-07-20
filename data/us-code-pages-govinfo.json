@@ -1,0 +1,377 @@
+{
+  "metric": "Total printed page count of the United States Code (all titles), constant-coverage basis with carry-forward of titles not reissued in a given year",
+  "unit": "pages",
+  "source_url": "https://www.govinfo.gov/metadata/pkg/USCODE-2024-title5/mods.xml",
+  "provenance": "govinfo MODS metadata, one request per package: https://www.govinfo.gov/metadata/pkg/USCODE-{year}-title{n}/mods.xml for year 1994-2024 and title 1-54. Page count parsed from the package-level <extent> element ('N digital object pages' or 'N p.'). NO API KEY USED - the www.govinfo.gov/metadata path is keyless. The api.govinfo.gov REST API was cross-checked with DEMO_KEY and agreed exactly (USCODE-2000-title5=1172, USCODE-2024-title5=1357) before DEMO_KEY hit its rate limit (HTTP 429).",
+  "retrieved": "2026-07-20",
+  "basis": "annual_edition",
+  "notes": [
+    "CARRY-FORWARD APPLIED - THIS IS THE KEY METHODOLOGICAL STEP. The Office of Law Revision Counsel does not reissue every title every year. Summing only the titles physically published in a given year manufactures a fake sawtooth/growth curve. For every year, each title's page count is taken from its most recent edition at or before that year, so each year's total covers the same set of titles.",
+    "Titles are never back-filled. A title contributes 0 until its first edition appears (e.g. Title 54 from 2014, Title 34 from 2017, Title 53 is reserved and never published). So early-year totals legitimately cover fewer titles; 'titles_covered' records this per year.",
+    "'titles_reissued_this_year' vs 'titles_carried_forward' shows how much of each year's total is fresh data. Years where most titles are carried forward have low independent information content.",
+    "Pages are a coarser proxy than words: page counts move with typesetting and printing decisions as well as with the amount of law. Use for trend corroboration, not as a precise measure.",
+    "Series starts at 1994 because govinfo's USCODE collection begins with the 1994 edition. It carries no pre-1994 information.",
+    "'naive_no_carry_forward' is included ONLY to show what the fake curve looks like; do not plot it as the size of the Code."
+  ],
+  "series": [
+    {
+      "year": 1994,
+      "value": 29591,
+      "titles_covered": 46,
+      "titles_reissued_this_year": 46,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 1995,
+      "value": 33257,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 1996,
+      "value": 33827,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 1997,
+      "value": 34395,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 1998,
+      "value": 35337,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 47,
+      "titles_carried_forward": 2
+    },
+    {
+      "year": 1999,
+      "value": 35855,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2000,
+      "value": 36480,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2001,
+      "value": 37242,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2002,
+      "value": 38212,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2003,
+      "value": 39013,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2004,
+      "value": 39231,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 46,
+      "titles_carried_forward": 3
+    },
+    {
+      "year": 2005,
+      "value": 40124,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 48,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2006,
+      "value": 39836,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2007,
+      "value": 40461,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2008,
+      "value": 41936,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2009,
+      "value": 42620,
+      "titles_covered": 49,
+      "titles_reissued_this_year": 49,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2010,
+      "value": 44215,
+      "titles_covered": 51,
+      "titles_reissued_this_year": 51,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2011,
+      "value": 44426,
+      "titles_covered": 51,
+      "titles_reissued_this_year": 50,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2012,
+      "value": 44841,
+      "titles_covered": 51,
+      "titles_reissued_this_year": 50,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2013,
+      "value": 45076,
+      "titles_covered": 51,
+      "titles_reissued_this_year": 50,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2014,
+      "value": 45900,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 52,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2015,
+      "value": 46253,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 52,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2016,
+      "value": 46880,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 52,
+      "titles_carried_forward": 1
+    },
+    {
+      "year": 2017,
+      "value": 47365,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2018,
+      "value": 48472,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2019,
+      "value": 47855,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2020,
+      "value": 49985,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2021,
+      "value": 50987,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2022,
+      "value": 52549,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2023,
+      "value": 52833,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    },
+    {
+      "year": 2024,
+      "value": 53380,
+      "titles_covered": 53,
+      "titles_reissued_this_year": 53,
+      "titles_carried_forward": 0
+    }
+  ],
+  "naive_no_carry_forward": [
+    {
+      "year": 1994,
+      "value": 29591
+    },
+    {
+      "year": 1995,
+      "value": 32592
+    },
+    {
+      "year": 1996,
+      "value": 32769
+    },
+    {
+      "year": 1997,
+      "value": 34395
+    },
+    {
+      "year": 1998,
+      "value": 34909
+    },
+    {
+      "year": 1999,
+      "value": 35855
+    },
+    {
+      "year": 2000,
+      "value": 36480
+    },
+    {
+      "year": 2001,
+      "value": 36070
+    },
+    {
+      "year": 2002,
+      "value": 36263
+    },
+    {
+      "year": 2003,
+      "value": 38234
+    },
+    {
+      "year": 2004,
+      "value": 33269
+    },
+    {
+      "year": 2005,
+      "value": 39655
+    },
+    {
+      "year": 2006,
+      "value": 39836
+    },
+    {
+      "year": 2007,
+      "value": 40461
+    },
+    {
+      "year": 2008,
+      "value": 41936
+    },
+    {
+      "year": 2009,
+      "value": 42620
+    },
+    {
+      "year": 2010,
+      "value": 44215
+    },
+    {
+      "year": 2011,
+      "value": 44425
+    },
+    {
+      "year": 2012,
+      "value": 44840
+    },
+    {
+      "year": 2013,
+      "value": 45075
+    },
+    {
+      "year": 2014,
+      "value": 45899
+    },
+    {
+      "year": 2015,
+      "value": 46252
+    },
+    {
+      "year": 2016,
+      "value": 46879
+    },
+    {
+      "year": 2017,
+      "value": 47365
+    },
+    {
+      "year": 2018,
+      "value": 48472
+    },
+    {
+      "year": 2019,
+      "value": 47855
+    },
+    {
+      "year": 2020,
+      "value": 49985
+    },
+    {
+      "year": 2021,
+      "value": 50987
+    },
+    {
+      "year": 2022,
+      "value": 52549
+    },
+    {
+      "year": 2023,
+      "value": 52833
+    },
+    {
+      "year": 2024,
+      "value": 53380
+    }
+  ],
+  "cross_validation": {
+    "compared": "us-code-size.json (words, Jeong et al.) vs us-code-pages-govinfo.json (pages, govinfo MODS)",
+    "overlap": "1994-2023 (30 years)",
+    "pearson_r_levels": 0.9945,
+    "pearson_r_yoy_growth": 0.048,
+    "total_growth_1994_2023": {
+      "words": "1.640x",
+      "pages": "1.785x"
+    },
+    "cagr_1994_2023": {
+      "words": "1.72%",
+      "pages": "2.02%"
+    },
+    "words_per_page": "mean 894, coefficient of variation 2.0% across 30 years (977 in 1994, 898 in 2023)",
+    "verdict": "The two independently-sourced series agree closely on level and trend (r=0.9945) and the implied words-per-page ratio is near-constant, which is what you expect if both are measuring the same underlying stock. Year-over-year increments do NOT correlate (r=0.05): annual changes are small relative to the lumpiness of page counts and reissue timing, so neither series is reliable for single-year deltas. Pages grow slightly faster than words (2.02% vs 1.72% CAGR), consistent with typesetting/layout drift."
+  }
+}

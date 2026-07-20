@@ -1,0 +1,308 @@
+{
+ "metric": "cumulative size of New York City codified law on the books",
+ "unit": "sections|words",
+ "source_url": "http://files.amlegal.com/pdffiles/NewYorkCity/{Admin,Charter,Rules}/XML.zip",
+ "retrieved": "2026-07-20",
+ "usable_as_time_series": false,
+ "reason": "The headline section and word totals are NOT usable as a size-over-time series. Between the 2022-06-24 and 2023-12-03 snapshots American Legal Publishing backfilled its 'Appendix A: Unconsolidated Local Laws' from 378 entries to 1,750. The decisive evidence is the earliest local law year present in that appendix: 2015 in the 2022 snapshot, 1985 in every snapshot thereafter. 1,332 local laws enacted between 1985 and 2021 -- i.e. already on the books in 2022 -- appear as new 'sections' in the later files. That is a publisher coverage change, not New York City enacting law. It accounts for 52% of the apparent +2,550-section growth in the Administrative Code. A restricted sub-series IS defensible: see 'sections'/'words' below, which count only numbered code sections and exclude the appendix. On that basis the Administrative Code grew 7,965 -> 8,590 sections (+7.8%) and 3.51M -> 3.80M words (+8.4%) over four years, roughly 2% a year, which is consistent with a city enacting ~150 local laws a year that mostly amend existing sections. Even this sub-series carries residual contamination: of 712 numbered sections present in 2026 but absent in 2022, 79 cite no local law later than 2021 and were therefore already on the books -- an ~11% coverage-gap rate.",
+ "provenance": {
+  "publisher": "American Legal Publishing, official codifier for New York City",
+  "historical_source": "Internet Archive Wayback Machine, raw-bytes form https://web.archive.org/web/{TIMESTAMP}id_/{ORIGINAL_URL}; snapshot list from the Wayback CDX API. Only rows with statuscode 200 and mimetype application/zip were used. All 17 zips downloaded and parsed successfully; zero unparseable or truncated archives.",
+  "xml_structure": "Each zip holds an XML/ directory of split documents, one per chapter (DOCUMENT/@default-split-level='Chapter'). The hierarchy is nested <LEVEL style-name='Title|Chapter|Subchapter|Article|Part|Subarticle|Appendix|Section|Subsection|Normal Level'> elements. Each LEVEL carries one or more <RECORD id=...> children with an optional <HEADING> and one or more <PARA> elements. Section body text lives in LEVEL descendants of the Section LEVEL, not in its own RECORD -- a Section RECORD contains only the heading.",
+  "section_definition_raw": "One <LEVEL> whose style-name is exactly 'Section', counted once per unique child RECORD @id. Dedup by RECORD @id is required: a few chapters are published in two split files (40 duplicated section records in the current Admin Code; raw 12,246 vs deduplicated 12,206).",
+  "section_definition_reported": "The reported 'sections' figure further restricts to NUMBERED code sections: those whose heading contains a hyphenated section designator matching \u00a7*\\s*(\\d+[A-Za-z]?-\\d+(\\.\\d+)*), e.g. '\u00a7 21-301', '\u00a7 11-2105.1'. This excludes 'Appendix A: Unconsolidated Local Laws' entries, whose headings are bare local law citations of the form 'L.L. 2015/002', and excludes unnumbered technical tables (Electrical Code items such as 'Section 110.1'). For the Charter the raw Section-LEVEL count is reported instead, because Charter headings use an unhyphenated form ('\u00a7 1. Title') that the designator regex does not match and the Charter has no appendix to contaminate it.",
+  "word_definition": "Words are the whitespace-delimited tokens of the concatenated text content (ElementTree itertext) of the whole Section LEVEL subtree, including the heading, all body paragraphs and the derivation/amendment notes American Legal ships inline. PDF and image attachments in the zips are not parsed. Note the heading text is emitted twice by the source XML (once in HEADING, once in the first PARA), which inflates word counts by roughly the length of one heading per section, identically across all snapshots.",
+  "parse_method": "python3 zipfile + xml.etree.ElementTree, one zip at a time, every XML/*.xml member parsed; zips deleted after measurement."
+ },
+ "growth_attribution_admin_2022_06_24_to_2026_07_20": {
+  "apparent_total_growth_sections": 2550,
+  "components": {
+   "appendix_backfill_of_pre_2022_local_laws": {
+    "sections": 1332,
+    "share": "52.2%",
+    "verdict": "COVERAGE ARTIFACT - local laws enacted 1985-2021, already on the books in 2022, absent from the 2022 file set"
+   },
+   "appendix_entries_for_2022_plus_local_laws": {
+    "sections": 154,
+    "share": "6.0%",
+    "verdict": "real enactment, but these are listings of UNCONSOLIDATED local laws, not codified code sections"
+   },
+   "net_numbered_code_sections": {
+    "sections": 625,
+    "share": "24.5%",
+    "verdict": "MOSTLY REAL - 712 added / 80 removed; of the 712 added, 611 cite a local law from 2022 or later (genuinely new), 79 cite nothing later than 2021 (coverage gap), 22 carry no local law citation"
+   },
+   "other_unnumbered_technical_items": {
+    "sections": 439,
+    "share": "17.2%",
+    "verdict": "LARGELY COVERAGE - unnumbered Electrical/Building Code table items; jumps in the same 2022->2023 step as the appendix"
+   }
+  },
+  "conclusion": "At most ~30% of the apparent growth reflects law enacted 2022-2026. At least 52% is provably publisher backfill. The remaining ~17% is unnumbered technical material that moves in the same step change."
+ },
+ "betanyc_anchor_reconciliation": {
+  "betanyc_reported": {
+   "charter": 854,
+   "admin": 12551,
+   "rules": 8645,
+   "edition": "Local Law 2026/086"
+  },
+  "this_measurement_raw_section_levels": {
+   "charter": 768,
+   "admin": 12206,
+   "rules": 7926,
+   "edition": "Local Law 2026/116"
+  },
+  "explanation": "The gap is definitional, not an error in either count. BetaNYC's index counts chapter-level entries alongside section-level ones -- chapters are themselves addressable documents in this feed. Adding chapters gives 854 / 12,596 / 8,685, an EXACT match for the Charter (768 + 86 = 854) and within 0.4% for the Admin Code and RCNY. The small residual (+45 Admin, +40 RCNY) is consistent with growth between BetaNYC's edition (LL 2026/086) and the live feed measured here (LL 2026/116). Note that BetaNYC's 12,551 is itself a raw total that includes the backfilled unconsolidated-local-law appendix, so it should not be used as a historical baseline either."
+ },
+ "notes": [
+  "ZIP byte size is deliberately NOT used as a size metric: the Admin Code zip runs 64.1 MB -> 63.7 MB across 2023-2026 because most of the payload is images and PDF attachments, so compression noise swamps the legal-text signal.",
+  "The lockstep ~25% growth in sections, words, chapters AND xml file count between 2022 and 2026 was the tell that prompted the coverage audit. File count is a publisher packaging decision and has no legal meaning.",
+  "The step change is isolated to the 2022-06-24 -> 2023-12-03 interval. Snapshots from 2023-12 onward are mutually consistent, so a 2023-12-03 -> 2026-07-20 series is far safer than one anchored on 2022.",
+  "The Charter series is clean: no appendix, stable file count (87 files from 2023 onward), 734 -> 768 sections over four years (+4.6%). This is the most trustworthy of the three.",
+  "RCNY shows the same pattern in milder form: numbered sections 6,207 -> 6,637 (+6.9%) is credible, while the raw total 7,040 -> 7,926 (+12.6%) is inflated by unnumbered items that jump 833 -> 1,183 in the same 2022->2023 step.",
+  "The 2022-06-24 Admin snapshot is the earliest bulk XML the Wayback Machine holds; the series cannot be extended earlier from this source. Charter and RCNY have no 2022-06 capture; their earliest is 2022-10-03.",
+  "'current_through' is extracted verbatim from each file's own front matter and is the authoritative edition marker; snapshot dates are Wayback capture dates and lag the edition slightly."
+ ],
+ "series": {
+  "admin": {
+   "name": "New York City Administrative Code",
+   "sections_field": "numbered code sections only (raw total also given)",
+   "snapshots": [
+    {
+     "date": "2022-06-24",
+     "current_through": "Current through Local Law 2022/067",
+     "sections": 7965,
+     "words": 3508973,
+     "sections_raw_all_levels": 9656,
+     "words_raw_all_levels": 4892954,
+     "appendix_local_law_entries": 378,
+     "appendix_earliest_local_law_year": 2015,
+     "other_unnumbered": 1313,
+     "xml_files": 318,
+     "source_url": "https://web.archive.org/web/20220624171502id_/http://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    },
+    {
+     "date": "2023-12-03",
+     "current_through": "Current through Local Law 2023/160",
+     "sections": 8167,
+     "words": 3609985,
+     "sections_raw_all_levels": 11273,
+     "words_raw_all_levels": 5646372,
+     "appendix_local_law_entries": 1750,
+     "appendix_earliest_local_law_year": 1985,
+     "other_unnumbered": 1356,
+     "xml_files": 365,
+     "source_url": "https://web.archive.org/web/20231203183457id_/https://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    },
+    {
+     "date": "2025-07-02",
+     "current_through": "Current through Local Law 2025/082",
+     "sections": 8404,
+     "words": 3733549,
+     "sections_raw_all_levels": 11788,
+     "words_raw_all_levels": 5837451,
+     "appendix_local_law_entries": 1798,
+     "appendix_earliest_local_law_year": 1985,
+     "other_unnumbered": 1586,
+     "xml_files": 382,
+     "source_url": "https://web.archive.org/web/20250702114114id_/https://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    },
+    {
+     "date": "2025-08-19",
+     "current_through": "Current through Local Law 2025/121",
+     "sections": 8424,
+     "words": 3743096,
+     "sections_raw_all_levels": 11818,
+     "words_raw_all_levels": 5856132,
+     "appendix_local_law_entries": 1808,
+     "appendix_earliest_local_law_year": 1985,
+     "other_unnumbered": 1586,
+     "xml_files": 383,
+     "source_url": "https://web.archive.org/web/20250819173455id_/https://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    },
+    {
+     "date": "2026-03-01",
+     "current_through": "Current through Local Law 2026/066",
+     "sections": 8548,
+     "words": 3777582,
+     "sections_raw_all_levels": 11981,
+     "words_raw_all_levels": 5912167,
+     "appendix_local_law_entries": 1848,
+     "appendix_earliest_local_law_year": 1985,
+     "other_unnumbered": 1585,
+     "xml_files": 393,
+     "source_url": "https://web.archive.org/web/20260301132940id_/https://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    },
+    {
+     "date": "2026-07-20",
+     "current_through": "Current through Local Law 2026/116",
+     "sections": 8590,
+     "words": 3804185,
+     "sections_raw_all_levels": 12206,
+     "words_raw_all_levels": 6060245,
+     "appendix_local_law_entries": 1864,
+     "appendix_earliest_local_law_year": 1985,
+     "other_unnumbered": 1752,
+     "xml_files": 399,
+     "source_url": "http://files.amlegal.com/pdffiles/NewYorkCity/Admin/XML.zip"
+    }
+   ]
+  },
+  "charter": {
+   "name": "New York City Charter",
+   "sections_field": "numbered code sections only (raw total also given)",
+   "snapshots": [
+    {
+     "date": "2022-10-03",
+     "current_through": "Current through Local Law 2022/089",
+     "sections": 734,
+     "words": 295533,
+     "sections_raw_all_levels": 734,
+     "words_raw_all_levels": 295533,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 734,
+     "xml_files": 84,
+     "source_url": "https://web.archive.org/web/20221003020558id_/http://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    },
+    {
+     "date": "2023-12-03",
+     "current_through": "Current through Local Law 2023/160",
+     "sections": 750,
+     "words": 312651,
+     "sections_raw_all_levels": 750,
+     "words_raw_all_levels": 312651,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 750,
+     "xml_files": 87,
+     "source_url": "https://web.archive.org/web/20231203183457id_/https://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    },
+    {
+     "date": "2025-07-02",
+     "current_through": "Current through Local Law 2025/082",
+     "sections": 756,
+     "words": 319746,
+     "sections_raw_all_levels": 756,
+     "words_raw_all_levels": 319746,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 756,
+     "xml_files": 87,
+     "source_url": "https://web.archive.org/web/20250702114034id_/https://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    },
+    {
+     "date": "2025-08-19",
+     "current_through": "Current through Local Law 2025/121",
+     "sections": 757,
+     "words": 320570,
+     "sections_raw_all_levels": 757,
+     "words_raw_all_levels": 320570,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 757,
+     "xml_files": 87,
+     "source_url": "https://web.archive.org/web/20250819173457id_/https://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    },
+    {
+     "date": "2026-02-16",
+     "current_through": "Current through Local Law 2026/066",
+     "sections": 768,
+     "words": 334520,
+     "sections_raw_all_levels": 768,
+     "words_raw_all_levels": 334520,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 768,
+     "xml_files": 87,
+     "source_url": "https://web.archive.org/web/20260216091024id_/https://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    },
+    {
+     "date": "2026-07-20",
+     "current_through": "Current through Local Law 2026/112",
+     "sections": 768,
+     "words": 336331,
+     "sections_raw_all_levels": 768,
+     "words_raw_all_levels": 336331,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 768,
+     "xml_files": 87,
+     "source_url": "http://files.amlegal.com/pdffiles/NewYorkCity/Charter/XML.zip"
+    }
+   ]
+  },
+  "rules": {
+   "name": "Rules of the City of New York",
+   "sections_field": "numbered code sections only (raw total also given)",
+   "snapshots": [
+    {
+     "date": "2022-10-03",
+     "current_through": "Current through rules effective September 29",
+     "sections": 6207,
+     "words": 3543693,
+     "sections_raw_all_levels": 7040,
+     "words_raw_all_levels": 3922557,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 833,
+     "xml_files": 669,
+     "source_url": "https://web.archive.org/web/20221003020532id_/http://files.amlegal.com/pdffiles/NewYorkCity/Rules/XML.zip"
+    },
+    {
+     "date": "2023-12-03",
+     "current_through": "Current through rules effective December 2",
+     "sections": 6372,
+     "words": 3621382,
+     "sections_raw_all_levels": 7555,
+     "words_raw_all_levels": 4028411,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 1183,
+     "xml_files": 722,
+     "source_url": "https://web.archive.org/web/20231203183456id_/https://files.amlegal.com/pdffiles/NewYorkCity/Rules/XML.zip"
+    },
+    {
+     "date": "2025-07-02",
+     "current_through": "Current through rules effective June 19",
+     "sections": 6550,
+     "words": 3751152,
+     "sections_raw_all_levels": 7751,
+     "words_raw_all_levels": 4164364,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 1201,
+     "xml_files": 748,
+     "source_url": "https://web.archive.org/web/20250702114022id_/https://files.amlegal.com/pdffiles/NewYorkCity/Rules/XML.zip"
+    },
+    {
+     "date": "2026-03-01",
+     "current_through": "Current through rules effective February 22",
+     "sections": 6585,
+     "words": 3802090,
+     "sections_raw_all_levels": 7878,
+     "words_raw_all_levels": 4262358,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 1293,
+     "xml_files": 755,
+     "source_url": "https://web.archive.org/web/20260301121332id_/https://files.amlegal.com/pdffiles/NewYorkCity/Rules/XML.zip"
+    },
+    {
+     "date": "2026-07-20",
+     "current_through": "Current through rules effective July 14",
+     "sections": 6637,
+     "words": 3831524,
+     "sections_raw_all_levels": 7926,
+     "words_raw_all_levels": 4290420,
+     "appendix_local_law_entries": 0,
+     "appendix_earliest_local_law_year": null,
+     "other_unnumbered": 1289,
+     "xml_files": 764,
+     "source_url": "http://files.amlegal.com/pdffiles/NewYorkCity/Rules/XML.zip"
+    }
+   ]
+  }
+ }
+}

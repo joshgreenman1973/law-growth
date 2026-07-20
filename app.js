@@ -67,9 +67,15 @@ function lineChart(mount, opts) {
 
   svg.appendChild(el('line', { class: 'axis-line', x1: pad.l, x2: W - pad.r, y1: H - pad.b, y2: H - pad.b }));
 
-  const step = years.length > 18 ? 5 : years.length > 8 ? 2 : 1;
-  years.forEach((y, i) => {
-    if (i % step && y !== x1) return;
+  /* Tick by YEAR VALUE, not array position — series with uneven spacing (the US
+     Code is 6-yearly to 1988 then annual) would otherwise bunch their labels. */
+  const span = x1 - x0;
+  const yStep = span > 60 ? 20 : span > 30 ? 10 : span > 15 ? 5 : span > 8 ? 2 : 1;
+  const shown = [];
+  for (let y = Math.ceil(x0 / yStep) * yStep; y <= x1; y += yStep) shown.push(y);
+  if (!shown.includes(x0)) shown.unshift(x0);
+  if (x1 - shown[shown.length - 1] > yStep * 0.4) shown.push(x1);
+  shown.forEach(y => {
     const t = el('text', { class: 'tick', x: X(y), y: H - pad.b + 16, 'text-anchor': 'middle' });
     t.textContent = String(y);
     svg.appendChild(t);
@@ -77,10 +83,12 @@ function lineChart(mount, opts) {
 
   series.forEach(s => {
     const pts = s.points.filter(p => p[valueKey] != null);
-    svg.appendChild(el('path', {
+    const path = el('path', {
       class: 'series-line', stroke: s.color,
       d: pts.map((p, i) => `${i ? 'L' : 'M'}${X(p.year).toFixed(1)},${Y(p[valueKey]).toFixed(1)}`).join('')
-    }));
+    });
+    if (s.dashed) path.setAttribute('stroke-dasharray', '6 4');
+    svg.appendChild(path);
     const last = pts[pts.length - 1];
     svg.appendChild(el('circle', { class: 'series-dot', cx: X(last.year), cy: Y(last[valueKey]), r: 4.5, fill: s.color }));
     if (directLabels) {
@@ -108,11 +116,12 @@ function lineChart(mount, opts) {
     cross.setAttribute('opacity', 1);
     dots.innerHTML = '';
     let rows = '';
-    series.forEach(s => {
+    series.forEach((s, si) => {
       const p = s.points.find(q => q.year === year);
       if (!p || p[valueKey] == null) return;
       dots.appendChild(el('circle', { class: 'series-dot', cx: X(year), cy: Y(p[valueKey]), r: 4.5, fill: s.color }));
-      rows += `<div class="tip-row"><span class="swatch" style="background:${s.color}"></span>${s.label}<b>${fmtVal(p[valueKey])}</b></div>`;
+      const name = s.label || (opts.tipLabels && opts.tipLabels[si]) || '';
+      rows += `<div class="tip-row"><span class="swatch" style="background:${s.color}"></span>${name}<b>${fmtVal(p[valueKey])}</b></div>`;
     });
     if (!rows) return;
     showTip(evt, `<span class="tip-yr">${year}${yLabel}</span>${rows}`);
@@ -193,6 +202,59 @@ function table(mount, head, rows) {
   const F = D.flow;
   const order = ['nyc', 'nys', 'fed'];
 
+  /* --- 0. US Code, a century of stock --- */
+  const USC = D.stock.us_code_words;
+  lineChart($('chartUsc'), {
+    series: [{ label: '', color: USC.color, points: USC.series }],
+    W: 760, H: 320, pad: { t: 16, r: 22, b: 34, l: 62 },
+    zeroBase: true, directLabels: false,
+    fmtVal: v => v === 0 ? '0' : v >= 1e6 ? (v / 1e6).toFixed(0) + 'M' : Math.round(v / 1000) + 'k',
+    yLabel: '  ·  words in force',
+    a11y: 'Words of federal statute in force in the United States Code, 1926 to 2023'
+  });
+  $('btnUscTable').addEventListener('click', e => {
+    const on = $('tableUsc').hidden;
+    $('tableUsc').hidden = !on;
+    e.currentTarget.setAttribute('aria-pressed', String(on));
+    if (on) {
+      const s = USC.series;
+      table($('tableUsc'), ['Edition', 'Words in force', 'Change on previous', 'vs 1926'],
+        s.map((p, i) => [p.year, fmt(p.value),
+          i ? ((p.value / s[i - 1].value - 1) * 100 >= 0 ? '+' : '') + ((p.value / s[i - 1].value - 1) * 100).toFixed(1) + '%' : '—',
+          (p.value / s[0].value).toFixed(1) + '×']));
+    }
+  });
+
+  /* --- 0b. stock vs flow, indexed --- */
+  const SF = D.stock_vs_flow_2000.series;
+  const sfOrder = ['us_code_words', 'us_code_pages', 'cfr_pages', 'public_laws'];
+  $('legendSf').innerHTML = sfOrder.map(k =>
+    `<span><i class="swatch${SF[k].kind === 'flow' ? ' dashed' : ''}" style="${SF[k].kind === 'flow' ? '--sw:' + SF[k].color : 'background:' + SF[k].color}"></i>${SF[k].label}</span>`).join('');
+  lineChart($('chartSf'), {
+    series: sfOrder.map(k => ({
+      label: '', color: SF[k].color, dashed: SF[k].kind === 'flow',
+      points: SF[k].points.map(p => ({ year: p.year, value: p.index }))
+    })),
+    W: 760, H: 340, pad: { t: 16, r: 22, b: 34, l: 52 },
+    zeroBase: true, baseline: 100, directLabels: false,
+    fmtVal: v => Math.round(v), yLabel: '  ·  index, 2000 = 100',
+    tipLabels: sfOrder.map(k => SF[k].label),
+    a11y: 'Three measures of federal law in force against public laws enacted per year, indexed to 2000'
+  });
+  $('btnSfTable').addEventListener('click', e => {
+    const on = $('tableSf').hidden;
+    $('tableSf').hidden = !on;
+    e.currentTarget.setAttribute('aria-pressed', String(on));
+    if (on) {
+      const yrs = [...new Set(sfOrder.flatMap(k => SF[k].points.map(p => p.year)))].sort();
+      table($('tableSf'), ['Year', ...sfOrder.map(k => SF[k].label + (SF[k].kind === 'flow' ? ' (flow)' : ' (stock)'))],
+        yrs.map(y => [y, ...sfOrder.map(k => {
+          const p = SF[k].points.find(q => q.year === y);
+          return p ? p.index : '—';
+        })]));
+    }
+  });
+
   /* --- 1. indexed --- */
   const idxSeries = order.map(k => ({
     label: F[k].label, color: F[k].color,
@@ -256,7 +318,7 @@ function table(mount, head, rows) {
     series: [{ label: '', color: '#3a5aa8', points: S.cfr.series }],
     W: 480, H: 280, pad: { t: 14, r: 18, b: 32, l: 58 },
     zeroBase: cfrZero, directLabels: false,
-    fmtVal: v => v >= 1000 ? Math.round(v / 1000) + 'k' : Math.round(v),
+    fmtVal: v => v === 0 ? '0' : v >= 1000 ? Math.round(v / 1000) + 'k' : Math.round(v),
     yLabel: '  ·  pages in the code',
     a11y: 'Total pages in the Code of Federal Regulations, 2000 to 2024'
   });
@@ -264,7 +326,7 @@ function table(mount, head, rows) {
     series: [{ label: '', color: '#9c2226', points: S.frp.series }],
     W: 480, H: 280, pad: { t: 14, r: 18, b: 32, l: 58 },
     zeroBase: frZero, directLabels: false,
-    fmtVal: v => v >= 1000 ? Math.round(v / 1000) + 'k' : Math.round(v),
+    fmtVal: v => v === 0 ? '0' : v >= 1000 ? Math.round(v / 1000) + 'k' : Math.round(v),
     yLabel: '  ·  pages published',
     a11y: 'Federal Register pages published per year, 2000 to 2025'
   });

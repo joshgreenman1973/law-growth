@@ -413,3 +413,9 @@ footer li { margin-bottom: 5px; }
   .fig:last-child { border-bottom: none; }
   .ai-caution-pop { left: var(--gutter); right: var(--gutter); max-width: none; }
 }
+
+/* dashed legend swatch — marks a flow series against solid stock series */
+.swatch.dashed {
+  background: repeating-linear-gradient(to right,
+    var(--sw) 0 5px, transparent 5px 9px);
+}

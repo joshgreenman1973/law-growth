@@ -1,29 +1,49 @@
 # The growing code
 
-Twenty-five years of legal output at three levels of government: New York City, New York state and the federal government.
+How much law is on the books, and how much more than there used to be — measured directly, at the federal, New York state and New York City levels.
 
-**Live:** `index.html` · **Method and caveats:** `methodology.html`
+**Live:** https://joshgreenman1973.github.io/law-growth/ · **Method and caveats:** `methodology.html`
 
 ## The finding
 
-Between 2000–04 and 2020–24, comparing period averages:
+**Stock** — the size of the law in force:
 
-| | Metric | Change |
+| | | |
 |---|---|---|
-| New York City | local laws enacted per year | 70 → 146 (**2.09×**) |
-| New York state | chapter laws enacted per year | 670 → 704 (**1.05×**) |
-| Congress | public laws enacted per year | 257 → 162 (**0.63×**, −37%) |
-| Federal regulatory code | pages in the CFR | 138,049 → 194,395 (**1.41×**) |
+| US Code, words | 1.9M (1926) → 47.4M (2023) | **24.8×** |
+| US Code, words | 32.5M (2000) → 47.4M (2023) | **1.46×** |
+| US Code, pages | 36,480 (2000) → 53,380 (2024) | **1.46×** |
+| CFR pages | 138,049 (2000) → 194,395 (2024) | **1.41×** |
 
-Lawmaking moved down and sideways: the City Council roughly doubled its output, Albany held flat, and Congress passed more than a third fewer laws. The federal regulatory code grew anyway — because the counts above are *flow* (enacted per year) while a code is *stock* (everything enacted and not repealed), and repeal is rare.
+**Flow** — laws enacted per year, 2000–04 against 2020–24 averages:
 
-A separate finding: Federal Register pages fell 43% from 2024 to 2025 (106,109 → 60,917), with final-rule pages down 63% while presidential-document pages hit 2,072, the highest in any year since the category table begins in 1976.
+| | | |
+|---|---|---|
+| Congress, public laws | 257 → 162/yr | **0.63×** |
+| New York City local laws | 70 → 146/yr | **2.09×** |
+| New York state chapter laws | 670 → 704/yr | **1.05×** |
 
-## Why not "pages of code"
+Federal law on the books grew ~46% since 2000 while Congress enacted 37% fewer laws per year. Stock and flow are not convertible: most laws amend laws that already exist, so counting enactments says little about the size of the corpus. The two US Code measures are independent (words from a research dataset, pages from government publication metadata) and agree at r = 0.9945 on levels, finishing at 146.1 and 146.3 indexed to 2000.
 
-The original framing — measure the size of each code in pages — is not achievable. There is no historical page or word count of the NYC Administrative Code or the NYCRR; both are published commercially. The one apparent source (Mercatus State RegData) has two New York snapshots whose word count *falls* by 4.6 million between 2017 and 2023, which is a corpus-construction artifact, not deregulation. It was excluded. See `methodology.html`.
+Stock is not a ratchet — the CFR shrank in 15 of the 74 years since 1950, most sharply in 1996 (−6,074 pages) and 1985 (−5,895).
 
-Only the Code of Federal Regulations can be measured as stock, and it is labelled as such and shown separately from the flow measures.
+## Why you measure the code, not the enactments
+
+A statute that rewrites 40 sections is one enactment; so is one that repeals a chapter. But a *code* is the consolidated text with every amendment already applied, so comparing it at two dates nets amendments out automatically. The binding constraint is therefore archival, not conceptual — did anyone keep a machine-readable copy?
+
+| Corpus | Snapshots from |
+|---|---|
+| US Code | 1926 |
+| Code of Federal Regulations | 1950 |
+| NY Consolidated Laws | Oct 2014 (API key required) |
+| NYC Administrative Code | 2022 (Internet Archive copies of a publisher file) |
+| NYCRR | never (Westlaw-licensed) |
+
+## A measurement that was discarded
+
+Parsing archived NYC Administrative Code XML showed 9,656 → 12,206 sections in four years (+26%). It is not real. Sections, words, chapters and the publisher's *file count* all grew ~1.25×. The decisive evidence: the earliest local law in the unconsolidated-laws appendix is 2015 in the June 2022 snapshot and 1985 in every snapshot after — American Legal backfilled 30 years of local laws in one step, and 1,332 laws already in force in 2022 appear as new sections.
+
+Attribution: 52% publisher backfill, 17% unnumbered technical material, at most 30% real enactment. A restricted subset (numbered sections only) gives +7.8% over four years with ~11% residual contamination. Reported in the methodology, not plotted.
 
 ## Structure
 
@@ -41,6 +61,9 @@ data/
   federal-register-categories.json   1976–2026
   federal-register-documents.json    2000–2026 (collected, not charted)
   cfr-pages.json                     1950–2024
+  us-code-size.json                  1926–2023, words (STOCK)
+  us-code-pages-govinfo.json         1994–2024, pages (STOCK, independent)
+  nyc-code-size.json                 2022–2026, NOT usable as a series — see reason field
 ```
 
 Each source file carries `provenance` (the exact query or URL) and `notes` (caveats) alongside its series. `data/data.json` is derived from the others and adds nothing but the 2000-indexed values.

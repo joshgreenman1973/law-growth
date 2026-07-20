@@ -1,0 +1,323 @@
+{
+  "metric": "Total word count of the full text of the United States Code (all titles), as published in each annual/main edition",
+  "unit": "words",
+  "source_url": "https://doi.org/10.6084/m9.figshare.29540039",
+  "paper": "Jeong et al., 'A century of evolution in the complexity of the United States legal code', Scientific Data 13:13 (Jan 2026). https://pmc.ncbi.nlm.nih.gov/articles/PMC12780074/",
+  "provenance": "figshare article 29540039 (v5) -> 'Data Records.zip' (1.88 GB). Retrieved the single member file 'Data Records_250702/Data Set1/ContentsOfTitle.csv' by parsing the ZIP central directory over HTTP range requests against the figshare/S3 signed URL, then inflating that member only. Series uses the dataset's own 'All titles' aggregate row per year, column 'Raw Text Word Count'. Verified: the 'All titles' row equals the sum of the individual numbered-title rows exactly (ratio 1.0000) in all 41 years.",
+  "retrieved": "2026-07-20",
+  "basis": "annual_edition",
+  "notes": [
+    "CUMULATIVE STOCK, not flow: each value is the size of the entire Code in force in that edition, not laws enacted that year.",
+    "Coverage is NOT annual before 1994. Main editions appear every six years: 1926, 1934, 1940, 1946, 1952, 1958, 1964, 1970, 1976, 1982, 1988. Annual from 1994 to 2023. Years 1989-1993 are absent from the dataset and are OMITTED here rather than interpolated.",
+    "METHODOLOGY BREAK AT 1994: editions through 1988 were OCR-scanned from print and cleaned with Google Gemini 1.5 Flash; 1994 onward was crawled from the official GovInfo web text. The authors flag OCR quality limits on the early editions. Empirically the break is not visible as a discontinuity in word counts (1982-1988 growth 21.6%, 1988-1994 growth 27.1%), but pre-1994 values should be treated as lower-confidence.",
+    "The authors state the 1926 edition was retained but NOT used in their structural analysis due to unresolved OCR errors. Treat 1926 as the weakest point in the series.",
+    "The counted text includes section headers, historical/statutory notes and revision records. The authors note this is roughly 54% more content than counts that cover operative statutory text only, so absolute levels are not comparable to other published 'size of the US Code' figures. The TREND is the reliable part.",
+    "Titles counted per year varies slightly (50 in 1926-1952, 49 in 1958-2016, 50 in 2017-2023). This reflects real changes in the Code (e.g. Title 34 lapsed and was later revived as Crime Control and Law Enforcement in 2017; Title 53 is reserved), not missing data - these are consolidated editions in which every then-existing title is republished. No carry-forward was needed or applied for Route A.",
+    "'value' is Raw Text Word Count. 'cleaned_word_count' is the authors' post-cleaning count; the two differ by well under 1% after 1994."
+  ],
+  "series": [
+    {
+      "year": 1926,
+      "value": 1909536,
+      "cleaned_word_count": 1853863,
+      "unique_words": 26235,
+      "titles_counted": 50
+    },
+    {
+      "year": 1934,
+      "value": 2724362,
+      "cleaned_word_count": 2668396,
+      "unique_words": 18626,
+      "titles_counted": 50
+    },
+    {
+      "year": 1940,
+      "value": 4138694,
+      "cleaned_word_count": 4059028,
+      "unique_words": 22503,
+      "titles_counted": 50
+    },
+    {
+      "year": 1946,
+      "value": 5298588,
+      "cleaned_word_count": 5210816,
+      "unique_words": 24906,
+      "titles_counted": 50
+    },
+    {
+      "year": 1952,
+      "value": 7072497,
+      "cleaned_word_count": 6968817,
+      "unique_words": 27644,
+      "titles_counted": 50
+    },
+    {
+      "year": 1958,
+      "value": 7985698,
+      "cleaned_word_count": 7870071,
+      "unique_words": 30296,
+      "titles_counted": 49
+    },
+    {
+      "year": 1964,
+      "value": 8956443,
+      "cleaned_word_count": 8833197,
+      "unique_words": 33098,
+      "titles_counted": 49
+    },
+    {
+      "year": 1970,
+      "value": 11564601,
+      "cleaned_word_count": 11410337,
+      "unique_words": 36751,
+      "titles_counted": 49
+    },
+    {
+      "year": 1976,
+      "value": 15091794,
+      "cleaned_word_count": 14904914,
+      "unique_words": 39778,
+      "titles_counted": 49
+    },
+    {
+      "year": 1982,
+      "value": 18712008,
+      "cleaned_word_count": 18479525,
+      "unique_words": 41353,
+      "titles_counted": 49
+    },
+    {
+      "year": 1988,
+      "value": 22753607,
+      "cleaned_word_count": 22018329,
+      "unique_words": 42618,
+      "titles_counted": 49
+    },
+    {
+      "year": 1994,
+      "value": 28916456,
+      "cleaned_word_count": 28872761,
+      "unique_words": 46469,
+      "titles_counted": 49
+    },
+    {
+      "year": 1995,
+      "value": 28884301,
+      "cleaned_word_count": 28842504,
+      "unique_words": 46671,
+      "titles_counted": 49
+    },
+    {
+      "year": 1996,
+      "value": 29901746,
+      "cleaned_word_count": 29859340,
+      "unique_words": 47343,
+      "titles_counted": 49
+    },
+    {
+      "year": 1997,
+      "value": 30538642,
+      "cleaned_word_count": 30495650,
+      "unique_words": 47664,
+      "titles_counted": 49
+    },
+    {
+      "year": 1998,
+      "value": 31218318,
+      "cleaned_word_count": 31174004,
+      "unique_words": 48072,
+      "titles_counted": 49
+    },
+    {
+      "year": 1999,
+      "value": 31686754,
+      "cleaned_word_count": 31642124,
+      "unique_words": 48386,
+      "titles_counted": 49
+    },
+    {
+      "year": 2000,
+      "value": 32463000,
+      "cleaned_word_count": 32418625,
+      "unique_words": 49134,
+      "titles_counted": 49
+    },
+    {
+      "year": 2001,
+      "value": 32929429,
+      "cleaned_word_count": 32884618,
+      "unique_words": 49464,
+      "titles_counted": 49
+    },
+    {
+      "year": 2002,
+      "value": 33708397,
+      "cleaned_word_count": 33662196,
+      "unique_words": 50118,
+      "titles_counted": 49
+    },
+    {
+      "year": 2003,
+      "value": 34426112,
+      "cleaned_word_count": 34379185,
+      "unique_words": 50547,
+      "titles_counted": 49
+    },
+    {
+      "year": 2004,
+      "value": 34625191,
+      "cleaned_word_count": 34579197,
+      "unique_words": 49544,
+      "titles_counted": 49
+    },
+    {
+      "year": 2005,
+      "value": 35347306,
+      "cleaned_word_count": 35301155,
+      "unique_words": 49940,
+      "titles_counted": 49
+    },
+    {
+      "year": 2006,
+      "value": 35796749,
+      "cleaned_word_count": 35750758,
+      "unique_words": 50339,
+      "titles_counted": 49
+    },
+    {
+      "year": 2007,
+      "value": 36272720,
+      "cleaned_word_count": 36226247,
+      "unique_words": 50613,
+      "titles_counted": 49
+    },
+    {
+      "year": 2008,
+      "value": 37509937,
+      "cleaned_word_count": 37462739,
+      "unique_words": 51284,
+      "titles_counted": 49
+    },
+    {
+      "year": 2009,
+      "value": 38113811,
+      "cleaned_word_count": 38065789,
+      "unique_words": 51665,
+      "titles_counted": 49
+    },
+    {
+      "year": 2010,
+      "value": 39126461,
+      "cleaned_word_count": 39077911,
+      "unique_words": 52101,
+      "titles_counted": 49
+    },
+    {
+      "year": 2011,
+      "value": 39581218,
+      "cleaned_word_count": 39532008,
+      "unique_words": 52319,
+      "titles_counted": 49
+    },
+    {
+      "year": 2012,
+      "value": 40146004,
+      "cleaned_word_count": 40096380,
+      "unique_words": 52602,
+      "titles_counted": 49
+    },
+    {
+      "year": 2013,
+      "value": 40369998,
+      "cleaned_word_count": 40319880,
+      "unique_words": 52839,
+      "titles_counted": 49
+    },
+    {
+      "year": 2014,
+      "value": 40822862,
+      "cleaned_word_count": 40772049,
+      "unique_words": 53029,
+      "titles_counted": 49
+    },
+    {
+      "year": 2015,
+      "value": 41512173,
+      "cleaned_word_count": 41460045,
+      "unique_words": 53489,
+      "titles_counted": 49
+    },
+    {
+      "year": 2016,
+      "value": 42011381,
+      "cleaned_word_count": 41958395,
+      "unique_words": 53722,
+      "titles_counted": 49
+    },
+    {
+      "year": 2017,
+      "value": 42421837,
+      "cleaned_word_count": 42368049,
+      "unique_words": 54419,
+      "titles_counted": 50
+    },
+    {
+      "year": 2018,
+      "value": 43378510,
+      "cleaned_word_count": 43324028,
+      "unique_words": 55310,
+      "titles_counted": 50
+    },
+    {
+      "year": 2019,
+      "value": 43774222,
+      "cleaned_word_count": 43718900,
+      "unique_words": 55691,
+      "titles_counted": 50
+    },
+    {
+      "year": 2020,
+      "value": 45334363,
+      "cleaned_word_count": 45277730,
+      "unique_words": 56477,
+      "titles_counted": 50
+    },
+    {
+      "year": 2021,
+      "value": 45829824,
+      "cleaned_word_count": 45772957,
+      "unique_words": 56764,
+      "titles_counted": 50
+    },
+    {
+      "year": 2022,
+      "value": 47146516,
+      "cleaned_word_count": 47087621,
+      "unique_words": 57740,
+      "titles_counted": 50
+    },
+    {
+      "year": 2023,
+      "value": 47420479,
+      "cleaned_word_count": 47361110,
+      "unique_words": 57931,
+      "titles_counted": 50
+    }
+  ],
+  "cross_validation": {
+    "compared": "us-code-size.json (words, Jeong et al.) vs us-code-pages-govinfo.json (pages, govinfo MODS)",
+    "overlap": "1994-2023 (30 years)",
+    "pearson_r_levels": 0.9945,
+    "pearson_r_yoy_growth": 0.048,
+    "total_growth_1994_2023": {
+      "words": "1.640x",
+      "pages": "1.785x"
+    },
+    "cagr_1994_2023": {
+      "words": "1.72%",
+      "pages": "2.02%"
+    },
+    "words_per_page": "mean 894, coefficient of variation 2.0% across 30 years (977 in 1994, 898 in 2023)",
+    "verdict": "The two independently-sourced series agree closely on level and trend (r=0.9945) and the implied words-per-page ratio is near-constant, which is what you expect if both are measuring the same underlying stock. Year-over-year increments do NOT correlate (r=0.05): annual changes are small relative to the lumpiness of page counts and reissue timing, so neither series is reliable for single-year deltas. Pages grow slightly faster than words (2.02% vs 1.72% CAGR), consistent with typesetting/layout drift."
+  }
+}

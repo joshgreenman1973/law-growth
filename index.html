@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The growing code — 25 years of lawmaking in New York City, New York state and Washington</title>
-<meta name="description" content="Who is writing more law? Twenty-five years of enacted laws and regulatory pages at the city, state and federal level.">
-<link rel="stylesheet" href="styles.css?v=2">
+<title>The growing code — how much law is on the books, and how much more than there used to be</title>
+<meta name="description" content="The US Code grew from 1.9 million words in 1926 to 47.4 million in 2023 — and by 46 percent since 2000, while Congress passed steadily fewer laws.">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
 <div class="wrap">
 
   <header class="site-header">
-    <div class="colophon">The growing code &nbsp;·&nbsp; 2000&ndash;2025</div>
+    <div class="colophon">The growing code &nbsp;·&nbsp; 1926&ndash;2025</div>
     <button class="ai-caution-btn" id="aiCautionBtn">AI caution</button>
     <div class="ai-caution-pop" id="aiCautionPop" hidden>
       <strong>How this was made</strong>
@@ -20,8 +20,8 @@
         <li>Built with AI assistance (Claude). A human editor has not yet reviewed it.</li>
         <li>Every number is pulled directly from a government source by query or scrape; none was typed by hand or estimated.</li>
         <li>Anchor values were checked against independently verified figures before the series were accepted &mdash; the checks and the ones that failed are listed in the <a href="methodology.html">methodology</a>.</li>
-        <li>These are counts of laws and pages. They measure legal <em>output</em>, not the length, importance or effect of any law.</li>
-        <li>The three legislative series count different objects and are not directly comparable in level. Read the methodology before citing.</li>
+        <li>Two different things are measured here: the <em>size of the law in force</em> (stock) and <em>laws enacted per year</em> (flow). They are labelled distinctly and are not interchangeable.</li>
+        <li>The three legislative series count different objects and are not comparable in level, only in trajectory.</li><li>One measurement was completed, found to be a publisher artifact and discarded rather than published. It is documented in the <a href="methodology.html">methodology</a> along with the reasoning.</li>
       </ul>
     </div>
   </header>
@@ -29,33 +29,76 @@
   <div class="masthead">
     <p class="kicker">Measuring the law</p>
     <h1>The growing code</h1>
-    <p class="dek">There is no single ledger of how much law exists. But you can count what each government produces each year. Do that for the last 25 years and the picture inverts what you would expect: the smallest government in this comparison is the one writing much more law than it used to, and the largest is writing less.</p>
-    <p class="byline">Sources: NYC Open Data · NYS Legislative Bill Drafting Commission · GovInfo · Office of the Federal Register · GWU Regulatory Studies Center &nbsp;|&nbsp; Retrieved July 19, 2026</p>
+    <p class="dek">How much law is on the books, and is there more of it than there used to be? Counting laws passed each year cannot answer that, because most laws amend laws that already exist. You have to measure the code itself. Do that and federal law turns out to have grown by nearly half since 2000 &mdash; over the same quarter century in which Congress passed steadily fewer laws.</p>
+    <p class="byline">Sources: Jeong et al., Scientific Data (2026) · GovInfo · Office of the Federal Register · GWU Regulatory Studies Center · NYC Open Data · NYS Legislative Bill Drafting Commission &nbsp;|&nbsp; Retrieved July 2026</p>
   </div>
 
   <div class="figures">
     <div class="fig">
-      <div class="fig-num up">2.1&times;</div>
-      <div class="fig-label"><b>New York City</b> local laws enacted per year, 2020&ndash;24 average against 2000&ndash;04</div>
+      <div class="fig-num up">24.8&times;</div>
+      <div class="fig-label"><b>The United States Code</b> grew from 1.9 million words in 1926 to 47.4 million in 2023</div>
     </div>
     <div class="fig">
-      <div class="fig-num flat">1.05&times;</div>
-      <div class="fig-label"><b>New York state</b> chapter laws enacted per year, same comparison</div>
+      <div class="fig-num up">1.46&times;</div>
+      <div class="fig-label"><b>Since 2000 alone</b>, federal statute in force grew 46 percent &mdash; the same figure from two independent measurements</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num flat">1.41&times;</div>
+      <div class="fig-label"><b>Federal regulation in force</b> grew from 138,049 pages to 194,395 over the same years</div>
     </div>
     <div class="fig">
       <div class="fig-num down">0.63&times;</div>
-      <div class="fig-label"><b>Congress</b> public laws enacted per year, same comparison &mdash; a 37 percent decline</div>
-    </div>
-    <div class="fig">
-      <div class="fig-num">1.41&times;</div>
-      <div class="fig-label"><b>The Code of Federal Regulations</b> grew from 138,049 pages to 194,395 across the same years &mdash; while Congress legislated less</div>
+      <div class="fig-label"><b>Yet Congress enacted 37 percent fewer</b> public laws per year, 2020&ndash;24 against 2000&ndash;04</div>
     </div>
   </div>
+
+  <!-- 0 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>The law on the books, measured directly</h2>
+    </div>
+    <p class="standfirst">Counting laws passed each year cannot tell you how much law exists, because most laws amend laws that are already there. The way around that is to stop counting enactments and measure the code itself &mdash; the consolidated text, with every amendment and repeal already folded in. Do that at two dates and the amendments net out on their own. For federal law the record goes back a century.</p>
+
+    <div class="chart-card">
+      <p class="chart-title">The United States Code, 1926 to 2023</p>
+      <p class="chart-sub">Words of federal statute in force in each published edition. Editions appear every six years through 1988 and annually from 1994; 1989 to 1993 were never published in this dataset and are left out rather than drawn through.</p>
+      <div class="controls">
+        <button class="toggle" id="btnUscTable" aria-pressed="false">Show table</button>
+      </div>
+      <div id="chartUsc"></div>
+      <div class="table-wrap" id="tableUsc" hidden></div>
+    </div>
+
+    <p class="note">This is the measure you want if the question is "how much law is there." It is a count of words in the codified text, so an amendment that rewrites a section changes the number by exactly the amount of text it adds or removes, and a repeal reduces it. Because the counted text includes section headers and historical notes, the absolute level runs roughly 54 percent above counts that cover operative statutory language only &mdash; the trajectory is the reliable part, not the raw total. Editions through 1988 were scanned from print and are lower confidence than the 1994-onward figures, which came from official electronic text.</p>
+  </section>
 
   <!-- 1 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">01</span>
+      <span class="sec-num">02</span>
+      <h2>Stock against flow, on one scale</h2>
+    </div>
+    <p class="standfirst">Here is the whole argument in a single frame. Three measures of federal law <em>in force</em> and one measure of federal law <em>enacted per year</em>, all indexed to 2000. The stock lines rise by 41 to 46 percent. The flow line falls by two thirds. Congress has been passing fewer laws for a quarter century and the body of federal law has grown by nearly half regardless.</p>
+
+    <div class="chart-card">
+      <p class="chart-title">Federal law in force against federal laws enacted, indexed to 2000 = 100</p>
+      <p class="chart-sub">Solid lines are stock, the size of the law on the books. The dashed line is flow, public laws enacted that year.</p>
+      <div class="controls">
+        <button class="toggle" id="btnSfTable" aria-pressed="false">Show table</button>
+      </div>
+      <div class="legend" id="legendSf"></div>
+      <div id="chartSf"></div>
+      <div class="table-wrap" id="tableSf" hidden></div>
+    </div>
+
+    <p class="note">The two US Code lines are independent measurements of the same thing by different people using different units &mdash; words counted from a research dataset, pages counted from government publication metadata. They land on 146.1 and 146.3. That agreement is the strongest evidence here that the stock measure is sound, because nothing about the two methods was coordinated.</p>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
       <h2>Three legislatures, indexed to where they started</h2>
     </div>
     <p class="standfirst">Each body passes a different kind of law in different quantities, so the levels cannot be compared directly. Setting each to 100 in 2000 shows the shape of the change instead. The City Council pulls away; Albany oscillates around its starting point; Congress drifts down.</p>
@@ -78,7 +121,7 @@
   <!-- 2 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">04</span>
       <h2>The same three series, in the numbers they are actually counted in</h2>
     </div>
     <p class="standfirst">New York state passes several hundred chapter laws a year, most of them narrow. New York City passes dozens to a couple hundred local laws. Congress passes one to three hundred public laws. Note the vertical scales differ; each panel is drawn to its own range.</p>
@@ -91,10 +134,10 @@
   <!-- 3 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">05</span>
       <h2>Why less lawmaking still means more law</h2>
     </div>
-    <p class="standfirst">This is the part that resolves the paradox. The counts above are <em>flow</em> &mdash; what gets enacted in a given year. A legal code is <em>stock</em> &mdash; everything enacted and not yet repealed. Flow can fall for years while stock keeps climbing, because repeal is rare. The Code of Federal Regulations is the clearest case: Congress passed 37 percent fewer laws per year, and the regulatory code still grew by 56,346 pages.</p>
+    <p class="standfirst">This is the part that resolves the paradox. The counts above are <em>flow</em> &mdash; what gets enacted in a given year. A legal code is <em>stock</em> &mdash; everything enacted and not yet repealed. Flow can fall for years while stock keeps climbing. The Code of Federal Regulations is the clearest case: Congress passed 37 percent fewer laws per year, and the regulatory code still grew by 56,346 pages. Stock is not a ratchet, though &mdash; measured back to 1950, the regulatory code has shrunk in 15 of 74 years, most sharply by 6,074 pages in 1996 and 5,895 in 1985. It falls less often than it rises, and by less when it does.</p>
 
     <div class="pair">
       <div class="chart-card">
@@ -121,7 +164,7 @@
   <!-- 4 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">06</span>
       <h2>2025: the sharpest one-year drop in the record, and where it went</h2>
     </div>
     <p class="standfirst">Federal Register pages fell 43 percent between 2024 and 2025, from 106,109 to 60,917. Breaking the total into its four document categories shows the fall was not spread evenly. Pages of final rules dropped 63 percent. Pages of presidential documents went the other way, to 2,072 &mdash; the highest in any year since this category table begins in 1976, and well clear of the previous high of 1,301 in 1995.</p>
@@ -149,23 +192,39 @@
   <!-- 5 -->
   <section>
     <div class="sec-head">
-      <span class="sec-num">05</span>
+      <span class="sec-num">07</span>
       <h2>What this does not measure</h2>
     </div>
     <p class="standfirst">Counting laws is not the same as measuring how much law there is, and the honest version of this project says so plainly.</p>
     <ul style="max-width:var(--measure); color:var(--ink-2); font-size:17px;">
       <li><b>A law is not a unit.</b> A New York state chapter law renaming a bridge counts the same as one restructuring the tax code.</li>
-      <li><b>There is no page count of the codes themselves</b> for New York City or New York state over time. The city's Administrative Code and the state's regulations are published commercially and no historical size series exists. Only the federal regulatory code can be measured as stock.</li>
+      <li><b>Only federal law can be measured as stock over a long window.</b> The size of the New York City and New York state codes over 25 years cannot be recovered, for archival rather than conceptual reasons &mdash; nobody kept machine-readable copies. See the note below on the New York City attempt, which was made and then discarded.</li>
       <li><b>The three legislative series count different objects</b> &mdash; local laws, chapter laws, public laws. Their levels are not comparable; only their trajectories are.</li>
       <li><b>Regulation is missing at two of the three levels.</b> New York City rulemaking data begins in 2013 and New York state has no time series at all, so neither could be shown across the full window.</li>
     </ul>
+    <div class="chart-card" style="margin-top:26px;border-left:3px solid var(--nyc)">
+      <p class="chart-title">A measurement that was made, checked and thrown away</p>
+      <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin:0 0 12px">
+        The New York City Administrative Code <em>is</em> distributed as bulk XML, and the Internet Archive holds copies of that file from 2022, 2023, 2025 and 2026. Parsing all of them produced an apparent increase from 9,656 to 12,206 sections in four years &mdash; growth of 26 percent, which would have been the most dramatic number on this page.
+      </p>
+      <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin:0 0 12px">
+        It is not real. Sections, words, chapters and the publisher's own <em>file count</em> all grew by almost exactly the same factor, which is the signature of a distribution getting bigger rather than a body of law. One field settles it: in the appendix of unconsolidated local laws, the earliest law present is 1985 in every snapshot from December 2023 onward, but 2015 in the June 2022 snapshot. The publisher backfilled three decades of local laws in a single step. <b>Those 1,332 laws were on the books in 2022</b> and appear as new sections only because the earlier file did not list them.
+      </p>
+      <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-2);margin:0">
+        Attributing the apparent growth: 52 percent is provable publisher backfill, 17 percent is unnumbered technical material that moves in the same step, and at most 30 percent reflects law actually enacted between 2022 and 2026. Restricting to numbered code sections gives a defensible but short and still-imperfect result &mdash; 7,965 to 8,590 sections, up 7.8 percent over four years, with an estimated 11 percent residual contamination. That is roughly 2 percent a year, which is what you would expect of a city passing about 150 local laws a year that mostly amend what is already there. It is not plotted here, because four years of a partly contaminated measure does not belong on the same page as a century of federal data.
+      </p>
+    </div>
+
     <p class="note">Every one of these limits, the sources, the queries and the checks that failed are documented in full in the <a href="methodology.html">methodology</a>. The underlying data is in the repository as JSON, one file per source, with provenance on each.</p>
   </section>
 
   <footer>
     <h3>Sources</h3>
     <ul>
+      <li>US Code size, words &mdash; Jeong et al., "A century of evolution in the complexity of the United States legal code," <i>Scientific Data</i> 13:13 (2026), data at <a href="https://doi.org/10.6084/m9.figshare.29540039">figshare 10.6084/m9.figshare.29540039</a></li>
+      <li>US Code size, pages &mdash; <a href="https://www.govinfo.gov/app/collection/uscode">GovInfo, United States Code</a> package metadata</li>
       <li>New York City local laws &mdash; <a href="https://data.cityofnewyork.us/City-Government/City-Council-Legislation-Bills-and-Local-Laws/6ctv-n46c">NYC Open Data, City Council Legislation (6ctv-n46c)</a></li>
+      <li>New York City code size (measured, not published) &mdash; <a href="https://codelibrary.amlegal.com/codes/newyorkcity/latest/NYC">American Legal Publishing</a> bulk XML via the Internet Archive</li>
       <li>New York state chapter laws &mdash; <a href="http://public.leginfo.state.ny.us/">NYS Legislative Bill Drafting Commission chapter lists</a></li>
       <li>Federal public laws &mdash; <a href="https://www.govinfo.gov/app/collection/plaw">GovInfo, Public and Private Laws</a></li>
       <li>Federal Register pages and categories &mdash; <a href="https://www.federalregister.gov/reader-aids/federal-register-statistics/category-page-statistics">Office of the Federal Register publication statistics</a></li>
@@ -178,6 +237,6 @@
 
 <div class="tip" id="tip"></div>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>

@@ -973,5 +973,1455 @@
     "total": 60917
    }
   ]
+ },
+ "stock": {
+  "us_code_words": {
+   "label": "US Code",
+   "sublabel": "words of federal statute in force",
+   "unit": "words",
+   "color": "#3a5aa8",
+   "source": "Jeong et al., Scientific Data 13:13 (2026), figshare 10.6084/m9.figshare.29540039",
+   "notes": [
+    "CUMULATIVE STOCK, not flow: each value is the size of the entire Code in force in that edition, not laws enacted that year.",
+    "Coverage is NOT annual before 1994. Main editions appear every six years: 1926, 1934, 1940, 1946, 1952, 1958, 1964, 1970, 1976, 1982, 1988. Annual from 1994 to 2023. Years 1989-1993 are absent from the dataset and are OMITTED here rather than interpolated.",
+    "METHODOLOGY BREAK AT 1994: editions through 1988 were OCR-scanned from print and cleaned with Google Gemini 1.5 Flash; 1994 onward was crawled from the official GovInfo web text. The authors flag OCR quality limits on the early editions. Empirically the break is not visible as a discontinuity in word counts (1982-1988 growth 21.6%, 1988-1994 growth 27.1%), but pre-1994 values should be treated as lower-confidence.",
+    "The authors state the 1926 edition was retained but NOT used in their structural analysis due to unresolved OCR errors. Treat 1926 as the weakest point in the series.",
+    "The counted text includes section headers, historical/statutory notes and revision records. The authors note this is roughly 54% more content than counts that cover operative statutory text only, so absolute levels are not comparable to other published 'size of the US Code' figures. The TREND is the reliable part.",
+    "Titles counted per year varies slightly (50 in 1926-1952, 49 in 1958-2016, 50 in 2017-2023). This reflects real changes in the Code (e.g. Title 34 lapsed and was later revived as Crime Control and Law Enforcement in 2017; Title 53 is reserved), not missing data - these are consolidated editions in which every then-existing title is republished. No carry-forward was needed or applied for Route A.",
+    "'value' is Raw Text Word Count. 'cleaned_word_count' is the authors' post-cleaning count; the two differ by well under 1% after 1994."
+   ],
+   "series": [
+    {
+     "year": 1926,
+     "value": 1909536,
+     "cleaned_word_count": 1853863,
+     "unique_words": 26235,
+     "titles_counted": 50
+    },
+    {
+     "year": 1934,
+     "value": 2724362,
+     "cleaned_word_count": 2668396,
+     "unique_words": 18626,
+     "titles_counted": 50
+    },
+    {
+     "year": 1940,
+     "value": 4138694,
+     "cleaned_word_count": 4059028,
+     "unique_words": 22503,
+     "titles_counted": 50
+    },
+    {
+     "year": 1946,
+     "value": 5298588,
+     "cleaned_word_count": 5210816,
+     "unique_words": 24906,
+     "titles_counted": 50
+    },
+    {
+     "year": 1952,
+     "value": 7072497,
+     "cleaned_word_count": 6968817,
+     "unique_words": 27644,
+     "titles_counted": 50
+    },
+    {
+     "year": 1958,
+     "value": 7985698,
+     "cleaned_word_count": 7870071,
+     "unique_words": 30296,
+     "titles_counted": 49
+    },
+    {
+     "year": 1964,
+     "value": 8956443,
+     "cleaned_word_count": 8833197,
+     "unique_words": 33098,
+     "titles_counted": 49
+    },
+    {
+     "year": 1970,
+     "value": 11564601,
+     "cleaned_word_count": 11410337,
+     "unique_words": 36751,
+     "titles_counted": 49
+    },
+    {
+     "year": 1976,
+     "value": 15091794,
+     "cleaned_word_count": 14904914,
+     "unique_words": 39778,
+     "titles_counted": 49
+    },
+    {
+     "year": 1982,
+     "value": 18712008,
+     "cleaned_word_count": 18479525,
+     "unique_words": 41353,
+     "titles_counted": 49
+    },
+    {
+     "year": 1988,
+     "value": 22753607,
+     "cleaned_word_count": 22018329,
+     "unique_words": 42618,
+     "titles_counted": 49
+    },
+    {
+     "year": 1994,
+     "value": 28916456,
+     "cleaned_word_count": 28872761,
+     "unique_words": 46469,
+     "titles_counted": 49
+    },
+    {
+     "year": 1995,
+     "value": 28884301,
+     "cleaned_word_count": 28842504,
+     "unique_words": 46671,
+     "titles_counted": 49
+    },
+    {
+     "year": 1996,
+     "value": 29901746,
+     "cleaned_word_count": 29859340,
+     "unique_words": 47343,
+     "titles_counted": 49
+    },
+    {
+     "year": 1997,
+     "value": 30538642,
+     "cleaned_word_count": 30495650,
+     "unique_words": 47664,
+     "titles_counted": 49
+    },
+    {
+     "year": 1998,
+     "value": 31218318,
+     "cleaned_word_count": 31174004,
+     "unique_words": 48072,
+     "titles_counted": 49
+    },
+    {
+     "year": 1999,
+     "value": 31686754,
+     "cleaned_word_count": 31642124,
+     "unique_words": 48386,
+     "titles_counted": 49
+    },
+    {
+     "year": 2000,
+     "value": 32463000,
+     "cleaned_word_count": 32418625,
+     "unique_words": 49134,
+     "titles_counted": 49
+    },
+    {
+     "year": 2001,
+     "value": 32929429,
+     "cleaned_word_count": 32884618,
+     "unique_words": 49464,
+     "titles_counted": 49
+    },
+    {
+     "year": 2002,
+     "value": 33708397,
+     "cleaned_word_count": 33662196,
+     "unique_words": 50118,
+     "titles_counted": 49
+    },
+    {
+     "year": 2003,
+     "value": 34426112,
+     "cleaned_word_count": 34379185,
+     "unique_words": 50547,
+     "titles_counted": 49
+    },
+    {
+     "year": 2004,
+     "value": 34625191,
+     "cleaned_word_count": 34579197,
+     "unique_words": 49544,
+     "titles_counted": 49
+    },
+    {
+     "year": 2005,
+     "value": 35347306,
+     "cleaned_word_count": 35301155,
+     "unique_words": 49940,
+     "titles_counted": 49
+    },
+    {
+     "year": 2006,
+     "value": 35796749,
+     "cleaned_word_count": 35750758,
+     "unique_words": 50339,
+     "titles_counted": 49
+    },
+    {
+     "year": 2007,
+     "value": 36272720,
+     "cleaned_word_count": 36226247,
+     "unique_words": 50613,
+     "titles_counted": 49
+    },
+    {
+     "year": 2008,
+     "value": 37509937,
+     "cleaned_word_count": 37462739,
+     "unique_words": 51284,
+     "titles_counted": 49
+    },
+    {
+     "year": 2009,
+     "value": 38113811,
+     "cleaned_word_count": 38065789,
+     "unique_words": 51665,
+     "titles_counted": 49
+    },
+    {
+     "year": 2010,
+     "value": 39126461,
+     "cleaned_word_count": 39077911,
+     "unique_words": 52101,
+     "titles_counted": 49
+    },
+    {
+     "year": 2011,
+     "value": 39581218,
+     "cleaned_word_count": 39532008,
+     "unique_words": 52319,
+     "titles_counted": 49
+    },
+    {
+     "year": 2012,
+     "value": 40146004,
+     "cleaned_word_count": 40096380,
+     "unique_words": 52602,
+     "titles_counted": 49
+    },
+    {
+     "year": 2013,
+     "value": 40369998,
+     "cleaned_word_count": 40319880,
+     "unique_words": 52839,
+     "titles_counted": 49
+    },
+    {
+     "year": 2014,
+     "value": 40822862,
+     "cleaned_word_count": 40772049,
+     "unique_words": 53029,
+     "titles_counted": 49
+    },
+    {
+     "year": 2015,
+     "value": 41512173,
+     "cleaned_word_count": 41460045,
+     "unique_words": 53489,
+     "titles_counted": 49
+    },
+    {
+     "year": 2016,
+     "value": 42011381,
+     "cleaned_word_count": 41958395,
+     "unique_words": 53722,
+     "titles_counted": 49
+    },
+    {
+     "year": 2017,
+     "value": 42421837,
+     "cleaned_word_count": 42368049,
+     "unique_words": 54419,
+     "titles_counted": 50
+    },
+    {
+     "year": 2018,
+     "value": 43378510,
+     "cleaned_word_count": 43324028,
+     "unique_words": 55310,
+     "titles_counted": 50
+    },
+    {
+     "year": 2019,
+     "value": 43774222,
+     "cleaned_word_count": 43718900,
+     "unique_words": 55691,
+     "titles_counted": 50
+    },
+    {
+     "year": 2020,
+     "value": 45334363,
+     "cleaned_word_count": 45277730,
+     "unique_words": 56477,
+     "titles_counted": 50
+    },
+    {
+     "year": 2021,
+     "value": 45829824,
+     "cleaned_word_count": 45772957,
+     "unique_words": 56764,
+     "titles_counted": 50
+    },
+    {
+     "year": 2022,
+     "value": 47146516,
+     "cleaned_word_count": 47087621,
+     "unique_words": 57740,
+     "titles_counted": 50
+    },
+    {
+     "year": 2023,
+     "value": 47420479,
+     "cleaned_word_count": 47361110,
+     "unique_words": 57931,
+     "titles_counted": 50
+    }
+   ]
+  },
+  "us_code_pages": {
+   "label": "US Code",
+   "sublabel": "pages of federal statute in force",
+   "unit": "pages",
+   "color": "#1f8a6d",
+   "source": "GovInfo USCODE package metadata, carry-forward applied",
+   "series": [
+    {
+     "year": 1994,
+     "value": 29591,
+     "titles_covered": 46,
+     "titles_reissued_this_year": 46,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 1995,
+     "value": 33257,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 1996,
+     "value": 33827,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 1997,
+     "value": 34395,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 1998,
+     "value": 35337,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 47,
+     "titles_carried_forward": 2
+    },
+    {
+     "year": 1999,
+     "value": 35855,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2000,
+     "value": 36480,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2001,
+     "value": 37242,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2002,
+     "value": 38212,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2003,
+     "value": 39013,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2004,
+     "value": 39231,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 46,
+     "titles_carried_forward": 3
+    },
+    {
+     "year": 2005,
+     "value": 40124,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 48,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2006,
+     "value": 39836,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2007,
+     "value": 40461,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2008,
+     "value": 41936,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2009,
+     "value": 42620,
+     "titles_covered": 49,
+     "titles_reissued_this_year": 49,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2010,
+     "value": 44215,
+     "titles_covered": 51,
+     "titles_reissued_this_year": 51,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2011,
+     "value": 44426,
+     "titles_covered": 51,
+     "titles_reissued_this_year": 50,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2012,
+     "value": 44841,
+     "titles_covered": 51,
+     "titles_reissued_this_year": 50,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2013,
+     "value": 45076,
+     "titles_covered": 51,
+     "titles_reissued_this_year": 50,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2014,
+     "value": 45900,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 52,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2015,
+     "value": 46253,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 52,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2016,
+     "value": 46880,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 52,
+     "titles_carried_forward": 1
+    },
+    {
+     "year": 2017,
+     "value": 47365,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2018,
+     "value": 48472,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2019,
+     "value": 47855,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2020,
+     "value": 49985,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2021,
+     "value": 50987,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2022,
+     "value": 52549,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2023,
+     "value": 52833,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    },
+    {
+     "year": 2024,
+     "value": 53380,
+     "titles_covered": 53,
+     "titles_reissued_this_year": 53,
+     "titles_carried_forward": 0
+    }
+   ]
+  },
+  "cfr_pages": {
+   "label": "Code of Federal Regulations",
+   "sublabel": "pages of federal regulation in force",
+   "unit": "pages",
+   "color": "#a8730a",
+   "source": "GWU Regulatory Studies Center",
+   "series": [
+    {
+     "year": 1950,
+     "value": 9745,
+     "volumes": 47
+    },
+    {
+     "year": 1951,
+     "value": 15932,
+     "volumes": 46
+    },
+    {
+     "year": 1952,
+     "value": 19232,
+     "volumes": 47
+    },
+    {
+     "year": 1953,
+     "value": 18464,
+     "volumes": 48
+    },
+    {
+     "year": 1954,
+     "value": 16502,
+     "volumes": 48
+    },
+    {
+     "year": 1955,
+     "value": 17989,
+     "volumes": 50
+    },
+    {
+     "year": 1956,
+     "value": 21651,
+     "volumes": 56
+    },
+    {
+     "year": 1957,
+     "value": 19589,
+     "volumes": 57
+    },
+    {
+     "year": 1958,
+     "value": 20643,
+     "volumes": 57
+    },
+    {
+     "year": 1959,
+     "value": 21760,
+     "volumes": 60
+    },
+    {
+     "year": 1960,
+     "value": 22877,
+     "volumes": 68
+    },
+    {
+     "year": 1961,
+     "value": 25242,
+     "volumes": 72
+    },
+    {
+     "year": 1962,
+     "value": 22863,
+     "volumes": 80
+    },
+    {
+     "year": 1963,
+     "value": 25828,
+     "volumes": 82
+    },
+    {
+     "year": 1964,
+     "value": 31584,
+     "volumes": 87
+    },
+    {
+     "year": 1965,
+     "value": 34783,
+     "volumes": 95
+    },
+    {
+     "year": 1966,
+     "value": 43118,
+     "volumes": 104
+    },
+    {
+     "year": 1967,
+     "value": 50375,
+     "volumes": 110
+    },
+    {
+     "year": 1968,
+     "value": 53513,
+     "volumes": 112
+    },
+    {
+     "year": 1969,
+     "value": 52863,
+     "volumes": 114
+    },
+    {
+     "year": 1970,
+     "value": 54834,
+     "volumes": 114
+    },
+    {
+     "year": 1971,
+     "value": 56720,
+     "volumes": 116
+    },
+    {
+     "year": 1972,
+     "value": 60632,
+     "volumes": 143
+    },
+    {
+     "year": 1973,
+     "value": 64872,
+     "volumes": 123
+    },
+    {
+     "year": 1974,
+     "value": 67860,
+     "volumes": 133
+    },
+    {
+     "year": 1975,
+     "value": 71224,
+     "volumes": 133
+    },
+    {
+     "year": 1976,
+     "value": 72740,
+     "volumes": 139
+    },
+    {
+     "year": 1977,
+     "value": 84729,
+     "volumes": 141
+    },
+    {
+     "year": 1978,
+     "value": 94151,
+     "volumes": 142
+    },
+    {
+     "year": 1979,
+     "value": 98032,
+     "volumes": 148
+    },
+    {
+     "year": 1980,
+     "value": 102195,
+     "volumes": 164
+    },
+    {
+     "year": 1981,
+     "value": 107109,
+     "volumes": 180
+    },
+    {
+     "year": 1982,
+     "value": 104938,
+     "volumes": 177
+    },
+    {
+     "year": 1983,
+     "value": 105654,
+     "volumes": 178
+    },
+    {
+     "year": 1984,
+     "value": 111830,
+     "volumes": 186
+    },
+    {
+     "year": 1985,
+     "value": 105935,
+     "volumes": 175
+    },
+    {
+     "year": 1986,
+     "value": 109509,
+     "volumes": 175
+    },
+    {
+     "year": 1987,
+     "value": 114337,
+     "volumes": 185
+    },
+    {
+     "year": 1988,
+     "value": 117480,
+     "volumes": 192
+    },
+    {
+     "year": 1989,
+     "value": 122090,
+     "volumes": 196
+    },
+    {
+     "year": 1990,
+     "value": 126893,
+     "volumes": 199
+    },
+    {
+     "year": 1991,
+     "value": 125331,
+     "volumes": 199
+    },
+    {
+     "year": 1992,
+     "value": 128344,
+     "volumes": 199
+    },
+    {
+     "year": 1993,
+     "value": 132228,
+     "volumes": 202
+    },
+    {
+     "year": 1994,
+     "value": 134196,
+     "volumes": 202
+    },
+    {
+     "year": 1995,
+     "value": 138186,
+     "volumes": 205
+    },
+    {
+     "year": 1996,
+     "value": 132112,
+     "volumes": 204
+    },
+    {
+     "year": 1997,
+     "value": 131060,
+     "volumes": 200
+    },
+    {
+     "year": 1998,
+     "value": 135127,
+     "volumes": 201
+    },
+    {
+     "year": 1999,
+     "value": 134932,
+     "volumes": 202
+    },
+    {
+     "year": 2000,
+     "value": 138049,
+     "volumes": 202
+    },
+    {
+     "year": 2001,
+     "value": 141281,
+     "volumes": 206
+    },
+    {
+     "year": 2002,
+     "value": 145099,
+     "volumes": 207
+    },
+    {
+     "year": 2003,
+     "value": 144187,
+     "volumes": 214
+    },
+    {
+     "year": 2004,
+     "value": 147639,
+     "volumes": 217
+    },
+    {
+     "year": 2005,
+     "value": 151973,
+     "volumes": 221
+    },
+    {
+     "year": 2006,
+     "value": 154107,
+     "volumes": 222
+    },
+    {
+     "year": 2007,
+     "value": 156010,
+     "volumes": 222
+    },
+    {
+     "year": 2008,
+     "value": 157974,
+     "volumes": 222
+    },
+    {
+     "year": 2009,
+     "value": 163333,
+     "volumes": 225
+    },
+    {
+     "year": 2010,
+     "value": 165494,
+     "volumes": 226
+    },
+    {
+     "year": 2011,
+     "value": 169301,
+     "volumes": 230
+    },
+    {
+     "year": 2012,
+     "value": 174545,
+     "volumes": 235
+    },
+    {
+     "year": 2013,
+     "value": 175496,
+     "volumes": 235
+    },
+    {
+     "year": 2014,
+     "value": 175274,
+     "volumes": 236
+    },
+    {
+     "year": 2015,
+     "value": 178351,
+     "volumes": 237
+    },
+    {
+     "year": 2016,
+     "value": 185131,
+     "volumes": 242
+    },
+    {
+     "year": 2017,
+     "value": 186468,
+     "volumes": 242
+    },
+    {
+     "year": 2018,
+     "value": 185544,
+     "volumes": 242
+    },
+    {
+     "year": 2019,
+     "value": 186067,
+     "volumes": 242
+    },
+    {
+     "year": 2020,
+     "value": 186644,
+     "volumes": 242
+    },
+    {
+     "year": 2021,
+     "value": 188343,
+     "volumes": 245
+    },
+    {
+     "year": 2022,
+     "value": 188148,
+     "volumes": 245
+    },
+    {
+     "year": 2023,
+     "value": 190627,
+     "volumes": 245
+    },
+    {
+     "year": 2024,
+     "value": 194395,
+     "volumes": 245
+    }
+   ]
+  }
+ },
+ "stock_vs_flow_2000": {
+  "note": "All series indexed to 2000 = 100. The three stock measures are the size of the law in force; the flow measure is public laws enacted that year.",
+  "series": {
+   "us_code_words": {
+    "label": "US Code, words in force",
+    "kind": "stock",
+    "color": "#3a5aa8",
+    "points": [
+     {
+      "year": 2000,
+      "value": 32463000,
+      "index": 100.0
+     },
+     {
+      "year": 2001,
+      "value": 32929429,
+      "index": 101.4
+     },
+     {
+      "year": 2002,
+      "value": 33708397,
+      "index": 103.8
+     },
+     {
+      "year": 2003,
+      "value": 34426112,
+      "index": 106.0
+     },
+     {
+      "year": 2004,
+      "value": 34625191,
+      "index": 106.7
+     },
+     {
+      "year": 2005,
+      "value": 35347306,
+      "index": 108.9
+     },
+     {
+      "year": 2006,
+      "value": 35796749,
+      "index": 110.3
+     },
+     {
+      "year": 2007,
+      "value": 36272720,
+      "index": 111.7
+     },
+     {
+      "year": 2008,
+      "value": 37509937,
+      "index": 115.5
+     },
+     {
+      "year": 2009,
+      "value": 38113811,
+      "index": 117.4
+     },
+     {
+      "year": 2010,
+      "value": 39126461,
+      "index": 120.5
+     },
+     {
+      "year": 2011,
+      "value": 39581218,
+      "index": 121.9
+     },
+     {
+      "year": 2012,
+      "value": 40146004,
+      "index": 123.7
+     },
+     {
+      "year": 2013,
+      "value": 40369998,
+      "index": 124.4
+     },
+     {
+      "year": 2014,
+      "value": 40822862,
+      "index": 125.8
+     },
+     {
+      "year": 2015,
+      "value": 41512173,
+      "index": 127.9
+     },
+     {
+      "year": 2016,
+      "value": 42011381,
+      "index": 129.4
+     },
+     {
+      "year": 2017,
+      "value": 42421837,
+      "index": 130.7
+     },
+     {
+      "year": 2018,
+      "value": 43378510,
+      "index": 133.6
+     },
+     {
+      "year": 2019,
+      "value": 43774222,
+      "index": 134.8
+     },
+     {
+      "year": 2020,
+      "value": 45334363,
+      "index": 139.6
+     },
+     {
+      "year": 2021,
+      "value": 45829824,
+      "index": 141.2
+     },
+     {
+      "year": 2022,
+      "value": 47146516,
+      "index": 145.2
+     },
+     {
+      "year": 2023,
+      "value": 47420479,
+      "index": 146.1
+     }
+    ]
+   },
+   "us_code_pages": {
+    "label": "US Code, pages in force",
+    "kind": "stock",
+    "color": "#1f8a6d",
+    "points": [
+     {
+      "year": 2000,
+      "value": 36480,
+      "index": 100.0
+     },
+     {
+      "year": 2001,
+      "value": 37242,
+      "index": 102.1
+     },
+     {
+      "year": 2002,
+      "value": 38212,
+      "index": 104.7
+     },
+     {
+      "year": 2003,
+      "value": 39013,
+      "index": 106.9
+     },
+     {
+      "year": 2004,
+      "value": 39231,
+      "index": 107.5
+     },
+     {
+      "year": 2005,
+      "value": 40124,
+      "index": 110.0
+     },
+     {
+      "year": 2006,
+      "value": 39836,
+      "index": 109.2
+     },
+     {
+      "year": 2007,
+      "value": 40461,
+      "index": 110.9
+     },
+     {
+      "year": 2008,
+      "value": 41936,
+      "index": 115.0
+     },
+     {
+      "year": 2009,
+      "value": 42620,
+      "index": 116.8
+     },
+     {
+      "year": 2010,
+      "value": 44215,
+      "index": 121.2
+     },
+     {
+      "year": 2011,
+      "value": 44426,
+      "index": 121.8
+     },
+     {
+      "year": 2012,
+      "value": 44841,
+      "index": 122.9
+     },
+     {
+      "year": 2013,
+      "value": 45076,
+      "index": 123.6
+     },
+     {
+      "year": 2014,
+      "value": 45900,
+      "index": 125.8
+     },
+     {
+      "year": 2015,
+      "value": 46253,
+      "index": 126.8
+     },
+     {
+      "year": 2016,
+      "value": 46880,
+      "index": 128.5
+     },
+     {
+      "year": 2017,
+      "value": 47365,
+      "index": 129.8
+     },
+     {
+      "year": 2018,
+      "value": 48472,
+      "index": 132.9
+     },
+     {
+      "year": 2019,
+      "value": 47855,
+      "index": 131.2
+     },
+     {
+      "year": 2020,
+      "value": 49985,
+      "index": 137.0
+     },
+     {
+      "year": 2021,
+      "value": 50987,
+      "index": 139.8
+     },
+     {
+      "year": 2022,
+      "value": 52549,
+      "index": 144.0
+     },
+     {
+      "year": 2023,
+      "value": 52833,
+      "index": 144.8
+     },
+     {
+      "year": 2024,
+      "value": 53380,
+      "index": 146.3
+     }
+    ]
+   },
+   "cfr_pages": {
+    "label": "CFR, pages in force",
+    "kind": "stock",
+    "color": "#a8730a",
+    "points": [
+     {
+      "year": 2000,
+      "value": 138049,
+      "index": 100.0
+     },
+     {
+      "year": 2001,
+      "value": 141281,
+      "index": 102.3
+     },
+     {
+      "year": 2002,
+      "value": 145099,
+      "index": 105.1
+     },
+     {
+      "year": 2003,
+      "value": 144187,
+      "index": 104.4
+     },
+     {
+      "year": 2004,
+      "value": 147639,
+      "index": 106.9
+     },
+     {
+      "year": 2005,
+      "value": 151973,
+      "index": 110.1
+     },
+     {
+      "year": 2006,
+      "value": 154107,
+      "index": 111.6
+     },
+     {
+      "year": 2007,
+      "value": 156010,
+      "index": 113.0
+     },
+     {
+      "year": 2008,
+      "value": 157974,
+      "index": 114.4
+     },
+     {
+      "year": 2009,
+      "value": 163333,
+      "index": 118.3
+     },
+     {
+      "year": 2010,
+      "value": 165494,
+      "index": 119.9
+     },
+     {
+      "year": 2011,
+      "value": 169301,
+      "index": 122.6
+     },
+     {
+      "year": 2012,
+      "value": 174545,
+      "index": 126.4
+     },
+     {
+      "year": 2013,
+      "value": 175496,
+      "index": 127.1
+     },
+     {
+      "year": 2014,
+      "value": 175274,
+      "index": 127.0
+     },
+     {
+      "year": 2015,
+      "value": 178351,
+      "index": 129.2
+     },
+     {
+      "year": 2016,
+      "value": 185131,
+      "index": 134.1
+     },
+     {
+      "year": 2017,
+      "value": 186468,
+      "index": 135.1
+     },
+     {
+      "year": 2018,
+      "value": 185544,
+      "index": 134.4
+     },
+     {
+      "year": 2019,
+      "value": 186067,
+      "index": 134.8
+     },
+     {
+      "year": 2020,
+      "value": 186644,
+      "index": 135.2
+     },
+     {
+      "year": 2021,
+      "value": 188343,
+      "index": 136.4
+     },
+     {
+      "year": 2022,
+      "value": 188148,
+      "index": 136.3
+     },
+     {
+      "year": 2023,
+      "value": 190627,
+      "index": 138.1
+     },
+     {
+      "year": 2024,
+      "value": 194395,
+      "index": 140.8
+     }
+    ]
+   },
+   "public_laws": {
+    "label": "Public laws enacted per year",
+    "kind": "flow",
+    "color": "#9c2226",
+    "points": [
+     {
+      "year": 2000,
+      "value": 411,
+      "index": 100.0
+     },
+     {
+      "year": 2001,
+      "value": 107,
+      "index": 26.0
+     },
+     {
+      "year": 2002,
+      "value": 269,
+      "index": 65.5
+     },
+     {
+      "year": 2003,
+      "value": 198,
+      "index": 48.2
+     },
+     {
+      "year": 2004,
+      "value": 300,
+      "index": 73.0
+     },
+     {
+      "year": 2005,
+      "value": 161,
+      "index": 39.2
+     },
+     {
+      "year": 2006,
+      "value": 308,
+      "index": 74.9
+     },
+     {
+      "year": 2007,
+      "value": 188,
+      "index": 45.7
+     },
+     {
+      "year": 2008,
+      "value": 285,
+      "index": 69.3
+     },
+     {
+      "year": 2009,
+      "value": 125,
+      "index": 30.4
+     },
+     {
+      "year": 2010,
+      "value": 221,
+      "index": 53.8
+     },
+     {
+      "year": 2011,
+      "value": 118,
+      "index": 28.7
+     },
+     {
+      "year": 2012,
+      "value": 157,
+      "index": 38.2
+     },
+     {
+      "year": 2013,
+      "value": 117,
+      "index": 28.5
+     },
+     {
+      "year": 2014,
+      "value": 224,
+      "index": 54.5
+     },
+     {
+      "year": 2015,
+      "value": 115,
+      "index": 28.0
+     },
+     {
+      "year": 2016,
+      "value": 213,
+      "index": 51.8
+     },
+     {
+      "year": 2017,
+      "value": 98,
+      "index": 23.8
+     },
+     {
+      "year": 2018,
+      "value": 313,
+      "index": 76.2
+     },
+     {
+      "year": 2019,
+      "value": 137,
+      "index": 33.3
+     },
+     {
+      "year": 2020,
+      "value": 177,
+      "index": 43.1
+     },
+     {
+      "year": 2021,
+      "value": 143,
+      "index": 34.8
+     },
+     {
+      "year": 2022,
+      "value": 247,
+      "index": 60.1
+     },
+     {
+      "year": 2023,
+      "value": 68,
+      "index": 16.5
+     },
+     {
+      "year": 2024,
+      "value": 175,
+      "index": 42.6
+     },
+     {
+      "year": 2025,
+      "value": 134,
+      "index": 32.6
+     }
+    ]
+   }
+  }
  }
 }
