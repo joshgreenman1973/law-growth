@@ -1,0 +1,265 @@
+{
+ "metric": "Federal Register pages published per calendar year (ACTUAL pages, excluding skips/blanks)",
+ "source_url": "https://www.federalregister.gov/reader-aids/federal-register-statistics/category-page-statistics",
+ "provenance": "HTML table scraped from the Office of the Federal Register 'Federal Register & CFR Publication Statistics \u2014 Aggregated Charts' page; ACTUAL (dagger-dagger-dagger) column used as `value`; TOTAL column retained as total_pages_incl_skips.",
+ "retrieved": "2026-07-19",
+ "basis": "calendar_year",
+ "notes": "`value` is the ACTUAL page count, which excludes skipped/blank pages; the TOTAL column includes them (e.g. 2000: 77,219 total vs 71,149 actual). Verified against expected values: 2000 = 77,219 total / 71,149 actual; 2024 = 107,262 total / 106,109 actual \u2014 both matched exactly. The source table runs 1936-2026 but the ACTUAL column is only populated from 1976 onward; the 40 years 1936-1975 have a TOTAL only and are omitted from this series rather than interpolated. 2026 is a partial year: data retrieved 2026-07-19 and covers only part of the year. Do not compare it to full years.",
+ "series": [
+  {
+   "year": 1976,
+   "value": 50505,
+   "total_pages_incl_skips": 57072
+  },
+  {
+   "year": 1977,
+   "value": 57787,
+   "total_pages_incl_skips": 65603
+  },
+  {
+   "year": 1978,
+   "value": 55696,
+   "total_pages_incl_skips": 61261
+  },
+  {
+   "year": 1979,
+   "value": 71191,
+   "total_pages_incl_skips": 77498
+  },
+  {
+   "year": 1980,
+   "value": 73258,
+   "total_pages_incl_skips": 87012
+  },
+  {
+   "year": 1981,
+   "value": 57736,
+   "total_pages_incl_skips": 63554
+  },
+  {
+   "year": 1982,
+   "value": 53104,
+   "total_pages_incl_skips": 58494
+  },
+  {
+   "year": 1983,
+   "value": 53018,
+   "total_pages_incl_skips": 57704
+  },
+  {
+   "year": 1984,
+   "value": 48643,
+   "total_pages_incl_skips": 50998
+  },
+  {
+   "year": 1985,
+   "value": 50502,
+   "total_pages_incl_skips": 53480
+  },
+  {
+   "year": 1986,
+   "value": 44812,
+   "total_pages_incl_skips": 47418
+  },
+  {
+   "year": 1987,
+   "value": 47033,
+   "total_pages_incl_skips": 49654
+  },
+  {
+   "year": 1988,
+   "value": 50616,
+   "total_pages_incl_skips": 53376
+  },
+  {
+   "year": 1989,
+   "value": 50501,
+   "total_pages_incl_skips": 53842
+  },
+  {
+   "year": 1990,
+   "value": 49795,
+   "total_pages_incl_skips": 53620
+  },
+  {
+   "year": 1991,
+   "value": 57973,
+   "total_pages_incl_skips": 67716
+  },
+  {
+   "year": 1992,
+   "value": 57003,
+   "total_pages_incl_skips": 62928
+  },
+  {
+   "year": 1993,
+   "value": 61166,
+   "total_pages_incl_skips": 69688
+  },
+  {
+   "year": 1994,
+   "value": 64914,
+   "total_pages_incl_skips": 68108
+  },
+  {
+   "year": 1995,
+   "value": 62645,
+   "total_pages_incl_skips": 67518
+  },
+  {
+   "year": 1996,
+   "value": 64591,
+   "total_pages_incl_skips": 69368
+  },
+  {
+   "year": 1997,
+   "value": 64549,
+   "total_pages_incl_skips": 68530
+  },
+  {
+   "year": 1998,
+   "value": 68571,
+   "total_pages_incl_skips": 72356
+  },
+  {
+   "year": 1999,
+   "value": 71161,
+   "total_pages_incl_skips": 73880
+  },
+  {
+   "year": 2000,
+   "value": 71149,
+   "total_pages_incl_skips": 77219
+  },
+  {
+   "year": 2001,
+   "value": 61373,
+   "total_pages_incl_skips": 62684
+  },
+  {
+   "year": 2002,
+   "value": 72412,
+   "total_pages_incl_skips": 73882
+  },
+  {
+   "year": 2003,
+   "value": 67713,
+   "total_pages_incl_skips": 70177
+  },
+  {
+   "year": 2004,
+   "value": 72280,
+   "total_pages_incl_skips": 74070
+  },
+  {
+   "year": 2005,
+   "value": 70421,
+   "total_pages_incl_skips": 74181
+  },
+  {
+   "year": 2006,
+   "value": 71914,
+   "total_pages_incl_skips": 73123
+  },
+  {
+   "year": 2007,
+   "value": 70262,
+   "total_pages_incl_skips": 71483
+  },
+  {
+   "year": 2008,
+   "value": 78965,
+   "total_pages_incl_skips": 80048
+  },
+  {
+   "year": 2009,
+   "value": 68733,
+   "total_pages_incl_skips": 69677
+  },
+  {
+   "year": 2010,
+   "value": 81509,
+   "total_pages_incl_skips": 82586
+  },
+  {
+   "year": 2011,
+   "value": 81360,
+   "total_pages_incl_skips": 82421
+  },
+  {
+   "year": 2012,
+   "value": 76285,
+   "total_pages_incl_skips": 77250
+  },
+  {
+   "year": 2013,
+   "value": 79444,
+   "total_pages_incl_skips": 80459
+  },
+  {
+   "year": 2014,
+   "value": 78084,
+   "total_pages_incl_skips": 79065
+  },
+  {
+   "year": 2015,
+   "value": 80964,
+   "total_pages_incl_skips": 82036
+  },
+  {
+   "year": 2016,
+   "value": 95913,
+   "total_pages_incl_skips": 97874
+  },
+  {
+   "year": 2017,
+   "value": 61314,
+   "total_pages_incl_skips": 61950
+  },
+  {
+   "year": 2018,
+   "value": 67241,
+   "total_pages_incl_skips": 68084
+  },
+  {
+   "year": 2019,
+   "value": 71726,
+   "total_pages_incl_skips": 72566
+  },
+  {
+   "year": 2020,
+   "value": 86357,
+   "total_pages_incl_skips": 87350
+  },
+  {
+   "year": 2021,
+   "value": 73771,
+   "total_pages_incl_skips": 74532
+  },
+  {
+   "year": 2022,
+   "value": 79856,
+   "total_pages_incl_skips": 80757
+  },
+  {
+   "year": 2023,
+   "value": 89368,
+   "total_pages_incl_skips": 90402
+  },
+  {
+   "year": 2024,
+   "value": 106109,
+   "total_pages_incl_skips": 107262
+  },
+  {
+   "year": 2025,
+   "value": 60917,
+   "total_pages_incl_skips": 61584
+  },
+  {
+   "year": 2026,
+   "value": 44706,
+   "total_pages_incl_skips": 45186
+  }
+ ]
+}

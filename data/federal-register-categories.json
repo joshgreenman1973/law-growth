@@ -1,0 +1,418 @@
+{
+ "metric": "Federal Register pages by document category, per calendar year",
+ "source_url": "https://www.federalregister.gov/reader-aids/federal-register-statistics/category-page-statistics",
+ "provenance": "HTML table scraped 2026-07-19 with a browser user-agent (curl default UA returns an empty body). Columns: Presidential Documents, Rules, Proposed Rules, Notices. total = sum of the four, which reproduces the ACTUAL page count in federal-register-pages.json exactly (2024: 106,109; 2025: 60,917).",
+ "retrieved": "2026-07-19",
+ "basis": "calendar_year",
+ "notes": "2026 is a PARTIAL year (through mid-July 2026). 2025 is complete.",
+ "series": [
+  {
+   "year": 1976,
+   "presidential": 549,
+   "rules": 12589,
+   "proposed_rules": 9325,
+   "notices": 28042,
+   "total": 50505
+  },
+  {
+   "year": 1977,
+   "presidential": 473,
+   "rules": 14572,
+   "proposed_rules": 9620,
+   "notices": 33122,
+   "total": 57787
+  },
+  {
+   "year": 1978,
+   "presidential": 624,
+   "rules": 15452,
+   "proposed_rules": 11885,
+   "notices": 27735,
+   "total": 55696
+  },
+  {
+   "year": 1979,
+   "presidential": 729,
+   "rules": 19366,
+   "proposed_rules": 18091,
+   "notices": 33005,
+   "total": 71191
+  },
+  {
+   "year": 1980,
+   "presidential": 604,
+   "rules": 21092,
+   "proposed_rules": 16276,
+   "notices": 35286,
+   "total": 73258
+  },
+  {
+   "year": 1981,
+   "presidential": 306,
+   "rules": 15300,
+   "proposed_rules": 10433,
+   "notices": 31697,
+   "total": 57736
+  },
+  {
+   "year": 1982,
+   "presidential": 320,
+   "rules": 15222,
+   "proposed_rules": 12130,
+   "notices": 25432,
+   "total": 53104
+  },
+  {
+   "year": 1983,
+   "presidential": 323,
+   "rules": 16196,
+   "proposed_rules": 12772,
+   "notices": 23727,
+   "total": 53018
+  },
+  {
+   "year": 1984,
+   "presidential": 611,
+   "rules": 15473,
+   "proposed_rules": 11972,
+   "notices": 20587,
+   "total": 48643
+  },
+  {
+   "year": 1985,
+   "presidential": 528,
+   "rules": 15460,
+   "proposed_rules": 13772,
+   "notices": 20742,
+   "total": 50502
+  },
+  {
+   "year": 1986,
+   "presidential": 357,
+   "rules": 13904,
+   "proposed_rules": 11816,
+   "notices": 18703,
+   "total": 44780
+  },
+  {
+   "year": 1987,
+   "presidential": 426,
+   "rules": 13625,
+   "proposed_rules": 14181,
+   "notices": 18562,
+   "total": 46794
+  },
+  {
+   "year": 1988,
+   "presidential": 768,
+   "rules": 16042,
+   "proposed_rules": 13883,
+   "notices": 19672,
+   "total": 50365
+  },
+  {
+   "year": 1989,
+   "presidential": 410,
+   "rules": 16489,
+   "proposed_rules": 13220,
+   "notices": 20142,
+   "total": 50261
+  },
+  {
+   "year": 1990,
+   "presidential": 491,
+   "rules": 14179,
+   "proposed_rules": 12692,
+   "notices": 22202,
+   "total": 49564
+  },
+  {
+   "year": 1991,
+   "presidential": 667,
+   "rules": 16792,
+   "proposed_rules": 16761,
+   "notices": 23535,
+   "total": 57755
+  },
+  {
+   "year": 1992,
+   "presidential": 551,
+   "rules": 15921,
+   "proposed_rules": 15156,
+   "notices": 25103,
+   "total": 56731
+  },
+  {
+   "year": 1993,
+   "presidential": 973,
+   "rules": 18016,
+   "proposed_rules": 15410,
+   "notices": 26551,
+   "total": 60950
+  },
+  {
+   "year": 1994,
+   "presidential": 485,
+   "rules": 20385,
+   "proposed_rules": 18183,
+   "notices": 25707,
+   "total": 64760
+  },
+  {
+   "year": 1995,
+   "presidential": 1301,
+   "rules": 18047,
+   "proposed_rules": 15982,
+   "notices": 27126,
+   "total": 62456
+  },
+  {
+   "year": 1996,
+   "presidential": 445,
+   "rules": 21622,
+   "proposed_rules": 15369,
+   "notices": 27029,
+   "total": 64465
+  },
+  {
+   "year": 1997,
+   "presidential": 414,
+   "rules": 18984,
+   "proposed_rules": 15309,
+   "notices": 29679,
+   "total": 64386
+  },
+  {
+   "year": 1998,
+   "presidential": 399,
+   "rules": 20029,
+   "proposed_rules": 18256,
+   "notices": 29732,
+   "total": 68416
+  },
+  {
+   "year": 1999,
+   "presidential": 414,
+   "rules": 20201,
+   "proposed_rules": 19447,
+   "notices": 30947,
+   "total": 71009
+  },
+  {
+   "year": 2000,
+   "presidential": 606,
+   "rules": 24423,
+   "proposed_rules": 14698,
+   "notices": 31093,
+   "total": 70820
+  },
+  {
+   "year": 2001,
+   "presidential": 1172,
+   "rules": 19651,
+   "proposed_rules": 11461,
+   "notices": 28963,
+   "total": 61247
+  },
+  {
+   "year": 2002,
+   "presidential": 546,
+   "rules": 19236,
+   "proposed_rules": 15518,
+   "notices": 36934,
+   "total": 72234
+  },
+  {
+   "year": 2003,
+   "presidential": 577,
+   "rules": 22669,
+   "proposed_rules": 14136,
+   "notices": 30164,
+   "total": 67546
+  },
+  {
+   "year": 2004,
+   "presidential": 614,
+   "rules": 22755,
+   "proposed_rules": 16110,
+   "notices": 32584,
+   "total": 72063
+  },
+  {
+   "year": 2005,
+   "presidential": 548,
+   "rules": 23043,
+   "proposed_rules": 15063,
+   "notices": 31644,
+   "total": 70298
+  },
+  {
+   "year": 2006,
+   "presidential": 540,
+   "rules": 22335,
+   "proposed_rules": 16666,
+   "notices": 32168,
+   "total": 71709
+  },
+  {
+   "year": 2007,
+   "presidential": 669,
+   "rules": 22796,
+   "proposed_rules": 16646,
+   "notices": 30036,
+   "total": 70147
+  },
+  {
+   "year": 2008,
+   "presidential": 654,
+   "rules": 26327,
+   "proposed_rules": 18058,
+   "notices": 33873,
+   "total": 78912
+  },
+  {
+   "year": 2009,
+   "presidential": 703,
+   "rules": 20844,
+   "proposed_rules": 16200,
+   "notices": 30564,
+   "total": 68311
+  },
+  {
+   "year": 2010,
+   "presidential": 720,
+   "rules": 24861,
+   "proposed_rules": 21623,
+   "notices": 34041,
+   "total": 81245
+  },
+  {
+   "year": 2011,
+   "presidential": 623,
+   "rules": 26203,
+   "proposed_rules": 23102,
+   "notices": 31429,
+   "total": 81357
+  },
+  {
+   "year": 2012,
+   "presidential": 708,
+   "rules": 24628,
+   "proposed_rules": 20170,
+   "notices": 30779,
+   "total": 76285
+  },
+  {
+   "year": 2013,
+   "presidential": 752,
+   "rules": 26412,
+   "proposed_rules": 20627,
+   "notices": 31653,
+   "total": 79444
+  },
+  {
+   "year": 2014,
+   "presidential": 702,
+   "rules": 25186,
+   "proposed_rules": 20723,
+   "notices": 31473,
+   "total": 78084
+  },
+  {
+   "year": 2015,
+   "presidential": 749,
+   "rules": 25125,
+   "proposed_rules": 22736,
+   "notices": 32354,
+   "total": 80964
+  },
+  {
+   "year": 2016,
+   "presidential": 1023,
+   "rules": 38639,
+   "proposed_rules": 21455,
+   "notices": 34796,
+   "total": 95913
+  },
+  {
+   "year": 2017,
+   "presidential": 845,
+   "rules": 18869,
+   "proposed_rules": 10704,
+   "notices": 30896,
+   "total": 61314
+  },
+  {
+   "year": 2018,
+   "presidential": 1258,
+   "rules": 18214,
+   "proposed_rules": 17224,
+   "notices": 30545,
+   "total": 67241
+  },
+  {
+   "year": 2019,
+   "presidential": 804,
+   "rules": 20857,
+   "proposed_rules": 19365,
+   "notices": 30700,
+   "total": 71726
+  },
+  {
+   "year": 2020,
+   "presidential": 987,
+   "rules": 32220,
+   "proposed_rules": 19984,
+   "notices": 33162,
+   "total": 86353
+  },
+  {
+   "year": 2021,
+   "presidential": 1135,
+   "rules": 23634,
+   "proposed_rules": 16392,
+   "notices": 32610,
+   "total": 73771
+  },
+  {
+   "year": 2022,
+   "presidential": 885,
+   "rules": 21750,
+   "proposed_rules": 23791,
+   "notices": 33430,
+   "total": 79856
+  },
+  {
+   "year": 2023,
+   "presidential": 1043,
+   "rules": 26286,
+   "proposed_rules": 28892,
+   "notices": 33147,
+   "total": 89368
+  },
+  {
+   "year": 2024,
+   "presidential": 855,
+   "rules": 45028,
+   "proposed_rules": 19952,
+   "notices": 40274,
+   "total": 106109
+  },
+  {
+   "year": 2025,
+   "presidential": 2072,
+   "rules": 16461,
+   "proposed_rules": 12920,
+   "notices": 29464,
+   "total": 60917
+  },
+  {
+   "year": 2026,
+   "presidential": 946,
+   "rules": 10470,
+   "proposed_rules": 12980,
+   "notices": 20310,
+   "total": 44706
+  }
+ ]
+}

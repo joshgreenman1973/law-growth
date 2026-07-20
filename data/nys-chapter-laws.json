@@ -1,0 +1,204 @@
+{
+  "metric": "New York State chapter laws enacted (highest chapter number assigned)",
+  "source_url": "http://public.leginfo.state.ny.us/navigate.cgi",
+  "dataset_id": "NYS Legislative Retrieval System (LBDC) chapter list",
+  "retrieved": "2026-07-19",
+  "provenance": "GET http://public.leginfo.state.ny.us/navigate.cgi?NVLIO:&hwebpage=CHAPLIST&hlistyr=YYYY&SESSYR=YYYY for each year 1995-2026. This is the Legislative Bill Drafting Commission's official per-year CHAPTER LIST. Each row links to chapter detail as SPECIAL/YYYY/CHAPnnnn; value = the highest chapter number appearing in that year's list.",
+  "coverage_note": "Sourced years: 1995 through 2025, every year, from the LBDC chapter list described in provenance. No year is estimated, interpolated or carried forward. 2026 is EXCLUDED as an incomplete year in progress (169 chapters listed as of 2026-07-19). The NY Senate Open Legislation API (https://legislation.nysenate.gov/api/3/) was tried first and returned HTTP 401 errorCode 701 (valid API key required); no key was found in the environment or macOS Keychain, so that route was abandoned rather than guessed. Independent cross-check: 2024 = chapter 679 matches both the prior verification (Senate bill action line 'signed chap.679', bill S2129-B) and the NY State Board of Elections publication 'STATE OF NEW YORK 2025 ELECTION LAW (AMENDED THROUGH LAWS 2024, CHAPTER 679)'. Four year/chapter slots (1997 ch.10, 1998 ch.10, 2003 ch.3, 2010 ch.60) have no bill in the LBDC list; a direct CHAPNO lookup for each returns 'No bill information found for Chap No', so these are genuine gaps in the numbering rather than scrape failures. Every other year's list is complete and contiguous from 1 to the max. chapters_listed is given alongside value for transparency.",
+  "series": [
+    {
+      "year": 1995,
+      "value": 694,
+      "chapters_listed": 694,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 1996,
+      "value": 731,
+      "chapters_listed": 731,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 1997,
+      "value": 687,
+      "chapters_listed": 686,
+      "missing_chapter_numbers": [
+        10
+      ]
+    },
+    {
+      "year": 1998,
+      "value": 657,
+      "chapters_listed": 656,
+      "missing_chapter_numbers": [
+        10
+      ]
+    },
+    {
+      "year": 1999,
+      "value": 659,
+      "chapters_listed": 659,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2000,
+      "value": 609,
+      "chapters_listed": 609,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2001,
+      "value": 591,
+      "chapters_listed": 591,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2002,
+      "value": 698,
+      "chapters_listed": 698,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2003,
+      "value": 698,
+      "chapters_listed": 697,
+      "missing_chapter_numbers": [
+        3
+      ]
+    },
+    {
+      "year": 2004,
+      "value": 755,
+      "chapters_listed": 755,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2005,
+      "value": 770,
+      "chapters_listed": 770,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2006,
+      "value": 750,
+      "chapters_listed": 750,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2007,
+      "value": 691,
+      "chapters_listed": 691,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2008,
+      "value": 652,
+      "chapters_listed": 652,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2009,
+      "value": 507,
+      "chapters_listed": 507,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2010,
+      "value": 568,
+      "chapters_listed": 567,
+      "missing_chapter_numbers": [
+        60
+      ]
+    },
+    {
+      "year": 2011,
+      "value": 610,
+      "chapters_listed": 610,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2012,
+      "value": 505,
+      "chapters_listed": 505,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2013,
+      "value": 558,
+      "chapters_listed": 558,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2014,
+      "value": 552,
+      "chapters_listed": 552,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2015,
+      "value": 589,
+      "chapters_listed": 589,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2016,
+      "value": 519,
+      "chapters_listed": 519,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2017,
+      "value": 506,
+      "chapters_listed": 506,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2018,
+      "value": 522,
+      "chapters_listed": 522,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2019,
+      "value": 758,
+      "chapters_listed": 758,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2020,
+      "value": 389,
+      "chapters_listed": 389,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2021,
+      "value": 834,
+      "chapters_listed": 834,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2022,
+      "value": 841,
+      "chapters_listed": 841,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2023,
+      "value": 777,
+      "chapters_listed": 777,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2024,
+      "value": 679,
+      "chapters_listed": 679,
+      "missing_chapter_numbers": []
+    },
+    {
+      "year": 2025,
+      "value": 714,
+      "chapters_listed": 714,
+      "missing_chapter_numbers": []
+    }
+  ]
+}

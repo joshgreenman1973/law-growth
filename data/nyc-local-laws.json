@@ -1,0 +1,185 @@
+{
+  "metric": "NYC local laws enacted",
+  "source_url": "https://data.cityofnewyork.us/resource/6ctv-n46c.json",
+  "dataset_id": "6ctv-n46c",
+  "retrieved": "2026-07-19",
+  "provenance": "GET https://data.cityofnewyork.us/resource/6ctv-n46c.json with $select=law_number,file_num,intro_date & $where=law_number IS NOT NULL AND law_number != 'NA' & $limit=50000. Returned 3,102 rows, all with law_number of the form YYYY/NNN. Year derived from the law_number prefix; value = count of distinct local law numbers in that year.",
+  "notes": "The law_number field uses the literal string 'NA' (not NULL) for non-enacted bills; both were excluded. One row carries the malformed law_number '98/060', treated as 1998/060 and folded into 1998. Validation: no year has count > max_sequence. Gap years (count < max_sequence) are listed per-year in missing_sequences: 1998 is missing LL 1-3 (bills introduced in the prior 1997 session, outside this dataset's coverage), and 2018, 2019, 2022 and 2024 are each missing exactly one sequence number. 2025 (18 rows) and later are excluded as incomplete; the dataset was last refreshed March 2025.",
+  "sanity_check": "Prior ballpark was 1998~56, 2005~136, 2017~282, 2024~135. Observed: 1998=57 (56 plus the recovered '98/060' row), 2005=137, 2017=256, 2024=135. The 2017 figure differs materially from the ~282 ballpark: the dataset's 2017 local law numbers run 1-256 with no gaps, so 256 is the complete 2017 numbering sequence and the ~282 ballpark appears to be wrong.",
+  "series": [
+    {
+      "year": 1998,
+      "value": 57,
+      "max_sequence": 60,
+      "missing_sequences": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "year": 1999,
+      "value": 80,
+      "max_sequence": 80,
+      "missing_sequences": []
+    },
+    {
+      "year": 2000,
+      "value": 74,
+      "max_sequence": 74,
+      "missing_sequences": []
+    },
+    {
+      "year": 2001,
+      "value": 82,
+      "max_sequence": 82,
+      "missing_sequences": []
+    },
+    {
+      "year": 2002,
+      "value": 48,
+      "max_sequence": 48,
+      "missing_sequences": []
+    },
+    {
+      "year": 2003,
+      "value": 84,
+      "max_sequence": 84,
+      "missing_sequences": []
+    },
+    {
+      "year": 2004,
+      "value": 63,
+      "max_sequence": 63,
+      "missing_sequences": []
+    },
+    {
+      "year": 2005,
+      "value": 137,
+      "max_sequence": 137,
+      "missing_sequences": []
+    },
+    {
+      "year": 2006,
+      "value": 58,
+      "max_sequence": 58,
+      "missing_sequences": []
+    },
+    {
+      "year": 2007,
+      "value": 68,
+      "max_sequence": 68,
+      "missing_sequences": []
+    },
+    {
+      "year": 2008,
+      "value": 68,
+      "max_sequence": 68,
+      "missing_sequences": []
+    },
+    {
+      "year": 2009,
+      "value": 94,
+      "max_sequence": 94,
+      "missing_sequences": []
+    },
+    {
+      "year": 2010,
+      "value": 65,
+      "max_sequence": 65,
+      "missing_sequences": []
+    },
+    {
+      "year": 2011,
+      "value": 75,
+      "max_sequence": 75,
+      "missing_sequences": []
+    },
+    {
+      "year": 2012,
+      "value": 63,
+      "max_sequence": 63,
+      "missing_sequences": []
+    },
+    {
+      "year": 2013,
+      "value": 156,
+      "max_sequence": 156,
+      "missing_sequences": []
+    },
+    {
+      "year": 2014,
+      "value": 68,
+      "max_sequence": 68,
+      "missing_sequences": []
+    },
+    {
+      "year": 2015,
+      "value": 113,
+      "max_sequence": 113,
+      "missing_sequences": []
+    },
+    {
+      "year": 2016,
+      "value": 194,
+      "max_sequence": 194,
+      "missing_sequences": []
+    },
+    {
+      "year": 2017,
+      "value": 256,
+      "max_sequence": 256,
+      "missing_sequences": []
+    },
+    {
+      "year": 2018,
+      "value": 222,
+      "max_sequence": 223,
+      "missing_sequences": [
+        211
+      ]
+    },
+    {
+      "year": 2019,
+      "value": 227,
+      "max_sequence": 228,
+      "missing_sequences": [
+        215
+      ]
+    },
+    {
+      "year": 2020,
+      "value": 125,
+      "max_sequence": 125,
+      "missing_sequences": []
+    },
+    {
+      "year": 2021,
+      "value": 173,
+      "max_sequence": 173,
+      "missing_sequences": []
+    },
+    {
+      "year": 2022,
+      "value": 125,
+      "max_sequence": 126,
+      "missing_sequences": [
+        121
+      ]
+    },
+    {
+      "year": 2023,
+      "value": 174,
+      "max_sequence": 174,
+      "missing_sequences": []
+    },
+    {
+      "year": 2024,
+      "value": 135,
+      "max_sequence": 136,
+      "missing_sequences": [
+        117
+      ]
+    }
+  ]
+}

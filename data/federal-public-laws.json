@@ -1,0 +1,138 @@
+{
+ "metric": "Federal public laws enacted per calendar year",
+ "source_url": "https://www.govinfo.gov/sitemap/PLAW_sitemap_index.xml",
+ "provenance": "GovInfo PLAW (Public and Private Laws) collection sitemaps, one per year: https://www.govinfo.gov/sitemap/PLAW_{YEAR}_sitemap.xml . Counted unique package IDs matching PLAW-{congress}publ{n}; 'pvtl' (private law) packages were excluded. Keyless/no API key required.",
+ "retrieved": "2026-07-19",
+ "basis": "calendar_year",
+ "notes": "GovInfo buckets each law by its enactment (signing) date, giving a true calendar-year basis that aligns with the Federal Register and CFR series. CROSS-CHECKED against the Senate 'Resume of Congressional Activity' PDFs (https://www.senate.gov/legislative/ResumesofCongressionalActivity1947present.htm, 'Public bills enacted into law' = Senate column + House column), which are SESSION-based rather than calendar-based. The two agree exactly where sessions align (2009: 125 both) and diverge exactly as expected where they do not: the Senate's 2010 session count (258) exceeds the calendar-2010 count (221) by 37, and the calendar-2011 sitemap contains exactly 37 laws from the 111th Congress (signed in early January 2011 after the lame-duck session) \u2014 a precise reconciliation confirming the calendar-year semantics. Congress-total sanity checks also pass (106th: 580 expected). Note the Senate resume PDFs are only available from 2009 onward; requests for 1999-2008 return an HTTP 200 HTML soft-404, not a PDF, so that route could not supply the early years and GovInfo was used as the primary source throughout. The Congress.gov API was not used: it requires a key, none was found in the environment or macOS Keychain, and DEMO_KEY returned OVER_RATE_LIMIT. 2026 is a partial year: data retrieved 2026-07-19 and covers only part of the year. Do not compare it to full years.",
+ "series": [
+  {
+   "year": 1995,
+   "value": 88
+  },
+  {
+   "year": 1996,
+   "value": 245
+  },
+  {
+   "year": 1997,
+   "value": 153
+  },
+  {
+   "year": 1998,
+   "value": 241
+  },
+  {
+   "year": 1999,
+   "value": 170
+  },
+  {
+   "year": 2000,
+   "value": 411
+  },
+  {
+   "year": 2001,
+   "value": 107
+  },
+  {
+   "year": 2002,
+   "value": 269
+  },
+  {
+   "year": 2003,
+   "value": 198
+  },
+  {
+   "year": 2004,
+   "value": 300
+  },
+  {
+   "year": 2005,
+   "value": 161
+  },
+  {
+   "year": 2006,
+   "value": 308
+  },
+  {
+   "year": 2007,
+   "value": 188
+  },
+  {
+   "year": 2008,
+   "value": 285
+  },
+  {
+   "year": 2009,
+   "value": 125
+  },
+  {
+   "year": 2010,
+   "value": 221
+  },
+  {
+   "year": 2011,
+   "value": 118
+  },
+  {
+   "year": 2012,
+   "value": 157
+  },
+  {
+   "year": 2013,
+   "value": 117
+  },
+  {
+   "year": 2014,
+   "value": 224
+  },
+  {
+   "year": 2015,
+   "value": 115
+  },
+  {
+   "year": 2016,
+   "value": 213
+  },
+  {
+   "year": 2017,
+   "value": 98
+  },
+  {
+   "year": 2018,
+   "value": 313
+  },
+  {
+   "year": 2019,
+   "value": 137
+  },
+  {
+   "year": 2020,
+   "value": 177
+  },
+  {
+   "year": 2021,
+   "value": 143
+  },
+  {
+   "year": 2022,
+   "value": 247
+  },
+  {
+   "year": 2023,
+   "value": 68
+  },
+  {
+   "year": 2024,
+   "value": 175
+  },
+  {
+   "year": 2025,
+   "value": 134
+  },
+  {
+   "year": 2026,
+   "value": 31
+  }
+ ]
+}

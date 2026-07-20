@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — The growing code</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .doc { max-width: 46rem; padding-bottom: 80px; }
+  .doc h2 { margin-top: 52px; }
+  .doc h3 { font-family: var(--sans); font-size: 15px; margin: 30px 0 6px; }
+  .doc p, .doc li { font-size: 17px; }
+  .doc code { font-family: var(--mono); font-size: 13.5px; background: var(--paper-deep); padding: 1px 5px; border-radius: 2px; word-break: break-all; }
+  .doc pre { font-family: var(--mono); font-size: 12.5px; background: var(--paper-card); border: 1px solid var(--rule); padding: 12px 14px; overflow-x: auto; }
+  .doc blockquote { margin: 14px 0; padding-left: 16px; border-left: 3px solid var(--nyc); font-style: normal; color: var(--ink-2); }
+  .back { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .flag { border-left: 3px solid var(--nyc); padding: 2px 0 2px 16px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="wrap doc">
+
+  <header class="site-header">
+    <div class="colophon"><a href="index.html" class="back">&larr; The growing code</a></div>
+  </header>
+
+  <h1 style="font-size:clamp(34px,6vw,58px)">Methodology</h1>
+  <p class="dek">Every series, where it came from, what it counts, and what failed.</p>
+  <p class="byline">Data retrieved July 19, 2026</p>
+
+  <h2>The question, and why it had to change</h2>
+  <p>The original brief was to measure the growth of law at the city, state and federal level, possibly by pages of code. That is not achievable, and the reason is worth stating first.</p>
+  <p><b>There is no historical page or word count of the New York City Administrative Code, and none of the New York Codes, Rules and Regulations.</b> Both are published commercially. The city's code is distributed by American Legal Publishing as bulk XML, which gives a current section count but no back catalogue; the earliest archived copy of that file is from 2022. The state's regulations are handed to Westlaw and are not machine-readable at all.</p>
+  <p>The one apparent exception is a trap. The Mercatus Center's State RegData has two snapshots of the New York regulatory code: 307,636 restrictions and roughly 22.5 million words in 2017, and 300,095 restrictions and 17,899,233 words in 2023. Both restrictions and words <em>fall</em>, the latter by 4.6 million, over a period with no major repeal effort. That is a corpus-construction difference between two versions of their pipeline, not deregulation. It was excluded rather than plotted.</p>
+  <p>So the project measures <b>annual legal output</b> &mdash; laws enacted and regulatory pages published per year &mdash; which does exist consistently at all three levels. Where a genuine stock measure exists (the Code of Federal Regulations), it is shown separately and labelled as stock.</p>
+
+  <h2>Series 1 &mdash; New York City local laws enacted</h2>
+  <p><b>Source:</b> NYC Open Data, "City Council Legislation: Bills and Local Laws", dataset <code>6ctv-n46c</code>. <b>Coverage:</b> 1998&ndash;2024; the chart shows 2000&ndash;2024.</p>
+  <p><b>Query:</b></p>
+  <pre>GET https://data.cityofnewyork.us/resource/6ctv-n46c.json
+  ?$select=law_number,file_num,intro_date
+  &amp;$where=law_number IS NOT NULL AND law_number != 'NA'
+  &amp;$limit=50000</pre>
+  <p>Returned 3,102 rows. The year is taken from the local law number itself, which has the form <code>2024/001</code>, rather than from a date field &mdash; local law numbering restarts each year, which makes the metric self-validating.</p>
+
+  <h3>Gotcha that would have corrupted the series</h3>
+  <p>The <code>law_number</code> field uses the literal string <code>"NA"</code>, not <code>NULL</code>, for bills that were never enacted. Filtering only on <code>IS NOT NULL</code> silently admits them. The contamination is small &mdash; three rows &mdash; but it moved 2001 from 84 to 82.</p>
+
+  <h3>Validation</h3>
+  <p>For every year, the count of distinct local law numbers was checked against the highest sequence number in that year. <b>No year has a count exceeding its maximum sequence</b>, which is the failure mode that would indicate double-counting. Years where the count falls below the maximum are recorded individually in <code>data/nyc-local-laws.json</code> under <code>missing_sequences</code>: 1998 is missing local laws 1 through 3, almost certainly introduced in the 1997 session before this dataset's coverage begins, and 2018, 2019, 2022 and 2024 are each missing exactly one number.</p>
+  <p>One row carries a malformed <code>law_number</code> of <code>"98/060"</code>, with a 1998 introduction date. It was read as 1998/060 and folded into 1998, which is why that year reads 57 rather than 56.</p>
+
+  <div class="flag">
+    <h3>A check that failed, and what came of it</h3>
+    <p>A figure of roughly 282 local laws for 2017 was carried into this project from earlier research and used as an expected value. The query returned 256. On inspection the 2017 numbering runs 1 to 256 with no gaps at all, so 256 is the complete sequence and the 282 figure is wrong. <b>The data was kept and the expectation discarded.</b> This is recorded because the opposite &mdash; quietly adjusting a query until it reproduces a remembered number &mdash; is the most common way a series like this goes bad.</p>
+  </div>
+
+  <p><b>Why it ends at 2024:</b> the dataset was last refreshed in March 2025. It contains 18 rows dated 2025, which are stragglers rather than a complete year, and they are excluded. The Legistar API that would give live counts now returns <code>403 Token is required</code>; any guide describing it as keyless is out of date.</p>
+
+  <h2>Series 2 &mdash; New York state chapter laws enacted</h2>
+  <p><b>Source:</b> the Legislative Bill Drafting Commission's official per-year chapter list. <b>Coverage:</b> 1995&ndash;2025; the chart shows 2000&ndash;2025.</p>
+  <pre>GET http://public.leginfo.state.ny.us/navigate.cgi
+  ?NVLIO:&amp;hwebpage=CHAPLIST&amp;hlistyr=YYYY&amp;SESSYR=YYYY</pre>
+  <p>New York assigns chapter numbers sequentially within each calendar year, so the highest chapter number of a year is the count of chapter laws enacted. Every year from 1995 to 2025 was fetched directly. <b>No year is estimated, interpolated or carried forward.</b></p>
+  <p><b>Validation:</b> 2024 returns 679, which matches two independent sources &mdash; a Senate bill action line reading <span style="white-space:nowrap">"signed chap.679"</span>, and the New York State Board of Elections publishing the 2025 Election Law as amended through Laws 2024, Chapter 679.</p>
+  <p>Four years have a chapter number with no bill attached (1997 ch. 10, 1998 ch. 10, 2003 ch. 3, 2010 ch. 60). Each was checked with a direct chapter lookup and returned "No bill information found", so these are genuine gaps in the numbering rather than scrape failures. Every other year is contiguous. Both the maximum and the listed count are stored in the JSON.</p>
+  <p><b>2026 is excluded</b> as an incomplete year (169 chapters as of retrieval).</p>
+  <p><b>Route that failed:</b> the NY Senate Open Legislation API returns <code>401</code> without a key, and no key was available. The Bill Drafting Commission list turned out to reach further back than the API would have (1995 against roughly 2009).</p>
+
+  <h2>Series 3 &mdash; Federal public laws enacted</h2>
+  <p><b>Source:</b> GovInfo PLAW collection sitemaps, one per year. <b>Coverage:</b> 1995&ndash;2026; the chart shows 2000&ndash;2025. <b>Basis: calendar year</b>, matching the other series.</p>
+  <pre>GET https://www.govinfo.gov/sitemap/PLAW_{YEAR}_sitemap.xml</pre>
+  <p>Counted unique package IDs matching <code>PLAW-{congress}publ{n}</code>; private law packages (<code>pvtl</code>) were excluded. No API key required. GovInfo buckets each law by its enactment date, which is what makes a true calendar-year basis possible.</p>
+
+  <h3>Two routes that failed, and the cross-check that validated the third</h3>
+  <p>The Senate's "Résumé of Congressional Activity" only exists from 2009 onward &mdash; requests for 1999 through 2008 return <code>HTTP 200</code> with an HTML soft-404 body, ten byte-identical files that are not PDFs and are easy to mistake for success. The Congress.gov API requires a key that was not available, and the shared <code>DEMO_KEY</code> returns <code>OVER_RATE_LIMIT</code>.</p>
+  <p>The GovInfo counts were then cross-checked against the Senate résumés for the years where both exist. They agree exactly where sessions align (2009: 125 from both) and diverge exactly where they should. The Senate's 2010 session count of 258 exceeds calendar-year 2010's 221 by 37 &mdash; and the calendar-2011 sitemap contains precisely 37 laws from the 111th Congress, signed in early January 2011 after the lame-duck session. The discrepancy reconciles to the day.</p>
+
+  <h2>Series 4 &mdash; Federal Register pages, total and by category</h2>
+  <p><b>Source:</b> <a href="https://www.federalregister.gov/reader-aids/federal-register-statistics/category-page-statistics">Office of the Federal Register publication statistics</a>. <b>Coverage:</b> 1976&ndash;2026; the charts show 2000&ndash;2025.</p>
+  <p>The <b>actual</b> page count is used throughout, not the total. The total includes skipped and blank pages &mdash; 6,070 of them in 2000 alone. The four category columns (presidential documents, rules, proposed rules, notices) sum to the actual count exactly in recent years: 2024 gives 855 + 45,028 + 19,952 + 40,274 = 106,109, and 2025 gives 2,072 + 16,461 + 12,920 + 29,464 = 60,917. In early years the reconciliation is close but not exact &mdash; the four columns sum to 70,820 for 2000 against a stated actual of 71,149, a difference of 329 pages, or about half a percent. The cause was not identified. The stacked chart uses the category columns and therefore reflects the smaller figure for those years.</p>
+  <p><b>Scraping note:</b> this page returns an <em>empty body</em> to a default curl user-agent. It must be requested with a browser user-agent. A pipeline that does not check for a zero-length response will silently record nothing.</p>
+  <p><b>2025 is complete and the drop is real.</b> Federal Register pages fell from 106,109 in 2024 to 60,917 in 2025. This was verified against the category table independently of the totals table. 2026 is partial (44,706 pages through mid-July) and is excluded from every chart.</p>
+
+  <h2>Series 5 &mdash; Code of Federal Regulations pages</h2>
+  <p><b>Source:</b> <a href="https://regulatorystudies.columbian.gwu.edu/regstats">GWU Regulatory Studies Center, RegStats</a>, via a CSV linked from that page. <b>Coverage:</b> 1950&ndash;2024; the chart shows 2000&ndash;2024.</p>
+  <p>The CSV URL is date-stamped and changes when the file is updated, so it is scraped from the page rather than hardcoded. Anchor values: 2000 = 138,049 pages across 202 volumes; 2024 = 194,395 pages across 245 volumes.</p>
+  <p><b>Methodology break, disclosed:</b> the CSV's own footnote states that the series switches data provider to GovInfo for 2024 and 2025, from Federal Register Statistics for prior years. The break falls at the most recent point in the series. Separately, although the footnote refers to 2025, <b>the CSV contains no 2025 row</b> &mdash; the series ends at 2024, and no 2025 figure was invented to fill it.</p>
+  <p>This is the only genuine <em>stock</em> measure in the project. It is the accumulated size of the federal regulatory code, not annual output, and the two are labelled distinctly on the page for that reason.</p>
+
+  <h2>Charting decisions</h2>
+  <ul>
+    <li><b>No dual axes anywhere.</b> The stock and flow measures are shown as two separate charts rather than two lines on twin y-axes, because twin axes let the choice of scale manufacture an apparent relationship.</li>
+    <li><b>The indexed chart is drawn from zero</b> and is not toggleable, because the lowest index value in the data is about 17 &mdash; a non-zero baseline would produce the same axis and the control would be inert. The absolute counts appear immediately below it, and a full data table is one click away.</li>
+    <li><b>Presidential documents get their own panel</b> because they are unreadable in the stacked chart &mdash; under 1 percent of the annual total in most years, and 3.4 percent even at their 2025 peak, and the section makes a claim about them.</li>
+    <li><b>Colors</b> were checked with a colorblind-separation validator against the page background; the three-series and four-category palettes both pass on lightness, chroma, colorblind separation and contrast. Every series is also directly labelled, so identity never depends on color alone.</li>
+  </ul>
+
+  <h2>What this does not measure</h2>
+  <ul>
+    <li><b>A law is not a unit of anything.</b> A chapter law renaming a bridge counts the same as one restructuring the tax code. None of these series weight by length, scope or effect.</li>
+    <li><b>Levels are not comparable across the three legislatures.</b> Local laws, chapter laws and public laws are different objects passed under different rules. Only the trajectories can be set beside each other, which is why the headline chart is indexed.</li>
+    <li><b>Regulation is missing at two of three levels.</b> New York City rulemaking data on the City Record (<code>dg92-zbpx</code>, filtered to <code>section_name='Agency Rules'</code>) is clean but begins in August 2013 &mdash; verified as a structural limit, since every row before 2013 belongs to a single section, Procurement. The rules.cityofnewyork.us portal only reaches mid-2020. New York state has no time series at all. Neither could span the window, so neither is plotted.</li>
+    <li><b>Page counts are not word counts.</b> Typesetting and layout conventions change. The Federal Register page series and the document-count series move differently over these 25 years, which is itself evidence that pages and documents are not interchangeable.</li>
+  </ul>
+
+  <h2>Files</h2>
+  <p>Each source is stored as its own JSON file under <code>data/</code>, with a <code>provenance</code> field recording the exact query or URL used and a <code>notes</code> field recording caveats. <code>data/data.json</code> is the combined bundle the page reads; it is derived from the others and adds nothing.</p>
+  <ul>
+    <li><code>nyc-local-laws.json</code> &mdash; New York City, 1998&ndash;2024</li>
+    <li><code>nys-chapter-laws.json</code> &mdash; New York state, 1995&ndash;2025</li>
+    <li><code>federal-public-laws.json</code> &mdash; Congress, 1995&ndash;2026</li>
+    <li><code>federal-register-pages.json</code> &mdash; Federal Register total pages, 1976&ndash;2026</li>
+    <li><code>federal-register-categories.json</code> &mdash; Federal Register pages by category, 1976&ndash;2026</li>
+    <li><code>federal-register-documents.json</code> &mdash; Federal Register document counts, 2000&ndash;2026</li>
+    <li><code>cfr-pages.json</code> &mdash; Code of Federal Regulations pages, 1950&ndash;2024</li>
+  </ul>
+  <p style="margin-top:12px">The document-count file is collected and stored but not currently charted. One note on it worth carrying forward: the Federal Register API caps a query's reported <code>count</code> at 10,000, so a whole-year query returns exactly 10000 &mdash; the cap, not the answer. The stored figures are sums of twelve monthly queries, each asserted to fall below the cap.</p>
+
+  <h2>AI disclosure</h2>
+  <p>This project was built with AI assistance (Claude). No human editor has reviewed it. Every number was retrieved by query or scrape and none was typed by hand or estimated. Anchor values were checked against independently verified figures before each series was accepted; the one check that failed is documented above under Series 1, along with what was done about it.</p>
+
+  <p style="margin-top:40px"><a href="index.html" class="back">&larr; Back to the charts</a></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The growing code — 25 years of lawmaking in New York City, New York state and Washington</title>
+<meta name="description" content="Who is writing more law? Twenty-five years of enacted laws and regulatory pages at the city, state and federal level.">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site-header">
+    <div class="colophon">The growing code &nbsp;·&nbsp; 2000&ndash;2025</div>
+    <button class="ai-caution-btn" id="aiCautionBtn">AI caution</button>
+    <div class="ai-caution-pop" id="aiCautionPop" hidden>
+      <strong>How this was made</strong>
+      <ul>
+        <li>Built with AI assistance (Claude). A human editor has not yet reviewed it.</li>
+        <li>Every number is pulled directly from a government source by query or scrape; none was typed by hand or estimated.</li>
+        <li>Anchor values were checked against independently verified figures before the series were accepted &mdash; the checks and the ones that failed are listed in the <a href="methodology.html">methodology</a>.</li>
+        <li>These are counts of laws and pages. They measure legal <em>output</em>, not the length, importance or effect of any law.</li>
+        <li>The three legislative series count different objects and are not directly comparable in level. Read the methodology before citing.</li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="masthead">
+    <p class="kicker">Measuring the law</p>
+    <h1>The growing code</h1>
+    <p class="dek">There is no single ledger of how much law exists. But you can count what each government produces each year. Do that for the last 25 years and the picture inverts what you would expect: the smallest government in this comparison is the one writing much more law than it used to, and the largest is writing less.</p>
+    <p class="byline">Sources: NYC Open Data · NYS Legislative Bill Drafting Commission · GovInfo · Office of the Federal Register · GWU Regulatory Studies Center &nbsp;|&nbsp; Retrieved July 19, 2026</p>
+  </div>
+
+  <div class="figures">
+    <div class="fig">
+      <div class="fig-num up">2.1&times;</div>
+      <div class="fig-label"><b>New York City</b> local laws enacted per year, 2020&ndash;24 average against 2000&ndash;04</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num flat">1.05&times;</div>
+      <div class="fig-label"><b>New York state</b> chapter laws enacted per year, same comparison</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num down">0.63&times;</div>
+      <div class="fig-label"><b>Congress</b> public laws enacted per year, same comparison &mdash; a 37 percent decline</div>
+    </div>
+    <div class="fig">
+      <div class="fig-num">1.41&times;</div>
+      <div class="fig-label"><b>The Code of Federal Regulations</b> grew from 138,049 pages to 194,395 across the same years &mdash; while Congress legislated less</div>
+    </div>
+  </div>
+
+  <!-- 1 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Three legislatures, indexed to where they started</h2>
+    </div>
+    <p class="standfirst">Each body passes a different kind of law in different quantities, so the levels cannot be compared directly. Setting each to 100 in 2000 shows the shape of the change instead. The City Council pulls away; Albany oscillates around its starting point; Congress drifts down.</p>
+
+    <div class="chart-card">
+      <p class="chart-title">Laws enacted per year, indexed to 2000 = 100</p>
+      <p class="chart-sub">Higher means more laws passed that year than in 2000. New York City ends at 2024, the last complete year in its source.</p>
+      <div class="controls">
+        <button class="toggle" id="btnIndexTable" aria-pressed="false">Show table</button>
+        <span style="font-family:var(--sans);font-size:11.5px;color:var(--ink-3)">Drawn from a zero baseline; the dashed line marks 100</span>
+      </div>
+      <div class="legend" id="legendIndex"></div>
+      <div id="chartIndex"></div>
+      <div class="table-wrap" id="tableIndex" hidden></div>
+    </div>
+
+    <p class="note">Indexing to a single year makes the comparison sensitive to that year. 2000 was an ordinary year for all three bodies, but New York City's 2000 figure of 74 local laws is a small base, so its index moves further on the same absolute change. The raw counts are directly below, and the table above gives every underlying number.</p>
+  </section>
+
+  <!-- 2 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>The same three series, in the numbers they are actually counted in</h2>
+    </div>
+    <p class="standfirst">New York state passes several hundred chapter laws a year, most of them narrow. New York City passes dozens to a couple hundred local laws. Congress passes one to three hundred public laws. Note the vertical scales differ; each panel is drawn to its own range.</p>
+
+    <div class="smalls" id="smalls"></div>
+
+    <p class="note">New York City's single-year spikes line up with the final year of each Council term, when bills pending since the start of the session are cleared: 2005, 2009, 2013, 2017 and 2021 are all term-end years, and each sits above both of the years on either side of it. That cycle is not the whole story, though &mdash; the level of the whole series shifts upward after 2015, so the recent non-term-end years are also well above the early 2000s. New York state's 2020 trough of 389 chapter laws is its lowest figure since at least 1995.</p>
+  </section>
+
+  <!-- 3 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Why less lawmaking still means more law</h2>
+    </div>
+    <p class="standfirst">This is the part that resolves the paradox. The counts above are <em>flow</em> &mdash; what gets enacted in a given year. A legal code is <em>stock</em> &mdash; everything enacted and not yet repealed. Flow can fall for years while stock keeps climbing, because repeal is rare. The Code of Federal Regulations is the clearest case: Congress passed 37 percent fewer laws per year, and the regulatory code still grew by 56,346 pages.</p>
+
+    <div class="pair">
+      <div class="chart-card">
+        <p class="chart-title">Stock: pages in the Code of Federal Regulations</p>
+        <p class="chart-sub">The accumulated size of the federal regulatory code, measured each year. Ends at 2024.</p>
+        <div class="controls">
+          <button class="toggle" id="btnCfrZero" aria-pressed="false">Zero baseline</button>
+        </div>
+        <div id="chartCfr"></div>
+      </div>
+      <div class="chart-card">
+        <p class="chart-title">Flow: pages published in the Federal Register</p>
+        <p class="chart-sub">What was added to the record in each year, including proposals and notices that never become code.</p>
+        <div class="controls">
+          <button class="toggle" id="btnFrZero" aria-pressed="false">Zero baseline</button>
+        </div>
+        <div id="chartFrp"></div>
+      </div>
+    </div>
+
+    <p class="note">The two panels are deliberately separate charts rather than two lines on one grid: they are different measures on different scales, and overlaying them on twin axes would let the drawing imply a relationship that the axes were chosen to produce. The Code of Federal Regulations series ends at 2024; no 2025 edition has been published as of retrieval.</p>
+  </section>
+
+  <!-- 4 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>2025: the sharpest one-year drop in the record, and where it went</h2>
+    </div>
+    <p class="standfirst">Federal Register pages fell 43 percent between 2024 and 2025, from 106,109 to 60,917. Breaking the total into its four document categories shows the fall was not spread evenly. Pages of final rules dropped 63 percent. Pages of presidential documents went the other way, to 2,072 &mdash; the highest in any year since this category table begins in 1976, and well clear of the previous high of 1,301 in 1995.</p>
+
+    <div class="chart-card">
+      <p class="chart-title">Federal Register pages by document category</p>
+      <p class="chart-sub">Stacked; the four categories sum to the annual total.</p>
+      <div class="controls">
+        <button class="toggle" id="btnCatTable" aria-pressed="false">Show table</button>
+      </div>
+      <div class="legend" id="legendCat"></div>
+      <div id="chartCat"></div>
+      <div class="table-wrap" id="tableCat" hidden></div>
+    </div>
+
+    <div class="chart-card" style="margin-top:22px">
+      <p class="chart-title">Presidential documents, on their own scale</p>
+      <p class="chart-sub">The green band above is too thin to read in the stacked chart. Drawn alone, at roughly one fiftieth of the vertical scale, 2025 separates from every other year in the series.</p>
+      <div id="chartPres"></div>
+    </div>
+
+    <p class="note">Presidential documents are a small share of the total in every year &mdash; 2,072 pages against 60,917 in 2025 &mdash; so the record is a record within a narrow category, not a claim that presidential action replaced rulemaking in volume. A page count also says nothing about the legal reach of what is on the page. 2026 is excluded throughout as an incomplete year.</p>
+  </section>
+
+  <!-- 5 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>What this does not measure</h2>
+    </div>
+    <p class="standfirst">Counting laws is not the same as measuring how much law there is, and the honest version of this project says so plainly.</p>
+    <ul style="max-width:var(--measure); color:var(--ink-2); font-size:17px;">
+      <li><b>A law is not a unit.</b> A New York state chapter law renaming a bridge counts the same as one restructuring the tax code.</li>
+      <li><b>There is no page count of the codes themselves</b> for New York City or New York state over time. The city's Administrative Code and the state's regulations are published commercially and no historical size series exists. Only the federal regulatory code can be measured as stock.</li>
+      <li><b>The three legislative series count different objects</b> &mdash; local laws, chapter laws, public laws. Their levels are not comparable; only their trajectories are.</li>
+      <li><b>Regulation is missing at two of the three levels.</b> New York City rulemaking data begins in 2013 and New York state has no time series at all, so neither could be shown across the full window.</li>
+    </ul>
+    <p class="note">Every one of these limits, the sources, the queries and the checks that failed are documented in full in the <a href="methodology.html">methodology</a>. The underlying data is in the repository as JSON, one file per source, with provenance on each.</p>
+  </section>
+
+  <footer>
+    <h3>Sources</h3>
+    <ul>
+      <li>New York City local laws &mdash; <a href="https://data.cityofnewyork.us/City-Government/City-Council-Legislation-Bills-and-Local-Laws/6ctv-n46c">NYC Open Data, City Council Legislation (6ctv-n46c)</a></li>
+      <li>New York state chapter laws &mdash; <a href="http://public.leginfo.state.ny.us/">NYS Legislative Bill Drafting Commission chapter lists</a></li>
+      <li>Federal public laws &mdash; <a href="https://www.govinfo.gov/app/collection/plaw">GovInfo, Public and Private Laws</a></li>
+      <li>Federal Register pages and categories &mdash; <a href="https://www.federalregister.gov/reader-aids/federal-register-statistics/category-page-statistics">Office of the Federal Register publication statistics</a></li>
+      <li>Code of Federal Regulations pages &mdash; <a href="https://regulatorystudies.columbian.gwu.edu/regstats">GWU Regulatory Studies Center, RegStats</a></li>
+    </ul>
+    <p style="margin-top:22px;">Data retrieved July 19, 2026. Full method, caveats and failed checks in the <a href="methodology.html">methodology</a>.</p>
+  </footer>
+
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script src="app.js?v=2"></script>
+</body>
+</html>

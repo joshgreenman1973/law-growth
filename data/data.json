@@ -1,0 +1,977 @@
+{
+ "generated": "2026-07-19",
+ "window": {
+  "start": 2000,
+  "end": 2025,
+  "note": "2000-2025. Series end where their source ends: New York City local laws at 2024, Code of Federal Regulations pages at 2024, all others at 2025. 2026 is excluded everywhere as an incomplete year."
+ },
+ "palette": {
+  "nyc": "#9c2226",
+  "nys": "#a8730a",
+  "fed": "#3a5aa8",
+  "cat_rules": "#3a5aa8",
+  "cat_proposed": "#a8730a",
+  "cat_notices": "#9c2226",
+  "cat_presidential": "#1f8a6d"
+ },
+ "flow": {
+  "nyc": {
+   "label": "New York City",
+   "sublabel": "local laws enacted",
+   "color": "#9c2226",
+   "last_year": 2024,
+   "source": "NYC Open Data, City Council Legislation (6ctv-n46c)",
+   "series": [
+    {
+     "year": 2000,
+     "value": 74,
+     "index": 100.0
+    },
+    {
+     "year": 2001,
+     "value": 82,
+     "index": 110.8
+    },
+    {
+     "year": 2002,
+     "value": 48,
+     "index": 64.9
+    },
+    {
+     "year": 2003,
+     "value": 84,
+     "index": 113.5
+    },
+    {
+     "year": 2004,
+     "value": 63,
+     "index": 85.1
+    },
+    {
+     "year": 2005,
+     "value": 137,
+     "index": 185.1
+    },
+    {
+     "year": 2006,
+     "value": 58,
+     "index": 78.4
+    },
+    {
+     "year": 2007,
+     "value": 68,
+     "index": 91.9
+    },
+    {
+     "year": 2008,
+     "value": 68,
+     "index": 91.9
+    },
+    {
+     "year": 2009,
+     "value": 94,
+     "index": 127.0
+    },
+    {
+     "year": 2010,
+     "value": 65,
+     "index": 87.8
+    },
+    {
+     "year": 2011,
+     "value": 75,
+     "index": 101.4
+    },
+    {
+     "year": 2012,
+     "value": 63,
+     "index": 85.1
+    },
+    {
+     "year": 2013,
+     "value": 156,
+     "index": 210.8
+    },
+    {
+     "year": 2014,
+     "value": 68,
+     "index": 91.9
+    },
+    {
+     "year": 2015,
+     "value": 113,
+     "index": 152.7
+    },
+    {
+     "year": 2016,
+     "value": 194,
+     "index": 262.2
+    },
+    {
+     "year": 2017,
+     "value": 256,
+     "index": 345.9
+    },
+    {
+     "year": 2018,
+     "value": 222,
+     "index": 300.0
+    },
+    {
+     "year": 2019,
+     "value": 227,
+     "index": 306.8
+    },
+    {
+     "year": 2020,
+     "value": 125,
+     "index": 168.9
+    },
+    {
+     "year": 2021,
+     "value": 173,
+     "index": 233.8
+    },
+    {
+     "year": 2022,
+     "value": 125,
+     "index": 168.9
+    },
+    {
+     "year": 2023,
+     "value": 174,
+     "index": 235.1
+    },
+    {
+     "year": 2024,
+     "value": 135,
+     "index": 182.4
+    }
+   ],
+   "base_2000": 74
+  },
+  "nys": {
+   "label": "New York state",
+   "sublabel": "chapter laws enacted",
+   "color": "#a8730a",
+   "last_year": 2025,
+   "source": "NYS Legislative Bill Drafting Commission chapter lists",
+   "series": [
+    {
+     "year": 2000,
+     "value": 609,
+     "index": 100.0
+    },
+    {
+     "year": 2001,
+     "value": 591,
+     "index": 97.0
+    },
+    {
+     "year": 2002,
+     "value": 698,
+     "index": 114.6
+    },
+    {
+     "year": 2003,
+     "value": 698,
+     "index": 114.6
+    },
+    {
+     "year": 2004,
+     "value": 755,
+     "index": 124.0
+    },
+    {
+     "year": 2005,
+     "value": 770,
+     "index": 126.4
+    },
+    {
+     "year": 2006,
+     "value": 750,
+     "index": 123.2
+    },
+    {
+     "year": 2007,
+     "value": 691,
+     "index": 113.5
+    },
+    {
+     "year": 2008,
+     "value": 652,
+     "index": 107.1
+    },
+    {
+     "year": 2009,
+     "value": 507,
+     "index": 83.3
+    },
+    {
+     "year": 2010,
+     "value": 568,
+     "index": 93.3
+    },
+    {
+     "year": 2011,
+     "value": 610,
+     "index": 100.2
+    },
+    {
+     "year": 2012,
+     "value": 505,
+     "index": 82.9
+    },
+    {
+     "year": 2013,
+     "value": 558,
+     "index": 91.6
+    },
+    {
+     "year": 2014,
+     "value": 552,
+     "index": 90.6
+    },
+    {
+     "year": 2015,
+     "value": 589,
+     "index": 96.7
+    },
+    {
+     "year": 2016,
+     "value": 519,
+     "index": 85.2
+    },
+    {
+     "year": 2017,
+     "value": 506,
+     "index": 83.1
+    },
+    {
+     "year": 2018,
+     "value": 522,
+     "index": 85.7
+    },
+    {
+     "year": 2019,
+     "value": 758,
+     "index": 124.5
+    },
+    {
+     "year": 2020,
+     "value": 389,
+     "index": 63.9
+    },
+    {
+     "year": 2021,
+     "value": 834,
+     "index": 136.9
+    },
+    {
+     "year": 2022,
+     "value": 841,
+     "index": 138.1
+    },
+    {
+     "year": 2023,
+     "value": 777,
+     "index": 127.6
+    },
+    {
+     "year": 2024,
+     "value": 679,
+     "index": 111.5
+    },
+    {
+     "year": 2025,
+     "value": 714,
+     "index": 117.2
+    }
+   ],
+   "base_2000": 609
+  },
+  "fed": {
+   "label": "Federal",
+   "sublabel": "public laws enacted",
+   "color": "#3a5aa8",
+   "last_year": 2025,
+   "source": "GovInfo PLAW collection sitemaps",
+   "series": [
+    {
+     "year": 2000,
+     "value": 411,
+     "index": 100.0
+    },
+    {
+     "year": 2001,
+     "value": 107,
+     "index": 26.0
+    },
+    {
+     "year": 2002,
+     "value": 269,
+     "index": 65.5
+    },
+    {
+     "year": 2003,
+     "value": 198,
+     "index": 48.2
+    },
+    {
+     "year": 2004,
+     "value": 300,
+     "index": 73.0
+    },
+    {
+     "year": 2005,
+     "value": 161,
+     "index": 39.2
+    },
+    {
+     "year": 2006,
+     "value": 308,
+     "index": 74.9
+    },
+    {
+     "year": 2007,
+     "value": 188,
+     "index": 45.7
+    },
+    {
+     "year": 2008,
+     "value": 285,
+     "index": 69.3
+    },
+    {
+     "year": 2009,
+     "value": 125,
+     "index": 30.4
+    },
+    {
+     "year": 2010,
+     "value": 221,
+     "index": 53.8
+    },
+    {
+     "year": 2011,
+     "value": 118,
+     "index": 28.7
+    },
+    {
+     "year": 2012,
+     "value": 157,
+     "index": 38.2
+    },
+    {
+     "year": 2013,
+     "value": 117,
+     "index": 28.5
+    },
+    {
+     "year": 2014,
+     "value": 224,
+     "index": 54.5
+    },
+    {
+     "year": 2015,
+     "value": 115,
+     "index": 28.0
+    },
+    {
+     "year": 2016,
+     "value": 213,
+     "index": 51.8
+    },
+    {
+     "year": 2017,
+     "value": 98,
+     "index": 23.8
+    },
+    {
+     "year": 2018,
+     "value": 313,
+     "index": 76.2
+    },
+    {
+     "year": 2019,
+     "value": 137,
+     "index": 33.3
+    },
+    {
+     "year": 2020,
+     "value": 177,
+     "index": 43.1
+    },
+    {
+     "year": 2021,
+     "value": 143,
+     "index": 34.8
+    },
+    {
+     "year": 2022,
+     "value": 247,
+     "index": 60.1
+    },
+    {
+     "year": 2023,
+     "value": 68,
+     "index": 16.5
+    },
+    {
+     "year": 2024,
+     "value": 175,
+     "index": 42.6
+    },
+    {
+     "year": 2025,
+     "value": 134,
+     "index": 32.6
+    }
+   ],
+   "base_2000": 411
+  }
+ },
+ "stock_vs_flow": {
+  "cfr": {
+   "label": "Code of Federal Regulations",
+   "sublabel": "total pages in the code",
+   "series": [
+    {
+     "year": 2000,
+     "value": 138049
+    },
+    {
+     "year": 2001,
+     "value": 141281
+    },
+    {
+     "year": 2002,
+     "value": 145099
+    },
+    {
+     "year": 2003,
+     "value": 144187
+    },
+    {
+     "year": 2004,
+     "value": 147639
+    },
+    {
+     "year": 2005,
+     "value": 151973
+    },
+    {
+     "year": 2006,
+     "value": 154107
+    },
+    {
+     "year": 2007,
+     "value": 156010
+    },
+    {
+     "year": 2008,
+     "value": 157974
+    },
+    {
+     "year": 2009,
+     "value": 163333
+    },
+    {
+     "year": 2010,
+     "value": 165494
+    },
+    {
+     "year": 2011,
+     "value": 169301
+    },
+    {
+     "year": 2012,
+     "value": 174545
+    },
+    {
+     "year": 2013,
+     "value": 175496
+    },
+    {
+     "year": 2014,
+     "value": 175274
+    },
+    {
+     "year": 2015,
+     "value": 178351
+    },
+    {
+     "year": 2016,
+     "value": 185131
+    },
+    {
+     "year": 2017,
+     "value": 186468
+    },
+    {
+     "year": 2018,
+     "value": 185544
+    },
+    {
+     "year": 2019,
+     "value": 186067
+    },
+    {
+     "year": 2020,
+     "value": 186644
+    },
+    {
+     "year": 2021,
+     "value": 188343
+    },
+    {
+     "year": 2022,
+     "value": 188148
+    },
+    {
+     "year": 2023,
+     "value": 190627
+    },
+    {
+     "year": 2024,
+     "value": 194395
+    }
+   ],
+   "source": "GWU Regulatory Studies Center"
+  },
+  "frp": {
+   "label": "Federal Register",
+   "sublabel": "pages published that year",
+   "series": [
+    {
+     "year": 2000,
+     "value": 71149
+    },
+    {
+     "year": 2001,
+     "value": 61373
+    },
+    {
+     "year": 2002,
+     "value": 72412
+    },
+    {
+     "year": 2003,
+     "value": 67713
+    },
+    {
+     "year": 2004,
+     "value": 72280
+    },
+    {
+     "year": 2005,
+     "value": 70421
+    },
+    {
+     "year": 2006,
+     "value": 71914
+    },
+    {
+     "year": 2007,
+     "value": 70262
+    },
+    {
+     "year": 2008,
+     "value": 78965
+    },
+    {
+     "year": 2009,
+     "value": 68733
+    },
+    {
+     "year": 2010,
+     "value": 81509
+    },
+    {
+     "year": 2011,
+     "value": 81360
+    },
+    {
+     "year": 2012,
+     "value": 76285
+    },
+    {
+     "year": 2013,
+     "value": 79444
+    },
+    {
+     "year": 2014,
+     "value": 78084
+    },
+    {
+     "year": 2015,
+     "value": 80964
+    },
+    {
+     "year": 2016,
+     "value": 95913
+    },
+    {
+     "year": 2017,
+     "value": 61314
+    },
+    {
+     "year": 2018,
+     "value": 67241
+    },
+    {
+     "year": 2019,
+     "value": 71726
+    },
+    {
+     "year": 2020,
+     "value": 86357
+    },
+    {
+     "year": 2021,
+     "value": 73771
+    },
+    {
+     "year": 2022,
+     "value": 79856
+    },
+    {
+     "year": 2023,
+     "value": 89368
+    },
+    {
+     "year": 2024,
+     "value": 106109
+    },
+    {
+     "year": 2025,
+     "value": 60917
+    }
+   ],
+   "source": "Office of the Federal Register"
+  },
+  "frd": {
+   "label": "Federal Register",
+   "sublabel": "documents published that year",
+   "series": [
+    {
+     "year": 2000,
+     "value": 33325
+    },
+    {
+     "year": 2001,
+     "value": 32003
+    },
+    {
+     "year": 2002,
+     "value": 33094
+    },
+    {
+     "year": 2003,
+     "value": 32805
+    },
+    {
+     "year": 2004,
+     "value": 32377
+    },
+    {
+     "year": 2005,
+     "value": 32233
+    },
+    {
+     "year": 2006,
+     "value": 31505
+    },
+    {
+     "year": 2007,
+     "value": 30818
+    },
+    {
+     "year": 2008,
+     "value": 31817
+    },
+    {
+     "year": 2009,
+     "value": 30663
+    },
+    {
+     "year": 2010,
+     "value": 32471
+    },
+    {
+     "year": 2011,
+     "value": 33103
+    },
+    {
+     "year": 2012,
+     "value": 30875
+    },
+    {
+     "year": 2013,
+     "value": 30771
+    },
+    {
+     "year": 2014,
+     "value": 30168
+    },
+    {
+     "year": 2015,
+     "value": 29977
+    },
+    {
+     "year": 2016,
+     "value": 31127
+    },
+    {
+     "year": 2017,
+     "value": 27530
+    },
+    {
+     "year": 2018,
+     "value": 27750
+    },
+    {
+     "year": 2019,
+     "value": 27168
+    },
+    {
+     "year": 2020,
+     "value": 28308
+    },
+    {
+     "year": 2021,
+     "value": 27712
+    },
+    {
+     "year": 2022,
+     "value": 28033
+    },
+    {
+     "year": 2023,
+     "value": 28317
+    },
+    {
+     "year": 2024,
+     "value": 30830
+    },
+    {
+     "year": 2025,
+     "value": 23690
+    }
+   ],
+   "source": "Federal Register API"
+  }
+ },
+ "fr_categories": {
+  "series": [
+   {
+    "year": 2000,
+    "presidential": 606,
+    "rules": 24423,
+    "proposed_rules": 14698,
+    "notices": 31093,
+    "total": 70820
+   },
+   {
+    "year": 2001,
+    "presidential": 1172,
+    "rules": 19651,
+    "proposed_rules": 11461,
+    "notices": 28963,
+    "total": 61247
+   },
+   {
+    "year": 2002,
+    "presidential": 546,
+    "rules": 19236,
+    "proposed_rules": 15518,
+    "notices": 36934,
+    "total": 72234
+   },
+   {
+    "year": 2003,
+    "presidential": 577,
+    "rules": 22669,
+    "proposed_rules": 14136,
+    "notices": 30164,
+    "total": 67546
+   },
+   {
+    "year": 2004,
+    "presidential": 614,
+    "rules": 22755,
+    "proposed_rules": 16110,
+    "notices": 32584,
+    "total": 72063
+   },
+   {
+    "year": 2005,
+    "presidential": 548,
+    "rules": 23043,
+    "proposed_rules": 15063,
+    "notices": 31644,
+    "total": 70298
+   },
+   {
+    "year": 2006,
+    "presidential": 540,
+    "rules": 22335,
+    "proposed_rules": 16666,
+    "notices": 32168,
+    "total": 71709
+   },
+   {
+    "year": 2007,
+    "presidential": 669,
+    "rules": 22796,
+    "proposed_rules": 16646,
+    "notices": 30036,
+    "total": 70147
+   },
+   {
+    "year": 2008,
+    "presidential": 654,
+    "rules": 26327,
+    "proposed_rules": 18058,
+    "notices": 33873,
+    "total": 78912
+   },
+   {
+    "year": 2009,
+    "presidential": 703,
+    "rules": 20844,
+    "proposed_rules": 16200,
+    "notices": 30564,
+    "total": 68311
+   },
+   {
+    "year": 2010,
+    "presidential": 720,
+    "rules": 24861,
+    "proposed_rules": 21623,
+    "notices": 34041,
+    "total": 81245
+   },
+   {
+    "year": 2011,
+    "presidential": 623,
+    "rules": 26203,
+    "proposed_rules": 23102,
+    "notices": 31429,
+    "total": 81357
+   },
+   {
+    "year": 2012,
+    "presidential": 708,
+    "rules": 24628,
+    "proposed_rules": 20170,
+    "notices": 30779,
+    "total": 76285
+   },
+   {
+    "year": 2013,
+    "presidential": 752,
+    "rules": 26412,
+    "proposed_rules": 20627,
+    "notices": 31653,
+    "total": 79444
+   },
+   {
+    "year": 2014,
+    "presidential": 702,
+    "rules": 25186,
+    "proposed_rules": 20723,
+    "notices": 31473,
+    "total": 78084
+   },
+   {
+    "year": 2015,
+    "presidential": 749,
+    "rules": 25125,
+    "proposed_rules": 22736,
+    "notices": 32354,
+    "total": 80964
+   },
+   {
+    "year": 2016,
+    "presidential": 1023,
+    "rules": 38639,
+    "proposed_rules": 21455,
+    "notices": 34796,
+    "total": 95913
+   },
+   {
+    "year": 2017,
+    "presidential": 845,
+    "rules": 18869,
+    "proposed_rules": 10704,
+    "notices": 30896,
+    "total": 61314
+   },
+   {
+    "year": 2018,
+    "presidential": 1258,
+    "rules": 18214,
+    "proposed_rules": 17224,
+    "notices": 30545,
+    "total": 67241
+   },
+   {
+    "year": 2019,
+    "presidential": 804,
+    "rules": 20857,
+    "proposed_rules": 19365,
+    "notices": 30700,
+    "total": 71726
+   },
+   {
+    "year": 2020,
+    "presidential": 987,
+    "rules": 32220,
+    "proposed_rules": 19984,
+    "notices": 33162,
+    "total": 86353
+   },
+   {
+    "year": 2021,
+    "presidential": 1135,
+    "rules": 23634,
+    "proposed_rules": 16392,
+    "notices": 32610,
+    "total": 73771
+   },
+   {
+    "year": 2022,
+    "presidential": 885,
+    "rules": 21750,
+    "proposed_rules": 23791,
+    "notices": 33430,
+    "total": 79856
+   },
+   {
+    "year": 2023,
+    "presidential": 1043,
+    "rules": 26286,
+    "proposed_rules": 28892,
+    "notices": 33147,
+    "total": 89368
+   },
+   {
+    "year": 2024,
+    "presidential": 855,
+    "rules": 45028,
+    "proposed_rules": 19952,
+    "notices": 40274,
+    "total": 106109
+   },
+   {
+    "year": 2025,
+    "presidential": 2072,
+    "rules": 16461,
+    "proposed_rules": 12920,
+    "notices": 29464,
+    "total": 60917
+   }
+  ]
+ }
+}

@@ -1,0 +1,392 @@
+{
+ "metric": "Code of Federal Regulations total pages by calendar year",
+ "source_url": "https://regulatorystudies.columbian.gwu.edu/regstats",
+ "provenance": "CSV link scraped from the GWU Regulatory Studies Center RegStats page (not hardcoded): https://regulatorystudies.columbian.gwu.edu/sites/g/files/zaxdzs4751/files/2026-03/cfr_pages_by_calendar_year.csv . `value` = 'Total Pages'; `volumes` = 'Total Volumes (Exc CFR Index)'.",
+ "retrieved": "2026-07-19",
+ "basis": "calendar_year",
+ "notes": "Verified against expected values: 2000 = 138,049 pages / 202 volumes; 2024 = 194,395 pages / 245 volumes \u2014 both matched exactly. METHODOLOGY BREAK: the CSV's own source footnote states the series switches data provider at the most recent point \u2014 see source_footnotes. Although that footnote claims coverage through 2025, the CSV as published contains no 2025 row; the series ends at 2024. No 2025 or 2026 value was invented. Series covers 1950-2024 with no gaps.",
+ "source_footnotes": [
+  "* Total Pages for 1950 through 1969 include revisions and pocket part supplements.",
+  "** Total Pages for 1972 do not include the second revisions of titles 42 through 50, done in October 1972.",
+  "*** Includes two revisions each (January 1 and October 1) for titles 42 through 50.",
+  "**** Post-1974 statistics include printed pages plus unrevised volumes.",
+  "Data source: GovInfo (https://www.govinfo.gov/app/collection/cfr) for years 2024-2025; Federal Register Statistics (https://www.federalregister.gov/reader-aids/federal-register-statistics) for all the prior years."
+ ],
+ "series": [
+  {
+   "year": 1950,
+   "value": 9745,
+   "volumes": 47
+  },
+  {
+   "year": 1951,
+   "value": 15932,
+   "volumes": 46
+  },
+  {
+   "year": 1952,
+   "value": 19232,
+   "volumes": 47
+  },
+  {
+   "year": 1953,
+   "value": 18464,
+   "volumes": 48
+  },
+  {
+   "year": 1954,
+   "value": 16502,
+   "volumes": 48
+  },
+  {
+   "year": 1955,
+   "value": 17989,
+   "volumes": 50
+  },
+  {
+   "year": 1956,
+   "value": 21651,
+   "volumes": 56
+  },
+  {
+   "year": 1957,
+   "value": 19589,
+   "volumes": 57
+  },
+  {
+   "year": 1958,
+   "value": 20643,
+   "volumes": 57
+  },
+  {
+   "year": 1959,
+   "value": 21760,
+   "volumes": 60
+  },
+  {
+   "year": 1960,
+   "value": 22877,
+   "volumes": 68
+  },
+  {
+   "year": 1961,
+   "value": 25242,
+   "volumes": 72
+  },
+  {
+   "year": 1962,
+   "value": 22863,
+   "volumes": 80
+  },
+  {
+   "year": 1963,
+   "value": 25828,
+   "volumes": 82
+  },
+  {
+   "year": 1964,
+   "value": 31584,
+   "volumes": 87
+  },
+  {
+   "year": 1965,
+   "value": 34783,
+   "volumes": 95
+  },
+  {
+   "year": 1966,
+   "value": 43118,
+   "volumes": 104
+  },
+  {
+   "year": 1967,
+   "value": 50375,
+   "volumes": 110
+  },
+  {
+   "year": 1968,
+   "value": 53513,
+   "volumes": 112
+  },
+  {
+   "year": 1969,
+   "value": 52863,
+   "volumes": 114
+  },
+  {
+   "year": 1970,
+   "value": 54834,
+   "volumes": 114
+  },
+  {
+   "year": 1971,
+   "value": 56720,
+   "volumes": 116
+  },
+  {
+   "year": 1972,
+   "value": 60632,
+   "volumes": 143
+  },
+  {
+   "year": 1973,
+   "value": 64872,
+   "volumes": 123
+  },
+  {
+   "year": 1974,
+   "value": 67860,
+   "volumes": 133
+  },
+  {
+   "year": 1975,
+   "value": 71224,
+   "volumes": 133
+  },
+  {
+   "year": 1976,
+   "value": 72740,
+   "volumes": 139
+  },
+  {
+   "year": 1977,
+   "value": 84729,
+   "volumes": 141
+  },
+  {
+   "year": 1978,
+   "value": 94151,
+   "volumes": 142
+  },
+  {
+   "year": 1979,
+   "value": 98032,
+   "volumes": 148
+  },
+  {
+   "year": 1980,
+   "value": 102195,
+   "volumes": 164
+  },
+  {
+   "year": 1981,
+   "value": 107109,
+   "volumes": 180
+  },
+  {
+   "year": 1982,
+   "value": 104938,
+   "volumes": 177
+  },
+  {
+   "year": 1983,
+   "value": 105654,
+   "volumes": 178
+  },
+  {
+   "year": 1984,
+   "value": 111830,
+   "volumes": 186
+  },
+  {
+   "year": 1985,
+   "value": 105935,
+   "volumes": 175
+  },
+  {
+   "year": 1986,
+   "value": 109509,
+   "volumes": 175
+  },
+  {
+   "year": 1987,
+   "value": 114337,
+   "volumes": 185
+  },
+  {
+   "year": 1988,
+   "value": 117480,
+   "volumes": 192
+  },
+  {
+   "year": 1989,
+   "value": 122090,
+   "volumes": 196
+  },
+  {
+   "year": 1990,
+   "value": 126893,
+   "volumes": 199
+  },
+  {
+   "year": 1991,
+   "value": 125331,
+   "volumes": 199
+  },
+  {
+   "year": 1992,
+   "value": 128344,
+   "volumes": 199
+  },
+  {
+   "year": 1993,
+   "value": 132228,
+   "volumes": 202
+  },
+  {
+   "year": 1994,
+   "value": 134196,
+   "volumes": 202
+  },
+  {
+   "year": 1995,
+   "value": 138186,
+   "volumes": 205
+  },
+  {
+   "year": 1996,
+   "value": 132112,
+   "volumes": 204
+  },
+  {
+   "year": 1997,
+   "value": 131060,
+   "volumes": 200
+  },
+  {
+   "year": 1998,
+   "value": 135127,
+   "volumes": 201
+  },
+  {
+   "year": 1999,
+   "value": 134932,
+   "volumes": 202
+  },
+  {
+   "year": 2000,
+   "value": 138049,
+   "volumes": 202
+  },
+  {
+   "year": 2001,
+   "value": 141281,
+   "volumes": 206
+  },
+  {
+   "year": 2002,
+   "value": 145099,
+   "volumes": 207
+  },
+  {
+   "year": 2003,
+   "value": 144187,
+   "volumes": 214
+  },
+  {
+   "year": 2004,
+   "value": 147639,
+   "volumes": 217
+  },
+  {
+   "year": 2005,
+   "value": 151973,
+   "volumes": 221
+  },
+  {
+   "year": 2006,
+   "value": 154107,
+   "volumes": 222
+  },
+  {
+   "year": 2007,
+   "value": 156010,
+   "volumes": 222
+  },
+  {
+   "year": 2008,
+   "value": 157974,
+   "volumes": 222
+  },
+  {
+   "year": 2009,
+   "value": 163333,
+   "volumes": 225
+  },
+  {
+   "year": 2010,
+   "value": 165494,
+   "volumes": 226
+  },
+  {
+   "year": 2011,
+   "value": 169301,
+   "volumes": 230
+  },
+  {
+   "year": 2012,
+   "value": 174545,
+   "volumes": 235
+  },
+  {
+   "year": 2013,
+   "value": 175496,
+   "volumes": 235
+  },
+  {
+   "year": 2014,
+   "value": 175274,
+   "volumes": 236
+  },
+  {
+   "year": 2015,
+   "value": 178351,
+   "volumes": 237
+  },
+  {
+   "year": 2016,
+   "value": 185131,
+   "volumes": 242
+  },
+  {
+   "year": 2017,
+   "value": 186468,
+   "volumes": 242
+  },
+  {
+   "year": 2018,
+   "value": 185544,
+   "volumes": 242
+  },
+  {
+   "year": 2019,
+   "value": 186067,
+   "volumes": 242
+  },
+  {
+   "year": 2020,
+   "value": 186644,
+   "volumes": 242
+  },
+  {
+   "year": 2021,
+   "value": 188343,
+   "volumes": 245
+  },
+  {
+   "year": 2022,
+   "value": 188148,
+   "volumes": 245
+  },
+  {
+   "year": 2023,
+   "value": 190627,
+   "volumes": 245
+  },
+  {
+   "year": 2024,
+   "value": 194395,
+   "volumes": 245
+  }
+ ]
+}

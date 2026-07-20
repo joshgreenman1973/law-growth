@@ -1,0 +1,145 @@
+{
+ "metric": "Federal Register documents published per calendar year (all document types), with final rules as a subseries",
+ "source_url": "https://www.federalregister.gov/api/v1/documents.json",
+ "provenance": "Federal Register API v1. `value` = sum of 12 monthly queries per year using conditions[publication_date][gte]/[lte] month bounds with per_page=1, reading the `count` field. Monthly slicing was required because the API caps a single query's reported `count` at 10,000 (a whole-year query for 2020 returns exactly 10000, which is the cap, not the true total). `final_rules` = conditions[publication_date][year]=YYYY & conditions[type][]=RULE, which returns under the cap and was queried directly.",
+ "retrieved": "2026-07-19",
+ "basis": "calendar_year",
+ "notes": "Document counts are arguably a cleaner growth measure than page counts since they are not affected by typesetting or layout changes. Every monthly subtotal was asserted to be below the 10,000 API cap. 2026 is a partial year: data retrieved 2026-07-19 and covers only part of the year. Do not compare it to full years.",
+ "series": [
+  {
+   "year": 2000,
+   "value": 33325,
+   "final_rules": 4491
+  },
+  {
+   "year": 2001,
+   "value": 32003,
+   "final_rules": 4136
+  },
+  {
+   "year": 2002,
+   "value": 33094,
+   "final_rules": 4173
+  },
+  {
+   "year": 2003,
+   "value": 32805,
+   "final_rules": 4285
+  },
+  {
+   "year": 2004,
+   "value": 32377,
+   "final_rules": 4176
+  },
+  {
+   "year": 2005,
+   "value": 32233,
+   "final_rules": 3978
+  },
+  {
+   "year": 2006,
+   "value": 31505,
+   "final_rules": 3730
+  },
+  {
+   "year": 2007,
+   "value": 30818,
+   "final_rules": 3590
+  },
+  {
+   "year": 2008,
+   "value": 31817,
+   "final_rules": 3819
+  },
+  {
+   "year": 2009,
+   "value": 30663,
+   "final_rules": 3468
+  },
+  {
+   "year": 2010,
+   "value": 32471,
+   "final_rules": 3564
+  },
+  {
+   "year": 2011,
+   "value": 33103,
+   "final_rules": 3805
+  },
+  {
+   "year": 2012,
+   "value": 30875,
+   "final_rules": 3708
+  },
+  {
+   "year": 2013,
+   "value": 30771,
+   "final_rules": 3658
+  },
+  {
+   "year": 2014,
+   "value": 30168,
+   "final_rules": 3543
+  },
+  {
+   "year": 2015,
+   "value": 29977,
+   "final_rules": 3408
+  },
+  {
+   "year": 2016,
+   "value": 31127,
+   "final_rules": 3854
+  },
+  {
+   "year": 2017,
+   "value": 27530,
+   "final_rules": 3281
+  },
+  {
+   "year": 2018,
+   "value": 27750,
+   "final_rules": 3368
+  },
+  {
+   "year": 2019,
+   "value": 27168,
+   "final_rules": 2964
+  },
+  {
+   "year": 2020,
+   "value": 28308,
+   "final_rules": 3352
+  },
+  {
+   "year": 2021,
+   "value": 27712,
+   "final_rules": 3257
+  },
+  {
+   "year": 2022,
+   "value": 28033,
+   "final_rules": 3168
+  },
+  {
+   "year": 2023,
+   "value": 28317,
+   "final_rules": 3018
+  },
+  {
+   "year": 2024,
+   "value": 30830,
+   "final_rules": 3248
+  },
+  {
+   "year": 2025,
+   "value": 23690,
+   "final_rules": 2441
+  },
+  {
+   "year": 2026,
+   "value": 14302,
+   "final_rules": 1614
+  }
+ ]
+}
