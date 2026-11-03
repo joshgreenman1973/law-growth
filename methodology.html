@@ -25,14 +25,14 @@
   </header>
 
   <h1 style="font-size:clamp(34px,6vw,58px)">Methodology</h1>
-  <p class="dek">Every series, where it came from, what it counts, and what failed.</p>
+  <p class="dek">Every series, where it came from, what it counts and what failed.</p>
   <p class="byline">Data retrieved July 19, 2026</p>
 
   <h2>Stock and flow, and why both are here</h2>
   <p>Two different questions hide inside "how much law is there," and they need different measurements.</p>
-  <p><b>Flow</b> is how much law a body enacts in a year. <b>Stock</b> is how much law is on the books at a moment. They are not convertible, and the reason is the one most people arrive at on their own: most laws amend laws that already exist. A statute that rewrites forty sections counts as one enactment. So does one that repeals an entire chapter. Counting enactments therefore tells you about legislative activity and almost nothing about the size of the corpus.</p>
+  <p><b>Flow</b> is how much law a body enacts in a year. <b>Stock</b> is how much law is on the books at a moment. They are not convertible, because most laws amend laws that already exist. A statute that rewrites forty sections counts as one enactment. So does one that repeals an entire chapter. Counting enactments therefore tells you about legislative activity and almost nothing about the size of the corpus.</p>
   <p>The way out is to stop counting enactments and measure <b>the code itself</b> &mdash; the consolidated text, in which every amendment and repeal has already been applied. Compare the code at two dates and amendments net out automatically; you never have to track them. The size of the code at time T minus its size at time T&minus;1 <em>is</em> the net effect of everything that happened in between.</p>
-  <p>That makes the real constraint archival rather than conceptual: did anyone preserve a machine-readable copy of the code as it stood in past years? The answer varies enormously by government.</p>
+  <p>That makes the constraint archival rather than conceptual: did anyone preserve a machine-readable copy of the code as it stood in past years? The answer varies enormously by government.</p>
   <table style="margin:18px 0">
     <thead><tr><th>Corpus</th><th>Snapshots from</th><th>Why</th></tr></thead>
     <tbody>
@@ -60,14 +60,14 @@
   <h3>Independent verification: page counts from GovInfo</h3>
   <p>To check the word series, a second and entirely separate measurement was built from government publication metadata. <code>www.govinfo.gov/metadata/pkg/{package}/mods.xml</code> is keyless and its package-level <code>&lt;extent&gt;</code> matches the authenticated REST API exactly. 1,674 packages were harvested, 1,551 carrying page counts, against the API's reported collection count of 1,552. Coverage 1994&ndash;2024.</p>
   <p><b>The carry-forward gotcha, and proof it is real.</b> The Office of Law Revision Counsel does not reissue every title every year. Summing only the titles published in a given year manufactures a fake collapse: in 2004 just 46 titles were reissued, and the naive sum reads 33,269 pages against a correct 39,231 &mdash; <b>a 15.2 percent phantom dip</b> that would look exactly like deregulation. Every year therefore uses each title's most recent edition at or before that year. Titles are never back-filled, so a title contributes zero until its first edition (Title 54 from 2014, Title 34 from 2017, Title 53 reserved). The naive series is retained in <code>us-code-pages-govinfo.json</code> under <code>naive_no_carry_forward</code>, labelled not to be plotted, purely as a counterexample.</p>
-  <p><b>Agreement between the two methods:</b> over the 30 overlapping years, Pearson r = 0.9945 on levels. Growth 1.640&times; (words) against 1.785&times; (pages). Words per page holds near-constant at a mean of 894 with a coefficient of variation of 2.0 percent, which is the strongest single indication that the two are measuring the same corpus. Indexed to 2000 they finish at 146.1 and 146.3.</p>
-  <p><b>One limit, stated rather than buried:</b> year-over-year <em>increments</em> do not correlate between the two series (r = 0.05). Annual changes are small relative to the lumpiness of page counts and reissue timing. Neither series supports a claim about any single year's change &mdash; only the multi-year trend. Pages growing slightly faster than words is consistent with typesetting drift.</p>
+  <p><b>Agreement between the two methods:</b> over the 30 overlapping years, Pearson r = 0.9945 on levels. Growth 1.640&times; (words) against 1.785&times; (pages). Words per page holds near-constant at a mean of 894 with a coefficient of variation of 2.0 percent, which indicates that the two are measuring the same corpus. Indexed to 2000 they finish at 146.1 and 146.3.</p>
+  <p><b>One limit:</b> year-over-year <em>increments</em> do not correlate between the two series (r = 0.05). Annual changes are small relative to the lumpiness of page counts and reissue timing. Neither series supports a claim about any single year's change &mdash; only the multi-year trend. Pages growing slightly faster than words is consistent with typesetting drift.</p>
 
   <h2>The question, and why it had to change</h2>
-  <p>The original brief was to measure the growth of law at the city, state and federal level, possibly by pages of code. That is not achievable, and the reason is worth stating first.</p>
+  <p>The original brief was to measure the growth of law at the city, state and federal level, possibly by pages of code. That is not achievable.</p>
   <p><b>There is no historical page or word count of the New York City Administrative Code, and none of the New York Codes, Rules and Regulations.</b> Both are published commercially. The city's code is distributed by American Legal Publishing as bulk XML, which gives a current section count but no back catalogue; the earliest archived copy of that file is from 2022. The state's regulations are handed to Westlaw and are not machine-readable at all.</p>
-  <p>The one apparent exception is a trap. The Mercatus Center's State RegData has two snapshots of the New York regulatory code: 307,636 restrictions and roughly 22.5 million words in 2017, and 300,095 restrictions and 17,899,233 words in 2023. Both restrictions and words <em>fall</em>, the latter by 4.6 million, over a period with no major repeal effort. That is a corpus-construction difference between two versions of their pipeline, not deregulation. It was excluded rather than plotted.</p>
-  <p>So the project measures <b>annual legal output</b> &mdash; laws enacted and regulatory pages published per year &mdash; which does exist consistently at all three levels. Where a genuine stock measure exists (the Code of Federal Regulations), it is shown separately and labelled as stock.</p>
+  <p>The one apparent exception is the Mercatus Center's State RegData, which has two snapshots of the New York regulatory code: 307,636 restrictions and roughly 22.5 million words in 2017, and 300,095 restrictions and 17,899,233 words in 2023. Both restrictions and words <em>fall</em>, the latter by 4.6 million, over a period with no major repeal effort. That is a corpus-construction difference between two versions of their pipeline, not deregulation. It was excluded.</p>
+  <p>So the project measures <b>annual legal output</b> &mdash; laws enacted and regulatory pages published per year &mdash; which does exist consistently at all three levels. Where a stock measure exists (the Code of Federal Regulations), it is shown separately and labelled as stock.</p>
 
   <h2>Series 1 &mdash; New York City local laws enacted</h2>
   <p><b>Source:</b> NYC Open Data, "City Council Legislation: Bills and Local Laws", dataset <code>6ctv-n46c</code>. <b>Coverage:</b> 1998&ndash;2024; the chart shows 2000&ndash;2024.</p>
@@ -87,7 +87,7 @@
 
   <div class="flag">
     <h3>A check that failed, and what came of it</h3>
-    <p>A figure of roughly 282 local laws for 2017 was carried into this project from earlier research and used as an expected value. The query returned 256. On inspection the 2017 numbering runs 1 to 256 with no gaps at all, so 256 is the complete sequence and the 282 figure is wrong. <b>The data was kept and the expectation discarded.</b> This is recorded because the opposite &mdash; quietly adjusting a query until it reproduces a remembered number &mdash; is the most common way a series like this goes bad.</p>
+    <p>A figure of roughly 282 local laws for 2017 was carried into this project from earlier research and used as an expected value. The query returned 256. On inspection the 2017 numbering runs 1 to 256 with no gaps at all, so 256 is the complete sequence and the 282 figure is wrong. <b>The data was kept and the expectation discarded.</b></p>
   </div>
 
   <p><b>Why it ends at 2024:</b> the dataset was last refreshed in March 2025. It contains 18 rows dated 2025, which are stragglers rather than a complete year, and they are excluded. The Legistar API that would give live counts now returns <code>403 Token is required</code>; any guide describing it as keyless is out of date.</p>
@@ -98,7 +98,7 @@
   ?NVLIO:&amp;hwebpage=CHAPLIST&amp;hlistyr=YYYY&amp;SESSYR=YYYY</pre>
   <p>New York assigns chapter numbers sequentially within each calendar year, so the highest chapter number of a year is the count of chapter laws enacted. Every year from 1995 to 2025 was fetched directly. <b>No year is estimated, interpolated or carried forward.</b></p>
   <p><b>Validation:</b> 2024 returns 679, which matches two independent sources &mdash; a Senate bill action line reading <span style="white-space:nowrap">"signed chap.679"</span>, and the New York State Board of Elections publishing the 2025 Election Law as amended through Laws 2024, Chapter 679.</p>
-  <p>Four years have a chapter number with no bill attached (1997 ch. 10, 1998 ch. 10, 2003 ch. 3, 2010 ch. 60). Each was checked with a direct chapter lookup and returned "No bill information found", so these are genuine gaps in the numbering rather than scrape failures. Every other year is contiguous. Both the maximum and the listed count are stored in the JSON.</p>
+  <p>Four years have a chapter number with no bill attached (1997 ch. 10, 1998 ch. 10, 2003 ch. 3, 2010 ch. 60). Each was checked with a direct chapter lookup and returned "No bill information found", so these are gaps in the numbering rather than scrape failures. Every other year is contiguous. Both the maximum and the listed count are stored in the JSON.</p>
   <p><b>2026 is excluded</b> as an incomplete year (169 chapters as of retrieval).</p>
   <p><b>Route that failed:</b> the NY Senate Open Legislation API returns <code>401</code> without a key, and no key was available. The Bill Drafting Commission list turned out to reach further back than the API would have (1995 against roughly 2009).</p>
 
@@ -120,11 +120,11 @@
   <h2>Series 5 &mdash; Code of Federal Regulations pages</h2>
   <p><b>Source:</b> <a href="https://regulatorystudies.columbian.gwu.edu/regstats">GWU Regulatory Studies Center, RegStats</a>, via a CSV linked from that page. <b>Coverage:</b> 1950&ndash;2024; the chart shows 2000&ndash;2024.</p>
   <p>The CSV URL is date-stamped and changes when the file is updated, so it is scraped from the page rather than hardcoded. Anchor values: 2000 = 138,049 pages across 202 volumes; 2024 = 194,395 pages across 245 volumes.</p>
-  <p><b>Methodology break, disclosed:</b> the CSV's own footnote states that the series switches data provider to GovInfo for 2024 and 2025, from Federal Register Statistics for prior years. The break falls at the most recent point in the series. Separately, although the footnote refers to 2025, <b>the CSV contains no 2025 row</b> &mdash; the series ends at 2024, and no 2025 figure was invented to fill it.</p>
+  <p><b>Methodology break:</b> the CSV's own footnote states that the series switches data provider to GovInfo for 2024 and 2025, from Federal Register Statistics for prior years. The break falls at the most recent point in the series. Separately, although the footnote refers to 2025, <b>the CSV contains no 2025 row</b>, so the series ends at 2024.</p>
   <p>This is the only genuine <em>stock</em> measure in the project. It is the accumulated size of the federal regulatory code, not annual output, and the two are labelled distinctly on the page for that reason.</p>
 
   <h2>The New York City stock measurement, and why it was discarded</h2>
-  <p>This is documented at length because the result was nearly published and would have been wrong.</p>
+  <p>The result below was nearly published, and it would have been wrong.</p>
   <p><b>Source:</b> American Legal Publishing distributes the Administrative Code, Charter and Rules of the City of New York as bulk XML with no authentication, at <code>files.amlegal.com/pdffiles/NewYorkCity/{Admin,Charter,Rules}/XML.zip</code>. (The web front end at <code>codelibrary.amlegal.com</code> returns 403 to non-browser clients; the file host does not.) The Internet Archive holds five dated copies of the Administrative Code file, from June 2022 to March 2026. All 17 archives downloaded and parsed cleanly.</p>
   <p><b>Method:</b> sections counted as <code>LEVEL[@style-name='Section']</code>, deduplicated by child <code>RECORD/@id</code>. Deduplication is required &mdash; some chapters ship split across two files, producing 40 duplicates (12,246 raw against 12,206 deduplicated). Section body text lives in <em>descendant</em> LEVELs, not the section's own RECORD; an extractor that misses this finds zero local law citations.</p>
 
@@ -150,7 +150,7 @@
       <tr><td>Unnumbered technical items</td><td>439</td><td>17.2%</td><td>Largely coverage; same step change</td></tr>
     </tbody>
   </table>
-  <p>Of the 712 numbered sections present in 2026 but not 2022, <b>611 cite a local law from 2022 or later</b> and are genuinely new; <b>79 cite nothing later than 2021</b> and were therefore already on the books; 22 carry no citation. That is an 11 percent coverage-gap rate even within the cleanest subset.</p>
+  <p>Of the 712 numbered sections present in 2026 but not 2022, <b>611 cite a local law from 2022 or later</b> and are new; <b>79 cite nothing later than 2021</b> and were therefore already on the books; 22 carry no citation. That is an 11 percent coverage-gap rate even within the cleanest subset.</p>
 
   <h3>What survives, and why it is still not plotted</h3>
   <p>Restricting to numbered code sections and excluding the appendix gives: Administrative Code 7,965 to 8,590 sections (+7.8 percent) and 3.51 to 3.80 million words (+8.4 percent) over four years, about 2 percent a year. The Charter, which has no appendix, is the only fully trustworthy series: 734 to 768 sections (+4.6 percent). The Rules of the City of New York give 6,207 to 6,637 (+6.9 percent).</p>
@@ -186,7 +186,7 @@
     <li><code>federal-register-documents.json</code> &mdash; Federal Register document counts, 2000&ndash;2026</li>
     <li><code>cfr-pages.json</code> &mdash; Code of Federal Regulations pages, 1950&ndash;2024</li>
   </ul>
-  <p style="margin-top:12px">The document-count file is collected and stored but not currently charted. One note on it worth carrying forward: the Federal Register API caps a query's reported <code>count</code> at 10,000, so a whole-year query returns exactly 10000 &mdash; the cap, not the answer. The stored figures are sums of twelve monthly queries, each asserted to fall below the cap.</p>
+  <p style="margin-top:12px">The document-count file is collected and stored but not currently charted. The Federal Register API caps a query's reported <code>count</code> at 10,000, so a whole-year query returns exactly 10000, the cap itself. The stored figures are sums of twelve monthly queries, each asserted to fall below the cap.</p>
 
   <h2>AI disclosure</h2>
   <p>This project was built with AI assistance (Claude). No human editor has reviewed it. Every number was retrieved by query or scrape and none was typed by hand or estimated. Anchor values were checked against independently verified figures before each series was accepted; the one check that failed is documented above under Series 1, along with what was done about it.</p>
